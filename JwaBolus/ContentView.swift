@@ -7,6 +7,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("mahlzeitenInsulin") private var mahlzeitenInsulin: Double = 3.5
+    @AppStorage("korrekturFaktor") private var korrekturFaktor: Int = 20
+    @AppStorage("zielBZ") private var zielBZ: Int = 110
+    
     @State private var aktuellerBZ: String = ""
     @State private var kohlenhydrate: String = ""
     @State private var berechneteIE: Double?
@@ -85,13 +90,18 @@ struct ContentView: View {
     }
     
     func berechneIE() {
+        // Eingaben validieren
         guard let bz = Int(aktuellerBZ), let kh = Int(kohlenhydrate), bz > 0, kh > 0 else {
             berechneteIE = nil
             return
         }
-        
-        let ie = Double(kh) / 10.0 + max(0, Double(bz - 100)) / 50.0
-        berechneteIE = ie
+
+        // Berechnung der Insulinmenge:
+        let bolusIE = Double(kh) / 10.0 * mahlzeitenInsulin
+        let korrekturIE = max(0, Double(bz - zielBZ)) / Double(korrekturFaktor)
+        let gesamtIE = bolusIE + korrekturIE
+
+        berechneteIE = gesamtIE
     }
 }
 
