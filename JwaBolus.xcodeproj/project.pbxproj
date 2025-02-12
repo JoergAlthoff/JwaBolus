@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128FE9362D5D3E8A0045A46A /* SettIngsView.swift */; };
 		12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488072C03E71600620E0E /* JwaBolusApp.swift */; };
 		12D4880A2C03E71600620E0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488092C03E71600620E0E /* ContentView.swift */; };
 		12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880B2C03E71700620E0E /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		128FE9362D5D3E8A0045A46A /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
 		12D488042C03E71600620E0E /* JwaBolus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JwaBolus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D488072C03E71600620E0E /* JwaBolusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusApp.swift; sourceTree = "<group>"; };
 		12D488092C03E71600620E0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				12D488072C03E71600620E0E /* JwaBolusApp.swift */,
 				12D488092C03E71600620E0E /* ContentView.swift */,
+				128FE9362D5D3E8A0045A46A /* SettIngsView.swift */,
 				12D4880B2C03E71700620E0E /* Assets.xcassets */,
 				12D4880D2C03E71700620E0E /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */,
 				12D4880A2C03E71600620E0E /* ContentView.swift in Sources */,
 				12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */,
 			);
