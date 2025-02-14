@@ -7,14 +7,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = BolusViewModel()
     
     @AppStorage("mahlzeitenInsulin") private var mahlzeitenInsulin: Double = 3.5
     @AppStorage("korrekturFaktor") private var korrekturFaktor: Int = 20
     @AppStorage("zielBZ") private var zielBZ: Int = 110
     
-    @State private var aktuellerBZ: String = ""
-    @State private var kohlenhydrate: String = ""
-    @State private var berechneteIE: Double?
     @State private var showSettings = false // Steuert, ob SettingsView angezeigt wird
     
     @Environment(\.colorScheme) var colorScheme // Liest den aktuellen Modus (Hell/Dunkel)
@@ -25,7 +23,7 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Aktueller BZ in mg/dl")
                         .foregroundColor(Color.primary)
-                    TextField("BZ eingeben", text: $aktuellerBZ)
+                    TextField("BZ eingeben", text: $viewModel.aktuellerBZ)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.numberPad)
                         .padding(4)
@@ -38,7 +36,7 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Kohlenhydrate g")
                         .foregroundColor(Color.primary)
-                    TextField("KH eingeben", text: $kohlenhydrate)
+                    TextField("KH eingeben", text: $viewModel.kohlenhydrate)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.numberPad)
                         .padding(4)
@@ -47,7 +45,7 @@ struct ContentView: View {
                 }
                 .padding(.horizontal)
                 
-                Button(action: berechneIE) {
+                Button(action: viewModel.berechneIE) {
                     Text("Start")
                         .font(.title2)
                         .frame(maxWidth: .infinity)
@@ -59,7 +57,7 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .padding(.vertical, 25)
                 
-                if let ie = berechneteIE {
+                if let ie = viewModel.berechneteIE {
                     Text("IE: \(String(format: "%.1f", ie))")
                         .font(.title)
                         .foregroundColor(Color.primary)
@@ -94,30 +92,6 @@ struct ContentView: View {
         }
     }
     
-    func berechneIE() {
-        // Tastatur schließen
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-        
-        // Eingaben validieren
-        guard let bz = Int(aktuellerBZ), let kh = Int(kohlenhydrate), bz > 0 else {
-            berechneteIE = nil
-            return
-        }
-        
-        // Wenn der aktuelle BZ unter dem Zielwert liegt, kein Insulin nötig
-        if bz < zielBZ {
-            berechneteIE = 0.0
-            return
-        }
-        
-        // Berechnung der Insulinmenge:
-        let bolusIE = kh > 0 ? (Double(kh) / 10.0 * mahlzeitenInsulin) : 0.0
-        // Nur Korrektur-Insulin falls nötig
-        let korrekturIE = max(0, Double(bz - zielBZ)) / Double(korrekturFaktor)
-        let gesamtIE = bolusIE + korrekturIE
-        
-        berechneteIE = gesamtIE
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
