@@ -18,16 +18,10 @@ struct ContentView: View {
     @State private var showSettings = false // Steuert, ob SettingsView angezeigt wird
     
     @Environment(\.colorScheme) var colorScheme // Liest den aktuellen Modus (Hell/Dunkel)
-
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                Text("Bolusrechner (mg/dl)")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.primary) // Passt sich automatisch an
-                    .padding(.top, 20)
-                
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Aktueller BZ in mg/dl")
                         .foregroundColor(Color.primary)
@@ -35,7 +29,8 @@ struct ContentView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.numberPad)
                         .padding(4)
-                        .background(Color(UIColor.systemGray6)) // Automatische Anpassung für Light/Dark Mode
+                    // Automatische Anpassung für Light/Dark Mode
+                        .background(Color(UIColor.systemGray6))
                         .cornerRadius(8)
                 }
                 .padding(.horizontal)
@@ -75,32 +70,41 @@ struct ContentView: View {
                 Spacer()
             }
             .navigationBarTitle("Bolusrechner")
-             .navigationBarItems(trailing:
-                 Button(action: { showSettings = true }) {
-                     Image(systemName: "gearshape.fill") // Apple-Style Icon für Einstellungen
-                         .font(.title)
-                 }
-             )
-             .sheet(isPresented: $showSettings) {
-                 SettingsView() // Die View zeigen wir gleich!
-             }
-            .padding()
+            .navigationBarItems(trailing:
+                                    Button(action: { showSettings = true }) {
+                Image(systemName: "gearshape.fill")
+            }
+            )
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+            }
+            .padding(.vertical, 50)
             .background(colorScheme == .dark ? Color.black : Color.white) // Hintergrund anpassen
         }
     }
     
     func berechneIE() {
+        // Tastatur schließen
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        
         // Eingaben validieren
-        guard let bz = Int(aktuellerBZ), let kh = Int(kohlenhydrate), bz > 0, kh > 0 else {
+        guard let bz = Int(aktuellerBZ), let kh = Int(kohlenhydrate), bz > 0 else {
             berechneteIE = nil
             return
         }
-
+        
+        // Wenn der aktuelle BZ unter dem Zielwert liegt, kein Insulin nötig
+        if bz < zielBZ {
+            berechneteIE = 0.0
+            return
+        }
+        
         // Berechnung der Insulinmenge:
-        let bolusIE = Double(kh) / 10.0 * mahlzeitenInsulin
+        let bolusIE = kh > 0 ? (Double(kh) / 10.0 * mahlzeitenInsulin) : 0.0
+        // Nur Korrektur-Insulin falls nötig
         let korrekturIE = max(0, Double(bz - zielBZ)) / Double(korrekturFaktor)
         let gesamtIE = bolusIE + korrekturIE
-
+        
         berechneteIE = gesamtIE
     }
 }
