@@ -67,7 +67,18 @@ struct ContentView: View {
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 2))
                 }
                 
-                Spacer()
+                VStack {
+                    Spacer() // Schiebt die Versionsanzeige nach unten
+                    
+                    if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+                       let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                        Text("Version \(version) (Build \(build))")
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                            .padding(.bottom, 10) // Etwas Abstand zum unteren Rand
+                    }
+                }
+                .frame(maxHeight: .infinity, alignment: .bottom) // Stellt sicher, dass es wirklich unten bleibt
             }
             .navigationBarTitle("Bolusrechner")
             .navigationBarItems(trailing:
