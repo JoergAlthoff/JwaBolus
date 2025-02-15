@@ -11,9 +11,10 @@ struct ContentView: View {
     
     @AppStorage("mahlzeitenInsulin") private var mahlzeitenInsulin: Double = 3.5
     @AppStorage("korrekturFaktor") private var korrekturFaktor: Int = 20
-    @AppStorage("zielBZ") private var zielBZ: Int = 110
     
     @State private var showSettings = false // Steuert, ob SettingsView angezeigt wird
+    
+    
     
     @Environment(\.colorScheme) var colorScheme // Liest den aktuellen Modus (Hell/Dunkel)
     
@@ -27,9 +28,17 @@ struct ContentView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.numberPad)
                         .padding(4)
-                    // Automatische Anpassung für Light/Dark Mode
+                        // Automatische Anpassung für Light/Dark Mode
                         .background(Color(UIColor.systemGray6))
                         .cornerRadius(8)
+                        .onChange(of: viewModel.aktuellerBZ) { _, newValue in
+                            viewModel.aktualisiereBZ(newValue)
+                        }
+                        .onAppear {
+                            if viewModel.aktuellerBZ.isEmpty {
+                                viewModel.aktuellerBZ = String(viewModel.aktuellesZielBZ)
+                            }
+                        }
                 }
                 .padding(.horizontal)
                 
@@ -42,6 +51,14 @@ struct ContentView: View {
                         .padding(4)
                         .background(Color(UIColor.systemGray6))
                         .cornerRadius(8)
+                        .onChange(of: viewModel.kohlenhydrate) { _, newValue in
+                            viewModel.aktualisiereKh(newValue)
+                        }
+                }
+                .onAppear {
+                    if viewModel.kohlenhydrate.isEmpty {
+                        viewModel.aktualisiereKh(String(viewModel.aktuellerBZ))
+                    }
                 }
                 .padding(.horizontal)
                 
@@ -91,7 +108,6 @@ struct ContentView: View {
             .background(colorScheme == .dark ? Color.black : Color.white) // Hintergrund anpassen
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
