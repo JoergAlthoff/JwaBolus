@@ -64,4 +64,5 @@ fastlane/test_output
 # Keine temporären Office-Dateien
 ~$*.docx
 ~$*.xlsx
-~$*.ods
+# Keine temporären Libre Office Dateien
+.~lock.*
