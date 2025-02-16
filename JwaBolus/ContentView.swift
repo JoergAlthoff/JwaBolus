@@ -14,51 +14,36 @@ struct ContentView: View {
     
     @State private var showSettings = false // Steuert, ob SettingsView angezeigt wird
     
-    
-    
     @Environment(\.colorScheme) var colorScheme // Liest den aktuellen Modus (Hell/Dunkel)
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
+            VStack(spacing: 20) { // Hält alles zusammen!
+                
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Aktueller BZ in mg/dl")
                         .foregroundColor(Color.primary)
-                    TextField("BZ eingeben", text: $viewModel.aktuellerBZ)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.numberPad)
-                        .padding(4)
-                        // Automatische Anpassung für Light/Dark Mode
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(8)
-                        .onChange(of: viewModel.aktuellerBZ) { _, newValue in
-                            viewModel.aktualisiereBZ(newValue)
-                        }
-                        .onAppear {
-                            if viewModel.aktuellerBZ.isEmpty {
-                                viewModel.aktuellerBZ = String(viewModel.aktuellesZielBZ)
-                            }
-                        }
+                    TextField("BZ eingeben", value: $viewModel.aktuellerBZ,
+                              format: .number
+                    )
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                    .padding(4)
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(8)
                 }
                 .padding(.horizontal)
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Kohlenhydrate g")
                         .foregroundColor(Color.primary)
-                    TextField("KH eingeben", text: $viewModel.kohlenhydrate)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.numberPad)
-                        .padding(4)
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(8)
-                        .onChange(of: viewModel.kohlenhydrate) { _, newValue in
-                            viewModel.aktualisiereKh(newValue)
-                        }
-                }
-                .onAppear {
-                    if viewModel.kohlenhydrate.isEmpty {
-                        viewModel.aktualisiereKh(String(viewModel.aktuellerBZ))
-                    }
+                    TextField("KH eingeben", value: $viewModel.kohlenhydrate,
+                              format: .number)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                    .padding(4)
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(8)
                 }
                 .padding(.horizontal)
                 
@@ -67,14 +52,15 @@ struct ContentView: View {
                         .font(.title2)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(colorScheme == .dark ? Color.orange : Color.blue) // Unterschiedliche Farben für Dark/Light Mode
+                        .background(colorScheme == .dark ? Color.orange : Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 25)
                 
-                if let ie = viewModel.berechneteIE {
+                
+                if let ie = viewModel.gesamtIE {
                     Text("IE: \(String(format: "%.1f", ie))")
                         .font(.title)
                         .foregroundColor(Color.primary)
@@ -82,19 +68,18 @@ struct ContentView: View {
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 2))
                 }
                 
-                VStack {
-                    Spacer() // Schiebt die Versionsanzeige nach unten
-                    
-                    if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-                       let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-                        Text("Version \(version) (Build \(build))")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                            .padding(.bottom, 10) // Etwas Abstand zum unteren Rand
-                    }
+                Spacer() // Schiebt die Versionsanzeige nach unten
+                
+                if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+                   let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                    Text("Version \(version) (Build \(build))")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 10)
                 }
-                .frame(maxHeight: .infinity, alignment: .bottom) // Stellt sicher, dass es wirklich unten bleibt
             }
+            .padding(.vertical, 50)
+            .background(colorScheme == .dark ? Color.black : Color.white)
             .navigationBarTitle("Bolusrechner")
             .navigationBarItems(trailing:
                                     Button(action: { showSettings = true }) {
@@ -104,11 +89,12 @@ struct ContentView: View {
             .sheet(isPresented: $showSettings) {
                 SettingsView()
             }
-            .padding(.vertical, 50)
-            .background(colorScheme == .dark ? Color.black : Color.white) // Hintergrund anpassen
         }
+        .navigationViewStyle(.stack) // Verhindert extra Seitenansicht auf iPad
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -118,3 +104,4 @@ struct ContentView_Previews: PreviewProvider {
             .preferredColorScheme(.light) // Vorschau für Light Mode
     }
 }
+
