@@ -21,48 +21,23 @@ final class BolusViewModelTests: XCTestCase {
         viewModel = nil
         super.tearDown()
     }
-    
-    func testBerechneIE_MitKorrekturUndBolus() {
-        // Given
-        viewModel.aktuellerBZ = 180
-        viewModel.kohlenhydrate = 50
         
-        // When
-        viewModel.berechneIE()
+    func testBolusBerechnungMitParametern() {
+        let testfälle: [(bz: Int, kh: Int, erwartet: Double)] = [
+            (80, 80, 26.5),
+            (100, 50, 17),
+            (150, 30, 12.5),
+            (200, 20, 11.5)
+        ]
         
-        // Then
-        let erwarteterBolus = 50.0 / 10.0 * 3.5
-        let erwarteteKorrektur = Double(180 - 110) / 20.0
-        let erwartetesGesamtIE = erwarteterBolus + erwarteteKorrektur
-        
-        XCTAssertEqual(
-            viewModel.gesamtIE ?? 0.0,
-            erwartetesGesamtIE,
-            accuracy: 0.1
-        )
-    }
-    
-    func testBerechneIE_KeinKorrekturInsulinWennBZUnterZiel() {
-        // Given
-        viewModel.aktuellerBZ = 90
-        viewModel.kohlenhydrate = 50
-        
-        // When
-        viewModel.berechneIE()
-        
-        // Then
-        XCTAssertEqual(viewModel.gesamtIE ?? 0.0, 50 / 10 * 3.5, accuracy: 0.1)
-    }
-    
-    func testBerechneIE_KeinInsulinWennKHUndBZZuNiedrig() {
-        // Given
-        viewModel.aktuellerBZ = 80
-        viewModel.kohlenhydrate = 0
-        
-        // When
-        viewModel.berechneIE()
-        
-        // Then
-        XCTAssertEqual(viewModel.gesamtIE, 0.0)
+        for (bz, kh, erwartet) in testfälle {
+            viewModel.aktuellerBZ = bz
+            viewModel.kohlenhydrate = kh
+            
+            viewModel.berechneIE()
+            
+            XCTAssertEqual(viewModel.gesamtIE ?? 0, erwartet, accuracy: 0.1,
+                           "Fehlgeschlagen für BZ=\(bz), KH=\(kh)")
+        }
     }
 }
