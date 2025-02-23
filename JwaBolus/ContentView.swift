@@ -1,16 +1,7 @@
-//
-//  ContentView.swift
-//  JwaBolus
-//
-//  Created by Jörg Althoff on 26.05.24.
-//
 import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = BolusViewModel()
-    
-    @AppStorage("mahlzeitenInsulin") private var mahlzeitenInsulin: Double = 3.5
-    @AppStorage("korrekturFaktor") private var korrekturFaktor: Int = 20
     
     @State private var showSettings = false // Steuert, ob SettingsView angezeigt wird
     
@@ -23,8 +14,10 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Aktueller BZ in mg/dl")
                         .foregroundColor(Color.primary)
-                    TextField("BZ eingeben", value: $viewModel.aktuellerBZ,
-                              format: .number
+                    TextField(
+                        "BZ eingeben",
+                        value: $viewModel.aktuellerBZ,
+                        format: .number
                     )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
@@ -37,8 +30,11 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Kohlenhydrate g")
                         .foregroundColor(Color.primary)
-                    TextField("KH eingeben", value: $viewModel.kohlenhydrate,
-                              format: .number)
+                    TextField(
+                        "KH eingeben",
+                        value: $viewModel.kohlenhydrate,
+                        format: .number
+                    )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding(4)
@@ -59,13 +55,34 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .padding(.vertical, 25)
                 
-                
-                if let ie = viewModel.gesamtIE {
-                    Text("IE: \(String(format: "%.1f", ie))")
-                        .font(.title)
-                        .foregroundColor(Color.primary)
-                        .padding()
-                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 2))
+                // Ergebnisse für die vier Tageszeiten nebeneinander anzeigen
+                if !viewModel.ergebnisseProTageszeit.isEmpty {
+                    let ergebnisse = viewModel.ergebnisseProTageszeit
+                    VStack {
+                        Text("Ergebnisse für alle Tageszeiten")
+                            .font(.headline)
+                            .padding(.bottom, 5)
+                        
+                        HStack(spacing: 15) {
+                            ForEach(TimePeriod.allCases, id: \ .self) { period in
+                                VStack {
+                                    Text(period.rawValue)
+                                        .font(.subheadline)
+                                        .bold()
+                                    Text(
+                                        String(format: "%.1f", ergebnisse[period] ?? 0.0)
+                                    )
+                                    .font(.title2)
+                                    .foregroundColor(Color.primary)
+                                    .padding()
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.gray, lineWidth: 2)
+                                    )
+                                }
+                            }
+                        }
+                    }
                 }
                 
                 Spacer() // Schiebt die Versionsanzeige nach unten
@@ -94,8 +111,6 @@ struct ContentView: View {
     }
 }
 
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -104,4 +119,3 @@ struct ContentView_Previews: PreviewProvider {
             .preferredColorScheme(.light) // Vorschau für Light Mode
     }
 }
-
