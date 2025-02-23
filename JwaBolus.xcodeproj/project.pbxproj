@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */; };
+		120BE5DB2D5FE9D900CFCF4F /* BolusViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */; };
+		128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128FE9362D5D3E8A0045A46A /* SettIngsView.swift */; };
 		12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488072C03E71600620E0E /* JwaBolusApp.swift */; };
 		12D4880A2C03E71600620E0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488092C03E71600620E0E /* ContentView.swift */; };
 		12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880B2C03E71700620E0E /* Assets.xcassets */; };
 		12D4880F2C03E71700620E0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880E2C03E71700620E0E /* Preview Assets.xcassets */; };
-		12D488192C03E71700620E0E /* JwaBolusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488182C03E71700620E0E /* JwaBolusTests.swift */; };
-		12D488232C03E71700620E0E /* JwaBolusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488222C03E71700620E0E /* JwaBolusUITests.swift */; };
-		12D488252C03E71700620E0E /* JwaBolusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488242C03E71700620E0E /* JwaBolusUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +34,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModel.swift; sourceTree = "<group>"; };
+		120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModelTests.swift; sourceTree = "<group>"; };
+		128FE9362D5D3E8A0045A46A /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
 		12D488042C03E71600620E0E /* JwaBolus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JwaBolus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D488072C03E71600620E0E /* JwaBolusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusApp.swift; sourceTree = "<group>"; };
 		12D488092C03E71600620E0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12D4880B2C03E71700620E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12D4880E2C03E71700620E0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		12D488142C03E71700620E0E /* JwaBolusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JwaBolusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		12D488182C03E71700620E0E /* JwaBolusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusTests.swift; sourceTree = "<group>"; };
 		12D4881E2C03E71700620E0E /* JwaBolusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JwaBolusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		12D488222C03E71700620E0E /* JwaBolusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusUITests.swift; sourceTree = "<group>"; };
-		12D488242C03E71700620E0E /* JwaBolusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,6 @@
 			children = (
 				12D488062C03E71600620E0E /* JwaBolus */,
 				12D488172C03E71700620E0E /* JwaBolusTests */,
-				12D488212C03E71700620E0E /* JwaBolusUITests */,
 				12D488052C03E71600620E0E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,8 +93,10 @@
 		12D488062C03E71600620E0E /* JwaBolus */ = {
 			isa = PBXGroup;
 			children = (
+				120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */,
 				12D488072C03E71600620E0E /* JwaBolusApp.swift */,
 				12D488092C03E71600620E0E /* ContentView.swift */,
+				128FE9362D5D3E8A0045A46A /* SettIngsView.swift */,
 				12D4880B2C03E71700620E0E /* Assets.xcassets */,
 				12D4880D2C03E71700620E0E /* Preview Content */,
 			);
@@ -113,18 +114,9 @@
 		12D488172C03E71700620E0E /* JwaBolusTests */ = {
 			isa = PBXGroup;
 			children = (
-				12D488182C03E71700620E0E /* JwaBolusTests.swift */,
+				120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */,
 			);
 			path = JwaBolusTests;
-			sourceTree = "<group>";
-		};
-		12D488212C03E71700620E0E /* JwaBolusUITests */ = {
-			isa = PBXGroup;
-			children = (
-				12D488222C03E71700620E0E /* JwaBolusUITests.swift */,
-				12D488242C03E71700620E0E /* JwaBolusUITestsLaunchTests.swift */,
-			);
-			path = JwaBolusUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +183,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					12D488032C03E71600620E0E = {
 						CreatedOnToolsVersion = 15.4;
@@ -208,11 +200,12 @@
 			};
 			buildConfigurationList = 12D487FF2C03E71600620E0E /* Build configuration list for PBXProject "JwaBolus" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 12D487FB2C03E71600620E0E;
 			productRefGroup = 12D488052C03E71600620E0E /* Products */;
@@ -257,6 +250,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */,
+				128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */,
 				12D4880A2C03E71600620E0E /* ContentView.swift in Sources */,
 				12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */,
 			);
@@ -266,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D488192C03E71700620E0E /* JwaBolusTests.swift in Sources */,
+				120BE5DB2D5FE9D900CFCF4F /* BolusViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D488252C03E71700620E0E /* JwaBolusUITestsLaunchTests.swift in Sources */,
-				12D488232C03E71700620E0E /* JwaBolusUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -404,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -422,6 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"JwaBolus/Preview Content\"";
+				DEVELOPMENT_TEAM = 3SK8VSTF3Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -429,11 +423,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -450,6 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"JwaBolus/Preview Content\"";
+				DEVELOPMENT_TEAM = 3SK8VSTF3Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -457,11 +453,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -473,12 +470,12 @@
 		12D4882C2C03E71700620E0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3SK8VSTF3Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolusTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,12 +489,12 @@
 		12D4882D2C03E71700620E0E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3SK8VSTF3Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolusTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,10 +508,11 @@
 		12D4882F2C03E71700620E0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3SK8VSTF3Q;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolusUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -528,10 +526,11 @@
 		12D488302C03E71700620E0E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3SK8VSTF3Q;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolusUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
