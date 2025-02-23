@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */; };
 		120BE5DB2D5FE9D900CFCF4F /* BolusViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */; };
+		124792B22D6B9B7A003B4F13 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124792B12D6B9B65003B4F13 /* TimePeriod.swift */; };
+		124792B42D6B9C56003B4F13 /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */; };
 		128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128FE9362D5D3E8A0045A46A /* SettIngsView.swift */; };
 		12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488072C03E71600620E0E /* JwaBolusApp.swift */; };
 		12D4880A2C03E71600620E0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488092C03E71600620E0E /* ContentView.swift */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModel.swift; sourceTree = "<group>"; };
 		120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModelTests.swift; sourceTree = "<group>"; };
+		124792B12D6B9B65003B4F13 /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
+		124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
 		128FE9362D5D3E8A0045A46A /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
 		12D488042C03E71600620E0E /* JwaBolus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JwaBolus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D488072C03E71600620E0E /* JwaBolusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusApp.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		12D488062C03E71600620E0E /* JwaBolus */ = {
 			isa = PBXGroup;
 			children = (
+				124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */,
+				124792B12D6B9B65003B4F13 /* TimePeriod.swift */,
 				120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */,
 				12D488072C03E71600620E0E /* JwaBolusApp.swift */,
 				12D488092C03E71600620E0E /* ContentView.swift */,
@@ -251,6 +257,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */,
+				124792B22D6B9B7A003B4F13 /* TimePeriod.swift in Sources */,
+				124792B42D6B9C56003B4F13 /* SettingsStorage.swift in Sources */,
 				128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */,
 				12D4880A2C03E71600620E0E /* ContentView.swift in Sources */,
 				12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */,
@@ -430,7 +438,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -462,7 +470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -481,7 +489,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolusTests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolusTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -500,7 +508,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolusTests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolusTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -518,7 +526,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolusUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolusUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -536,7 +544,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.jwa.JwaBolusUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolusUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
