@@ -64,21 +64,24 @@ struct ContentView: View {
                             .padding(.bottom, 5)
                         
                         HStack(spacing: 15) {
-                            ForEach(TimePeriod.allCases, id: \ .self) { period in
+                            ForEach(TimePeriod.allCases, id: \.self) { period in
                                 VStack {
                                     Text(period.rawValue)
                                         .font(.subheadline)
                                         .bold()
-                                    Text(
-                                        String(format: "%.1f", ergebnisse[period] ?? 0.0)
-                                    )
-                                    .font(.title2)
-                                    .foregroundColor(Color.primary)
-                                    .padding()
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .stroke(Color.gray, lineWidth: 2)
-                                    )
+                                    
+                                    Button(action: {
+                                        viewModel.speichernInsulingabe(menge: ergebnisse[period] ?? 0.0)
+                                    }) {
+                                        Text(String(format: "%.1f", ergebnisse[period] ?? 0.0))
+                                            .font(.title2)
+                                            .foregroundColor(Color.primary)
+                                            .padding()
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 8)
+                                                    .stroke(Color.gray, lineWidth: 2)
+                                            )
+                                    }
                                 }
                             }
                         }
