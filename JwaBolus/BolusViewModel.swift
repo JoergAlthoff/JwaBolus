@@ -14,7 +14,7 @@ class BolusViewModel: ObservableObject {
         gespeicherterZielBZ
     }
 
-    @AppStorage("letzeIE") private var letzeIE: Double = 0.0
+    @AppStorage("letzteIE") private var letzteIE: Double = 0.0
     
     @AppStorage("letzteInsulinZeit") private var letzteInsulinZeitString: String = ""
     var letzteInsulinZeit: Date {
@@ -31,6 +31,8 @@ class BolusViewModel: ObservableObject {
             letzteInsulinZeitString = ISO8601DateFormatter().string(from: newValue)
         }
     }
+    
+    
     
     func berechneIE() {
         // Tastatur schließen
@@ -54,15 +56,28 @@ class BolusViewModel: ObservableObject {
         
         ergebnisseProTageszeit = ergebnisse
     }
-    
-    func minutenSeitLetzterInsulingabe() -> Int {
-        let letzteZeit = letzteInsulinZeit // Kein Optional mehr, direkt nutzbar!
-        let differenz = Date().timeIntervalSince(letzteZeit)
-        return Int(differenz / 60)
+
+    var insulinDuration: Double {
+        UserDefaults.standard.double(forKey: "InsulinDuration")
     }
     
-    func intervalleSeitLetzterInsulingabe() -> Int? {
-        let minuten = minutenSeitLetzterInsulingabe()
-        return minuten / 30
+    func speichernInsulingabe(menge: Double) {
+        print("Empfangene Insulingabe: \(menge)")
+        letzteIE = menge
+        letzteInsulinZeit = Date()
     }
-}
+    
+    func minutenSeitLetzterInsulingabe() -> Double {
+        let differenz = Date().timeIntervalSince(letzteInsulinZeit)
+        return Double(differenz / 60)
+    }
+    
+    func restInsulin() -> Double {
+        let totalDauerMinuten = insulinDuration * 60
+        let verstricheneMinuten = minutenSeitLetzterInsulingabe()
+        if verstricheneMinuten >= totalDauerMinuten {
+            return 0.0
+        }
+            // Linear abnehmend: Ausgangsmenge * (1 - (verstrichene Minuten / Gesamtdauer))
+        return letzteIE * (1 - (Double(verstricheneMinuten) / totalDauerMinuten))
+    }}
