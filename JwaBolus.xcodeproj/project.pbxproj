@@ -15,6 +15,15 @@
 		124792B42D6B9C56003B4F13 /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */; };
 		128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128FE9362D5D3E8A0045A46A /* SettIngsView.swift */; };
 		12C373142D72546B00D40408 /* ShortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373132D72546B00D40408 /* ShortDateFormatter.swift */; };
+		12C373192D7270ED00D40408 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373182D7270ED00D40408 /* InfoView.swift */; };
+		12C3731B2D72762A00D40408 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3731A2D72762A00D40408 /* StartButtonView.swift */; };
+		12C3731D2D72764200D40408 /* RestInsulinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3731C2D72764200D40408 /* RestInsulinView.swift */; };
+		12C3731F2D72764B00D40408 /* TageszeitenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3731E2D72764B00D40408 /* TageszeitenView.swift */; };
+		12C373252D72786C00D40408 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373242D72786100D40408 /* Preview.swift */; };
+		12C373272D72797A00D40408 /* InputFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373262D72797A00D40408 /* InputFieldsView.swift */; };
+		12C373292D727C8200D40408 /* HelpText.md in Resources */ = {isa = PBXBuildFile; fileRef = 12C373282D727C8200D40408 /* HelpText.md */; };
+		12C3732B2D727F8D00D40408 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3732A2D727F8D00D40408 /* WebView.swift */; };
+		12C3732D2D727FB200D40408 /* HelpText.html in Resources */ = {isa = PBXBuildFile; fileRef = 12C3732C2D727FB200D40408 /* HelpText.html */; };
 		12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488072C03E71600620E0E /* JwaBolusApp.swift */; };
 		12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880B2C03E71700620E0E /* Assets.xcassets */; };
 		12D4880F2C03E71700620E0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880E2C03E71700620E0E /* Preview Assets.xcassets */; };
@@ -46,6 +55,15 @@
 		124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
 		128FE9362D5D3E8A0045A46A /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
 		12C373132D72546B00D40408 /* ShortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortDateFormatter.swift; sourceTree = "<group>"; };
+		12C373182D7270ED00D40408 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		12C3731A2D72762A00D40408 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
+		12C3731C2D72764200D40408 /* RestInsulinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestInsulinView.swift; sourceTree = "<group>"; };
+		12C3731E2D72764B00D40408 /* TageszeitenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TageszeitenView.swift; sourceTree = "<group>"; };
+		12C373242D72786100D40408 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		12C373262D72797A00D40408 /* InputFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldsView.swift; sourceTree = "<group>"; };
+		12C373282D727C8200D40408 /* HelpText.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HelpText.md; sourceTree = "<group>"; };
+		12C3732A2D727F8D00D40408 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		12C3732C2D727FB200D40408 /* HelpText.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = HelpText.html; sourceTree = "<group>"; };
 		12D488042C03E71600620E0E /* JwaBolus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JwaBolus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D488072C03E71600620E0E /* JwaBolusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusApp.swift; sourceTree = "<group>"; };
 		12D4880B2C03E71700620E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +100,13 @@
 		12C373152D72583000D40408 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				12C373262D72797A00D40408 /* InputFieldsView.swift */,
+				12C373242D72786100D40408 /* Preview.swift */,
+				12C3731E2D72764B00D40408 /* TageszeitenView.swift */,
+				12C3731C2D72764200D40408 /* RestInsulinView.swift */,
+				12C3731A2D72762A00D40408 /* StartButtonView.swift */,
+				12C373182D7270ED00D40408 /* InfoView.swift */,
+				12C3732A2D727F8D00D40408 /* WebView.swift */,
 				121C52682D7253440096A5D0 /* ContentView.swift */,
 				128FE9362D5D3E8A0045A46A /* SettIngsView.swift */,
 			);
@@ -135,6 +160,8 @@
 				12D488072C03E71600620E0E /* JwaBolusApp.swift */,
 				12D4880B2C03E71700620E0E /* Assets.xcassets */,
 				12D4880D2C03E71700620E0E /* Preview Content */,
+				12C373282D727C8200D40408 /* HelpText.md */,
+				12C3732C2D727FB200D40408 /* HelpText.html */,
 			);
 			path = JwaBolus;
 			sourceTree = "<group>";
@@ -262,6 +289,8 @@
 			files = (
 				12D4880F2C03E71700620E0E /* Preview Assets.xcassets in Resources */,
 				12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */,
+				12C3732D2D727FB200D40408 /* HelpText.html in Resources */,
+				12C373292D727C8200D40408 /* HelpText.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,12 +316,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				122428752D7236CB00CDFC96 /* PressableButtonStyle.swift in Sources */,
+				12C3731D2D72764200D40408 /* RestInsulinView.swift in Sources */,
+				12C3731F2D72764B00D40408 /* TageszeitenView.swift in Sources */,
 				120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */,
 				121C52692D7253440096A5D0 /* ContentView.swift in Sources */,
+				12C3731B2D72762A00D40408 /* StartButtonView.swift in Sources */,
+				12C3732B2D727F8D00D40408 /* WebView.swift in Sources */,
+				12C373272D72797A00D40408 /* InputFieldsView.swift in Sources */,
 				124792B22D6B9B7A003B4F13 /* TimePeriod.swift in Sources */,
+				12C373252D72786C00D40408 /* Preview.swift in Sources */,
 				124792B42D6B9C56003B4F13 /* SettingsStorage.swift in Sources */,
 				12C373142D72546B00D40408 /* ShortDateFormatter.swift in Sources */,
 				128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */,
+				12C373192D7270ED00D40408 /* InfoView.swift in Sources */,
 				12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
