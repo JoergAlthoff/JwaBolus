@@ -1,3 +1,19 @@
+//
+//  ContentView.swift
+//  JwaBolus
+//
+//  Created by Jörg Althoff on 28.02.25.
+//
+
+
+//
+//  ContentView 2.swift
+//  JwaBolus
+//
+//  Created by Jörg Althoff on 28.02.25.
+//
+
+
 import SwiftUI
 
 struct ContentView: View {
@@ -7,8 +23,10 @@ struct ContentView: View {
     
     @Environment(\.colorScheme) var colorScheme // Liest den aktuellen Modus (Hell/Dunkel)
     
-    var body: some View {
-        NavigationView {
+ 
+    
+        var body: some View {
+            NavigationView {
             VStack(spacing: 20) { // Hält alles zusammen!
                 
                 VStack(alignment: .leading, spacing: 10) {
@@ -41,8 +59,7 @@ struct ContentView: View {
                     .background(Color(UIColor.systemGray6))
                     .cornerRadius(8)
                 }
-                .padding(.horizontal)
-                
+                .padding(.horizontal)                
                 Button(action: viewModel.berechneIE) {
                     Text("Start")
                         .font(.title2)
@@ -55,11 +72,23 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .padding(.vertical, 25)
                 
+                VStack(spacing: 20) {
+                    Text("Vorhandenes Restinsulin: ca. \(viewModel.restInsulin(), specifier: "%.1f") IE\nLetzte Speicherung: \(viewModel.letzteInsulinZeit, formatter: shortDateFormatter)")
+                        .multilineTextAlignment(.center)
+                        .font(.title3)
+                        .padding(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.gray, lineWidth: 2)
+                        )
+                }
+                .padding()
+                
                 // Ergebnisse für die vier Tageszeiten nebeneinander anzeigen
                 if !viewModel.ergebnisseProTageszeit.isEmpty {
                     let ergebnisse = viewModel.ergebnisseProTageszeit
                     VStack {
-                        Text("Ergebnisse für alle Tageszeiten")
+                        Text("Ergebnisse nach Tageszeiten")
                             .font(.headline)
                             .padding(.bottom, 5)
                         
@@ -74,18 +103,20 @@ struct ContentView: View {
                                         viewModel.speichernInsulingabe(menge: ergebnisse[period] ?? 0.0)
                                     }) {
                                         Text(String(format: "%.1f", ergebnisse[period] ?? 0.0))
-                                            .font(.title2)
-                                            .foregroundColor(Color.primary)
+                                            .font(.title)
+                                            .frame(maxWidth: .infinity)
                                             .padding()
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 8)
-                                                    .stroke(Color.gray, lineWidth: 2)
-                                            )
+                                            .background(colorScheme == .dark ? Color.orange : Color.blue)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(10)
                                     }
+                                    .buttonStyle(PressableButtonStyle())
+                                    
                                 }
                             }
                         }
                     }
+                    .padding(.horizontal)
                 }
                 
                 Spacer() // Schiebt die Versionsanzeige nach unten
@@ -112,13 +143,15 @@ struct ContentView: View {
         }
         .navigationViewStyle(.stack) // Verhindert extra Seitenansicht auf iPad
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .preferredColorScheme(.dark) // Vorschau für Dark Mode
-        ContentView()
-            .preferredColorScheme(.light) // Vorschau für Light Mode
+    
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .preferredColorScheme(.dark) // Vorschau für Dark Mode
+            ContentView()
+                .preferredColorScheme(.light) // Vorschau für Light Mode
+        }
     }
 }
