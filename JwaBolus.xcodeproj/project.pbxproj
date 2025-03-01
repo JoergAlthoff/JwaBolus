@@ -9,20 +9,19 @@
 /* Begin PBXBuildFile section */
 		120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */; };
 		120BE5DB2D5FE9D900CFCF4F /* BolusViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */; };
-		121C52692D7253440096A5D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121C52682D7253440096A5D0 /* ContentView.swift */; };
 		122428752D7236CB00CDFC96 /* PressableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122428742D7236CB00CDFC96 /* PressableButtonStyle.swift */; };
 		124792B22D6B9B7A003B4F13 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124792B12D6B9B65003B4F13 /* TimePeriod.swift */; };
 		124792B42D6B9C56003B4F13 /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */; };
-		128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128FE9362D5D3E8A0045A46A /* SettIngsView.swift */; };
+		1250AE752D736B0600AC9D25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6A2D736B0600AC9D25 /* ContentView.swift */; };
+		1250AE762D736B0600AC9D25 /* InputFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6B2D736B0600AC9D25 /* InputFieldsView.swift */; };
+		1250AE772D736B0600AC9D25 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6C2D736B0600AC9D25 /* Preview.swift */; };
+		1250AE782D736B0600AC9D25 /* RestInsulinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6D2D736B0600AC9D25 /* RestInsulinView.swift */; };
+		1250AE792D736B0600AC9D25 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6E2D736B0600AC9D25 /* StartButtonView.swift */; };
+		1250AE7A2D736B0600AC9D25 /* TageszeitenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6F2D736B0600AC9D25 /* TageszeitenView.swift */; };
+		1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE712D736B0600AC9D25 /* InfoView.swift */; };
+		1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE722D736B0600AC9D25 /* SettIngsView.swift */; };
+		1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE732D736B0600AC9D25 /* WebView.swift */; };
 		12C373142D72546B00D40408 /* ShortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373132D72546B00D40408 /* ShortDateFormatter.swift */; };
-		12C373192D7270ED00D40408 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373182D7270ED00D40408 /* InfoView.swift */; };
-		12C3731B2D72762A00D40408 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3731A2D72762A00D40408 /* StartButtonView.swift */; };
-		12C3731D2D72764200D40408 /* RestInsulinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3731C2D72764200D40408 /* RestInsulinView.swift */; };
-		12C3731F2D72764B00D40408 /* TageszeitenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3731E2D72764B00D40408 /* TageszeitenView.swift */; };
-		12C373252D72786C00D40408 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373242D72786100D40408 /* Preview.swift */; };
-		12C373272D72797A00D40408 /* InputFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373262D72797A00D40408 /* InputFieldsView.swift */; };
-		12C373292D727C8200D40408 /* HelpText.md in Resources */ = {isa = PBXBuildFile; fileRef = 12C373282D727C8200D40408 /* HelpText.md */; };
-		12C3732B2D727F8D00D40408 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3732A2D727F8D00D40408 /* WebView.swift */; };
 		12C3732D2D727FB200D40408 /* HelpText.html in Resources */ = {isa = PBXBuildFile; fileRef = 12C3732C2D727FB200D40408 /* HelpText.html */; };
 		12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488072C03E71600620E0E /* JwaBolusApp.swift */; };
 		12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880B2C03E71700620E0E /* Assets.xcassets */; };
@@ -49,20 +48,19 @@
 /* Begin PBXFileReference section */
 		120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModel.swift; sourceTree = "<group>"; };
 		120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModelTests.swift; sourceTree = "<group>"; };
-		121C52682D7253440096A5D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		122428742D7236CB00CDFC96 /* PressableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressableButtonStyle.swift; sourceTree = "<group>"; };
 		124792B12D6B9B65003B4F13 /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
 		124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
-		128FE9362D5D3E8A0045A46A /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
+		1250AE6A2D736B0600AC9D25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1250AE6B2D736B0600AC9D25 /* InputFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldsView.swift; sourceTree = "<group>"; };
+		1250AE6C2D736B0600AC9D25 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		1250AE6D2D736B0600AC9D25 /* RestInsulinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestInsulinView.swift; sourceTree = "<group>"; };
+		1250AE6E2D736B0600AC9D25 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
+		1250AE6F2D736B0600AC9D25 /* TageszeitenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TageszeitenView.swift; sourceTree = "<group>"; };
+		1250AE712D736B0600AC9D25 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		1250AE722D736B0600AC9D25 /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
+		1250AE732D736B0600AC9D25 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		12C373132D72546B00D40408 /* ShortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortDateFormatter.swift; sourceTree = "<group>"; };
-		12C373182D7270ED00D40408 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		12C3731A2D72762A00D40408 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
-		12C3731C2D72764200D40408 /* RestInsulinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestInsulinView.swift; sourceTree = "<group>"; };
-		12C3731E2D72764B00D40408 /* TageszeitenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TageszeitenView.swift; sourceTree = "<group>"; };
-		12C373242D72786100D40408 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
-		12C373262D72797A00D40408 /* InputFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldsView.swift; sourceTree = "<group>"; };
-		12C373282D727C8200D40408 /* HelpText.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HelpText.md; sourceTree = "<group>"; };
-		12C3732A2D727F8D00D40408 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		12C3732C2D727FB200D40408 /* HelpText.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = HelpText.html; sourceTree = "<group>"; };
 		12D488042C03E71600620E0E /* JwaBolus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JwaBolus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D488072C03E71600620E0E /* JwaBolusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusApp.swift; sourceTree = "<group>"; };
@@ -97,20 +95,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12C373152D72583000D40408 /* Views */ = {
+		1250AE702D736B0600AC9D25 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
-				12C373262D72797A00D40408 /* InputFieldsView.swift */,
-				12C373242D72786100D40408 /* Preview.swift */,
-				12C3731E2D72764B00D40408 /* TageszeitenView.swift */,
-				12C3731C2D72764200D40408 /* RestInsulinView.swift */,
-				12C3731A2D72762A00D40408 /* StartButtonView.swift */,
-				12C373182D7270ED00D40408 /* InfoView.swift */,
-				12C3732A2D727F8D00D40408 /* WebView.swift */,
-				121C52682D7253440096A5D0 /* ContentView.swift */,
-				128FE9362D5D3E8A0045A46A /* SettIngsView.swift */,
+				1250AE6A2D736B0600AC9D25 /* ContentView.swift */,
+				1250AE6B2D736B0600AC9D25 /* InputFieldsView.swift */,
+				1250AE6C2D736B0600AC9D25 /* Preview.swift */,
+				1250AE6D2D736B0600AC9D25 /* RestInsulinView.swift */,
+				1250AE6E2D736B0600AC9D25 /* StartButtonView.swift */,
+				1250AE6F2D736B0600AC9D25 /* TageszeitenView.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		1250AE742D736B0600AC9D25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1250AE702D736B0600AC9D25 /* ContentView */,
+				1250AE7E2D736B6000AC9D25 /* InfoView */,
+				1250AE7F2D736CF700AC9D25 /* SettingsView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1250AE7E2D736B6000AC9D25 /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+				1250AE712D736B0600AC9D25 /* InfoView.swift */,
+				1250AE732D736B0600AC9D25 /* WebView.swift */,
+			);
+			path = InfoView;
+			sourceTree = "<group>";
+		};
+		1250AE7F2D736CF700AC9D25 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				1250AE722D736B0600AC9D25 /* SettIngsView.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 		12C373162D72583F00D40408 /* Helper */ = {
@@ -155,12 +177,11 @@
 			isa = PBXGroup;
 			children = (
 				12C373172D72585100D40408 /* Models */,
+				1250AE742D736B0600AC9D25 /* Views */,
 				12C373162D72583F00D40408 /* Helper */,
-				12C373152D72583000D40408 /* Views */,
 				12D488072C03E71600620E0E /* JwaBolusApp.swift */,
 				12D4880B2C03E71700620E0E /* Assets.xcassets */,
 				12D4880D2C03E71700620E0E /* Preview Content */,
-				12C373282D727C8200D40408 /* HelpText.md */,
 				12C3732C2D727FB200D40408 /* HelpText.html */,
 			);
 			path = JwaBolus;
@@ -290,7 +311,6 @@
 				12D4880F2C03E71700620E0E /* Preview Assets.xcassets in Resources */,
 				12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */,
 				12C3732D2D727FB200D40408 /* HelpText.html in Resources */,
-				12C373292D727C8200D40408 /* HelpText.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,20 +335,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1250AE752D736B0600AC9D25 /* ContentView.swift in Sources */,
+				1250AE762D736B0600AC9D25 /* InputFieldsView.swift in Sources */,
+				1250AE772D736B0600AC9D25 /* Preview.swift in Sources */,
+				1250AE782D736B0600AC9D25 /* RestInsulinView.swift in Sources */,
+				1250AE792D736B0600AC9D25 /* StartButtonView.swift in Sources */,
+				1250AE7A2D736B0600AC9D25 /* TageszeitenView.swift in Sources */,
+				1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */,
+				1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */,
+				1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */,
 				122428752D7236CB00CDFC96 /* PressableButtonStyle.swift in Sources */,
-				12C3731D2D72764200D40408 /* RestInsulinView.swift in Sources */,
-				12C3731F2D72764B00D40408 /* TageszeitenView.swift in Sources */,
 				120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */,
-				121C52692D7253440096A5D0 /* ContentView.swift in Sources */,
-				12C3731B2D72762A00D40408 /* StartButtonView.swift in Sources */,
-				12C3732B2D727F8D00D40408 /* WebView.swift in Sources */,
-				12C373272D72797A00D40408 /* InputFieldsView.swift in Sources */,
 				124792B22D6B9B7A003B4F13 /* TimePeriod.swift in Sources */,
-				12C373252D72786C00D40408 /* Preview.swift in Sources */,
 				124792B42D6B9C56003B4F13 /* SettingsStorage.swift in Sources */,
 				12C373142D72546B00D40408 /* ShortDateFormatter.swift in Sources */,
-				128FE9372D5D3E8A0045A46A /* SettIngsView.swift in Sources */,
-				12C373192D7270ED00D40408 /* InfoView.swift in Sources */,
 				12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

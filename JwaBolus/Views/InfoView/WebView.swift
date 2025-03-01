@@ -5,7 +5,6 @@
 //  Created by Jörg Althoff on 01.03.25.
 //
 
-
 import SwiftUI
 import WebKit
 struct WebView: UIViewRepresentable {
