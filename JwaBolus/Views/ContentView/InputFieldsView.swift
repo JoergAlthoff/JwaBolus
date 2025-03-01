@@ -11,8 +11,8 @@ struct InputFieldsView: View {
     @Binding var kohlenhydrate: Int
     
     var body: some View {
-        VStack(spacing: 20) {
-            VStack(alignment: .leading, spacing: 10) {
+        VStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("Aktueller BZ in mg/dl")
                     .foregroundColor(.primary)
                 TextField("BZ eingeben", value: $aktuellerBZ, format: .number)
@@ -24,7 +24,7 @@ struct InputFieldsView: View {
             }
             .padding(.horizontal)
             
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("Kohlenhydrate g")
                     .foregroundColor(.primary)
                 TextField("KH eingeben", value: $kohlenhydrate, format: .number)

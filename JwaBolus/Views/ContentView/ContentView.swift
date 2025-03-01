@@ -12,6 +12,9 @@ struct ContentView: View {
     @State private var showSettings = false
     @State private var showHelp = false
     
+    // Timer, der alle 5 Minuten feuert
+    let timer = Timer.publish(every: 300, on: .main, in: .common).autoconnect()
+    
     @Environment(\.colorScheme) var colorScheme
     
     
@@ -45,7 +48,7 @@ struct ContentView: View {
                         .padding(.bottom, 10)
                 }
             }
-            .padding(.vertical, 50)
+            .padding(.vertical, 25)
             .background(colorScheme == .dark ? Color.black : Color.white)
             .navigationBarTitle("Bolusrechner")
             .navigationBarItems(
@@ -61,6 +64,9 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showHelp) {
                 InfoView()
+            }
+            .onReceive(timer) { _ in
+                viewModel.objectWillChange.send()
             }
         }
         .navigationViewStyle(.stack)

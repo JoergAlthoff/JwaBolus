@@ -12,16 +12,16 @@ struct RestInsulinView: View {
     let dateFormatter: DateFormatter
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Vorhandenes Restinsulin: ca. \(restInsulin, specifier: "%.1f") IE\nLetzte Speicherung: \(letzteInsulinZeit, formatter: dateFormatter)")
+        VStack(spacing: 5) {
+            Text("Restinsulin ca. \(restInsulin, specifier: "%.1f") IE\nSeit: \(letzteInsulinZeit, formatter: dateFormatter)")
                 .multilineTextAlignment(.center)
-                .font(.title3)
-                .padding(20)
+                .padding(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.gray, lineWidth: 2)
                 )
         }
-        .padding()
+        .padding(.horizontal, 10)
+        .padding(.bottom, 10)
     }
 }

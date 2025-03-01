@@ -16,7 +16,6 @@ struct TageszeitenView: View {
             VStack {
                 Text("Ergebnisse nach Tageszeiten")
                     .font(.headline)
-                    .padding(.bottom, 5)
                 
                 HStack(spacing: 15) {
                     ForEach(TimePeriod.allCases, id: \.self) { period in
@@ -29,7 +28,7 @@ struct TageszeitenView: View {
                                 speichernAction(period, ergebnisseProTageszeit[period] ?? 0.0)
                             }) {
                                 Text(String(format: "%.1f", ergebnisseProTageszeit[period] ?? 0.0))
-                                    .font(.title)
+                                    .font(.title2)
                                     .frame(maxWidth: .infinity)
                                     .padding()
                                     .background(colorScheme == .dark ? Color.orange : Color.blue)
