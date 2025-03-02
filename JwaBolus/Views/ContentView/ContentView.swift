@@ -72,6 +72,14 @@ struct ContentView: View {
         .navigationViewStyle(.stack)
  
     }
-    
-}
 
+
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .preferredColorScheme(.dark) // Vorschau für Dark Mode
+            ContentView()
+                .preferredColorScheme(.light) // Vorschau für Light Mode
+        }
+    }
+}

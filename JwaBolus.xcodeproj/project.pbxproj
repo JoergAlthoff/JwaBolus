@@ -154,9 +154,18 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		12D320EF2D75077A00489FCC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				12C3732C2D727FB200D40408 /* HelpText.html */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		12D487FB2C03E71600620E0E = {
 			isa = PBXGroup;
 			children = (
+				12D320EF2D75077A00489FCC /* Resources */,
 				12D488062C03E71600620E0E /* JwaBolus */,
 				12D488172C03E71700620E0E /* JwaBolusTests */,
 				12D488052C03E71600620E0E /* Products */,
@@ -182,7 +191,6 @@
 				12D488072C03E71600620E0E /* JwaBolusApp.swift */,
 				12D4880B2C03E71700620E0E /* Assets.xcassets */,
 				12D4880D2C03E71700620E0E /* Preview Content */,
-				12C3732C2D727FB200D40408 /* HelpText.html */,
 			);
 			path = JwaBolus;
 			sourceTree = "<group>";

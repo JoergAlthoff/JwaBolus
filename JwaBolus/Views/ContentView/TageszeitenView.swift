@@ -21,15 +21,14 @@ struct TageszeitenView: View {
                     ForEach(TimePeriod.allCases, id: \.self) { period in
                         VStack {
                             Text(period.rawValue)
-                                .font(.subheadline)
                                 .bold()
                             
                             Button(action: {
                                 speichernAction(period, ergebnisseProTageszeit[period] ?? 0.0)
                             }) {
                                 Text(String(format: "%.1f", ergebnisseProTageszeit[period] ?? 0.0))
-                                    .font(.title2)
                                     .frame(maxWidth: .infinity)
+                                    .bold()
                                     .padding()
                                     .background(colorScheme == .dark ? Color.orange : Color.blue)
                                     .foregroundColor(.white)
@@ -43,4 +42,14 @@ struct TageszeitenView: View {
             .padding(.horizontal)
         }
     }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .preferredColorScheme(.dark) // Vorschau für Dark Mode
+            ContentView()
+                .preferredColorScheme(.light) // Vorschau für Light Mode
+        }
+    }
+
 }

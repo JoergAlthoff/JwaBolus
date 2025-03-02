@@ -17,9 +17,12 @@ struct WebView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        if let filePath = Bundle.main.path(forResource: htmlFileName, ofType: "html") {
-            let fileURL = URL(fileURLWithPath: filePath)
-            uiView.loadFileURL(fileURL, allowingReadAccessTo: fileURL.deletingLastPathComponent())
+        guard let fileURL = Bundle.main.url(forResource: htmlFileName, withExtension: "html") else {
+            print("❌ HTML-Datei nicht gefunden: \(htmlFileName).html")
+            return
         }
+        
+        print("✅ Lade HTML-Datei von: \(fileURL)")
+        uiView.loadFileURL(fileURL, allowingReadAccessTo: fileURL.deletingLastPathComponent())
     }
 }
