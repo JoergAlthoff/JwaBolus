@@ -12,9 +12,14 @@ struct RestInsulin: View {
     var body: some View {
         let restInsulin = viewModel.restInsulin()
         let letzteInsulinZeit = viewModel.letzteInsulinZeit
+        
+        let buttonText = """
+            Restinsulin ca. \(String(format: "%.1f", restInsulin)) IE
+            Seit: \(shortDateFormatter.string(from: letzteInsulinZeit))
+            """
 
         VStack(spacing: 5) {
-            Text("Restinsulin ca. \(restInsulin, specifier: "%.1f") IE\nSeit: \(letzteInsulinZeit, formatter: shortDateFormatter)")
+            Text(buttonText)
                 .multilineTextAlignment(.center)
                 .padding(10)
                 .overlay(
