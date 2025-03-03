@@ -12,35 +12,33 @@ struct TageszeitenView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        if !ergebnisseProTageszeit.isEmpty {
-            VStack {
-                Text("Ergebnisse nach Tageszeiten")
-                    .font(.headline)
+        VStack {
+            Text("Ergebnisse nach Tageszeiten")
+                .font(.headline)
                 
-                HStack(spacing: 15) {
-                    ForEach(TimePeriod.allCases, id: \.self) { period in
-                        VStack {
-                            Text(period.rawValue)
-                                .bold()
+            HStack(spacing: 15) {
+                ForEach(TimePeriod.allCases, id: \.self) { period in
+                    VStack {
+                        Text(period.rawValue)
+                            .bold()
                             
-                            Button(action: {
-                                speichernAction(period, ergebnisseProTageszeit[period] ?? 0.0)
-                            }) {
-                                Text(String(format: "%.1f", ergebnisseProTageszeit[period] ?? 0.0))
-                                    .fontWeight(.bold)
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .background(colorScheme == .dark ? Color.orange : Color.blue)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                            }
-                            .buttonStyle(PressableButtonStyle())
+                        Button(action: {
+                            speichernAction(period, ergebnisseProTageszeit[period] ?? 0.0)
+                        }) {
+                            Text(String(format: "%.1f", ergebnisseProTageszeit[period] ?? 0.0))
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(colorScheme == .dark ? Color.orange : Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
                         }
+                        .buttonStyle(PressableButtonStyle())
                     }
                 }
             }
-            .padding(.horizontal)
         }
+        .padding(.horizontal)
     }
     
 }
