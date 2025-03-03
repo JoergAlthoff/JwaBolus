@@ -17,7 +17,6 @@ struct ContentView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -40,13 +39,7 @@ struct ContentView: View {
                 Spacer()
                 
                 // Versionsanzeige
-                if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-                   let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-                    Text("Version \(version) (Build \(build))")
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 10)
-                }
+                ShowAppVersionView()
             }
             .padding(.vertical, 25)
             .background(colorScheme == .dark ? Color.black : Color.white)
