@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct TageszeitenView: View {
+struct Tageszeiten: View {
     let ergebnisseProTageszeit: [TimePeriod: Double]
     let speichernAction: (TimePeriod, Double) -> Void
     @Environment(\.colorScheme) var colorScheme

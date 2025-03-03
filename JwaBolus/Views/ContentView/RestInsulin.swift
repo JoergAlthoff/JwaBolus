@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct RestInsulinView: View {
+struct RestInsulin: View {
     let restInsulin: Double
     let letzteInsulinZeit: Date
     let dateFormatter: DateFormatter

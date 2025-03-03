@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShowAppVersionView: View {
+struct ShowAppVersion: View {
     
     var body: some View {
 

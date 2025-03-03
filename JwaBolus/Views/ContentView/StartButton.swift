@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct StartButtonView: View {
+struct StartButton: View {
     let action: () -> Void
     @Environment(\.colorScheme) var colorScheme
     

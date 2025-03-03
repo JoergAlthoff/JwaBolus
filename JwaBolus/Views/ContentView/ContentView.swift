@@ -22,35 +22,35 @@ struct ContentView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     // Eingabefelder
-                    InputFieldsView(aktuellerBZ: $viewModel.aktuellerBZ, kohlenhydrate: $viewModel.kohlenhydrate)
+                    InputFields(aktuellerBZ: $viewModel.aktuellerBZ, kohlenhydrate: $viewModel.kohlenhydrate)
                     
                     // Start-Button
-                    StartButtonView(action: viewModel.berechneIE)
+                    StartButton(action: viewModel.berechneIE)
                     
                     // Restinsulin-Anzeige
-                    RestInsulinView(restInsulin: viewModel.restInsulin(),
+                    RestInsulin(restInsulin: viewModel.restInsulin(),
                                     letzteInsulinZeit: viewModel.letzteInsulinZeit,
                                     dateFormatter: shortDateFormatter)
                     
                     // Tageszeiten-Ergebnisse
-                    TageszeitenView(ergebnisseProTageszeit: viewModel.ergebnisseProTageszeit, speichernAction: { period, menge in
+                    Tageszeiten(ergebnisseProTageszeit: viewModel.ergebnisseProTageszeit, speichernAction: { period, menge in
                         viewModel.speichernInsulingabe(menge: menge)
                     })
                     
                     Spacer()
                     
                     // Versionsanzeige
-                    ShowAppVersionView()
+                    ShowAppVersion()
                 }
                 .padding(.vertical, 25)
             }
             .background(colorScheme == .dark ? Color.black : Color.white)
             .navigationBarTitle("Bolusrechner")
             .navigationBarItems(
-                leading: Button(action: { showHelp = true }) {
+                leading: Button(action: { showHelp.toggle() }) {
                     Image(systemName: "info.circle")
                 },
-                trailing: Button(action: { showSettings = true }) {
+                trailing: Button(action: { showSettings.toggle() }) {
                     Image(systemName: "gearshape.fill")
                 }
             )

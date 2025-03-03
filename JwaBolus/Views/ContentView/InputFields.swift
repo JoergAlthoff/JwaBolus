@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct InputFieldsView: View {
+struct InputFields: View {
     @Binding var aktuellerBZ: Int
     @Binding var kohlenhydrate: Int
     
