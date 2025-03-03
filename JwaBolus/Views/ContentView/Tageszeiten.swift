@@ -2,30 +2,29 @@
 //  TageszeitenView.swift
 //  JwaBolus
 //
-//  Created by Jörg Althoff on 28.02.25.
-//
 import SwiftUI
 
 struct Tageszeiten: View {
-    let ergebnisseProTageszeit: [TimePeriod: Double]
-    let speichernAction: (TimePeriod, Double) -> Void
+    @ObservedObject var viewModel: BolusViewModel
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
             Text("Ergebnisse nach Tageszeiten")
                 .font(.headline)
-                
+            
             HStack(spacing: 15) {
                 ForEach(TimePeriod.allCases, id: \.self) { period in
                     VStack {
                         Text(period.rawValue)
                             .bold()
-                            
+                        
                         Button(action: {
-                            speichernAction(period, ergebnisseProTageszeit[period] ?? 0.0)
+                            // Direkter Aufruf der Funktion im ViewModel
+                            viewModel.speichernInsulingabe(menge: viewModel.ergebnisseProTageszeit[period] ?? 0.0)
                         }) {
-                            Text(String(format: "%.1f", ergebnisseProTageszeit[period] ?? 0.0))
+                            Text(String(format: "%.1f", viewModel.ergebnisseProTageszeit[period] ?? 0.0))
                                 .fontWeight(.bold)
                                 .frame(maxWidth: .infinity)
                                 .padding()
@@ -40,10 +39,10 @@ struct Tageszeiten: View {
         }
         .padding(.horizontal)
     }
-    
 }
 
 #Preview {
-    ContentView()
+    // Hier wird das ViewModel explizit übergeben
+    Tageszeiten(viewModel: BolusViewModel())
         .preferredColorScheme(.dark)
 }

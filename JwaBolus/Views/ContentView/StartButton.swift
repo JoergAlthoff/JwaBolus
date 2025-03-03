@@ -7,11 +7,12 @@
 import SwiftUI
 
 struct StartButton: View {
-    let action: () -> Void
+    let viewModel: BolusViewModel
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        Button(action: action) {
+        Button(action: viewModel.berechneIE) {
             Text("Start")
                 .font(.title2)
                 .frame(maxWidth: .infinity)

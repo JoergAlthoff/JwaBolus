@@ -7,13 +7,14 @@
 import SwiftUI
 
 struct RestInsulin: View {
-    let restInsulin: Double
-    let letzteInsulinZeit: Date
-    let dateFormatter: DateFormatter
-    
+    @ObservedObject var viewModel: BolusViewModel
+
     var body: some View {
+        let restInsulin = viewModel.restInsulin()
+        let letzteInsulinZeit = viewModel.letzteInsulinZeit
+
         VStack(spacing: 5) {
-            Text("Restinsulin ca. \(restInsulin, specifier: "%.1f") IE\nSeit: \(letzteInsulinZeit, formatter: dateFormatter)")
+            Text("Restinsulin ca. \(restInsulin, specifier: "%.1f") IE\nSeit: \(letzteInsulinZeit, formatter: shortDateFormatter)")
                 .multilineTextAlignment(.center)
                 .padding(10)
                 .overlay(

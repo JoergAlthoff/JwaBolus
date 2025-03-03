@@ -7,15 +7,15 @@
 import SwiftUI
 
 struct InputFields: View {
-    @Binding var aktuellerBZ: Int
-    @Binding var kohlenhydrate: Int
-    
+    @ObservedObject var viewModel: BolusViewModel
+
     var body: some View {
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
+                
                 Text("Aktueller BZ in mg/dl")
                     .foregroundColor(.primary)
-                TextField("BZ eingeben", value: $aktuellerBZ, format: .number)
+                TextField("BZ eingeben", value: $viewModel.aktuellerBZ, format: .number)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding(4)
@@ -27,7 +27,7 @@ struct InputFields: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Kohlenhydrate g")
                     .foregroundColor(.primary)
-                TextField("KH eingeben", value: $kohlenhydrate, format: .number)
+                TextField("KH eingeben", value: $viewModel.kohlenhydrate, format: .number)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding(4)

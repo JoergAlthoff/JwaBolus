@@ -22,20 +22,16 @@ struct ContentView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     // Eingabefelder
-                    InputFields(aktuellerBZ: $viewModel.aktuellerBZ, kohlenhydrate: $viewModel.kohlenhydrate)
+                    InputFields(viewModel: viewModel)
                     
                     // Start-Button
-                    StartButton(action: viewModel.berechneIE)
+                    StartButton(viewModel: viewModel)
                     
                     // Restinsulin-Anzeige
-                    RestInsulin(restInsulin: viewModel.restInsulin(),
-                                    letzteInsulinZeit: viewModel.letzteInsulinZeit,
-                                    dateFormatter: shortDateFormatter)
+                    RestInsulin(viewModel: viewModel)
                     
                     // Tageszeiten-Ergebnisse
-                    Tageszeiten(ergebnisseProTageszeit: viewModel.ergebnisseProTageszeit, speichernAction: { period, menge in
-                        viewModel.speichernInsulingabe(menge: menge)
-                    })
+                    Tageszeiten(viewModel: viewModel)
                     
                     Spacer()
                     
