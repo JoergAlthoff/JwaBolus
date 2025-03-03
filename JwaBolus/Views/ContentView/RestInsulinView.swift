@@ -25,3 +25,8 @@ struct RestInsulinView: View {
         .padding(.bottom, 10)
     }
 }
+
+#Preview {
+    ContentView()
+        .preferredColorScheme(.dark)
+}

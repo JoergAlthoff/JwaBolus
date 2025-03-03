@@ -27,8 +27,8 @@ struct TageszeitenView: View {
                                 speichernAction(period, ergebnisseProTageszeit[period] ?? 0.0)
                             }) {
                                 Text(String(format: "%.1f", ergebnisseProTageszeit[period] ?? 0.0))
+                                    .fontWeight(.bold)
                                     .frame(maxWidth: .infinity)
-                                    .bold()
                                     .padding()
                                     .background(colorScheme == .dark ? Color.orange : Color.blue)
                                     .foregroundColor(.white)
@@ -43,13 +43,9 @@ struct TageszeitenView: View {
         }
     }
     
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-                .preferredColorScheme(.dark) // Vorschau für Dark Mode
-            ContentView()
-                .preferredColorScheme(.light) // Vorschau für Light Mode
-        }
-    }
+}
 
+#Preview {
+    ContentView()
+        .preferredColorScheme(.dark)
 }

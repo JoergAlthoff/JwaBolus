@@ -24,3 +24,8 @@ struct StartButtonView: View {
         .padding(.bottom, 20)
     }
 }
+
+#Preview {
+    ContentView()
+        .preferredColorScheme(.dark)
+}

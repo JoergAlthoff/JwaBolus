@@ -26,3 +26,8 @@ struct WebView: UIViewRepresentable {
         uiView.loadFileURL(fileURL, allowingReadAccessTo: fileURL.deletingLastPathComponent())
     }
 }
+
+#Preview {
+    ContentView()
+        .preferredColorScheme(.dark)
+}

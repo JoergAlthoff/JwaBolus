@@ -38,3 +38,8 @@ struct InputFieldsView: View {
         }
     }
 }
+
+#Preview {
+    ContentView()
+        .preferredColorScheme(.dark)
+}

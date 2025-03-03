@@ -19,3 +19,8 @@ struct InfoView: View {
         }
     }
 }
+
+#Preview {
+    ContentView()
+        .preferredColorScheme(.dark)
+}
