@@ -19,29 +19,31 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
-                // Eingabefelder
-                InputFieldsView(aktuellerBZ: $viewModel.aktuellerBZ, kohlenhydrate: $viewModel.kohlenhydrate)
-                
-                // Start-Button
-                StartButtonView(action: viewModel.berechneIE)
-                
-                // Restinsulin-Anzeige
-                RestInsulinView(restInsulin: viewModel.restInsulin(),
-                                letzteInsulinZeit: viewModel.letzteInsulinZeit,
-                                dateFormatter: shortDateFormatter)
-                
-                // Tageszeiten-Ergebnisse
-                TageszeitenView(ergebnisseProTageszeit: viewModel.ergebnisseProTageszeit, speichernAction: { period, menge in
-                    viewModel.speichernInsulingabe(menge: menge)
-                })
-                
-                Spacer()
-                
-                // Versionsanzeige
-                ShowAppVersionView()
+            ScrollView {
+                VStack(spacing: 20) {
+                    // Eingabefelder
+                    InputFieldsView(aktuellerBZ: $viewModel.aktuellerBZ, kohlenhydrate: $viewModel.kohlenhydrate)
+                    
+                    // Start-Button
+                    StartButtonView(action: viewModel.berechneIE)
+                    
+                    // Restinsulin-Anzeige
+                    RestInsulinView(restInsulin: viewModel.restInsulin(),
+                                    letzteInsulinZeit: viewModel.letzteInsulinZeit,
+                                    dateFormatter: shortDateFormatter)
+                    
+                    // Tageszeiten-Ergebnisse
+                    TageszeitenView(ergebnisseProTageszeit: viewModel.ergebnisseProTageszeit, speichernAction: { period, menge in
+                        viewModel.speichernInsulingabe(menge: menge)
+                    })
+                    
+                    Spacer()
+                    
+                    // Versionsanzeige
+                    ShowAppVersionView()
+                }
+                .padding(.vertical, 25)
             }
-            .padding(.vertical, 25)
             .background(colorScheme == .dark ? Color.black : Color.white)
             .navigationBarTitle("Bolusrechner")
             .navigationBarItems(
