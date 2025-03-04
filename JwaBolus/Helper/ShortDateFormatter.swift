@@ -5,12 +5,14 @@
 //  Created by Jörg Althoff on 28.02.25.
 //
 
-import SwiftUI
+import Foundation
 
-    // DateFormatter definieren, um das Datum formatiert anzuzeigen
-let shortDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short   // z.B. "15.02.25"
-    formatter.timeStyle = .short   // z.B. "13:45"
-    return formatter
-}()
+extension DateFormatter {
+    static let short: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+    
+}
