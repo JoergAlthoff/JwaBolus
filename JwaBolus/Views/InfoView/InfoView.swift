@@ -7,14 +7,14 @@
 import SwiftUI
 
 struct InfoView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
             WebView(htmlFileName: "HelpText")
                 .navigationBarTitle("Info / Hilfe", displayMode: .inline)
                 .navigationBarItems(trailing: Button("Fertig") {
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 })
         }
     }
