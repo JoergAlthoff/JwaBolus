@@ -27,6 +27,7 @@
 		12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880B2C03E71700620E0E /* Assets.xcassets */; };
 		12D4880F2C03E71700620E0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880E2C03E71700620E0E /* Preview Assets.xcassets */; };
 		12E503ED2D77B83E00DBCA5B /* FontStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E503EC2D77B83E00DBCA5B /* FontStyleHelper.swift */; };
+		12E503EF2D77C1E300DBCA5B /* ResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E503EE2D77C1E300DBCA5B /* ResultButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		12D488142C03E71700620E0E /* JwaBolusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JwaBolusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D4881E2C03E71700620E0E /* JwaBolusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JwaBolusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E503EC2D77B83E00DBCA5B /* FontStyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleHelper.swift; sourceTree = "<group>"; };
+		12E503EE2D77C1E300DBCA5B /* ResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				1250AE6D2D736B0600AC9D25 /* RestInsulin.swift */,
 				1250AE6E2D736B0600AC9D25 /* StartButton.swift */,
 				1250AE6F2D736B0600AC9D25 /* Tageszeiten.swift */,
+				12E503EE2D77C1E300DBCA5B /* ResultButton.swift */,
 				121228D92D762C2100907135 /* ShowAppVersion.swift */,
 			);
 			path = ContentView;
@@ -362,6 +365,7 @@
 				124792B42D6B9C56003B4F13 /* SettingsStorage.swift in Sources */,
 				12C373142D72546B00D40408 /* ShortDateFormatter.swift in Sources */,
 				12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */,
+				12E503EF2D77C1E300DBCA5B /* ResultButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

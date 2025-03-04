@@ -16,24 +16,7 @@ struct Tageszeiten: View {
             
             HStack(spacing: 15) {
                 ForEach(TimePeriod.allCases, id: \.self) { period in
-                    VStack {
-                        Text(period.rawValue)
-                            .bold()
-                        
-                        Button(action: {
-                            // Direkter Aufruf der Funktion im ViewModel
-                            viewModel.speichernInsulingabe(menge: viewModel.ergebnisseProTageszeit[period] ?? 0.0)
-                        }) {
-                            Text(String(format: "%.1f", viewModel.ergebnisseProTageszeit[period] ?? 0.0))
-                                .fontWeight(.bold)
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(colorScheme == .dark ? Color.orange : Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
-                        .buttonStyle(PressableButtonStyle())
-                    }
+                    ResultButton(period: period, viewModel: viewModel)
                 }
             }
         }
