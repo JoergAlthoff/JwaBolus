@@ -15,7 +15,7 @@ struct RestInsulin: View {
         
         let buttonText = """
             Restinsulin ca. \(String(format: "%.1f", restInsulin)) IE
-            Seit: \(shortDateFormatter.string(from: letzteInsulinZeit))
+            Seit: \(DateFormatter.short.string(from: letzteInsulinZeit))
             """
 
         VStack(spacing: 5) {
