@@ -19,19 +19,19 @@ class BolusViewModel: ObservableObject {
     @AppStorage("letzteInsulinZeit") private var letzteInsulinZeitString: String = ""
     var letzteInsulinZeit: Date {
         get {
-            if let gespeicherteZeit = ISO8601DateFormatter().date(from: letzteInsulinZeitString) {
-                return gespeicherteZeit
-            } else {
-                let jetzt = Date()
-                letzteInsulinZeitString = ISO8601DateFormatter().string(from: jetzt) // Sofort speichern
-                return jetzt
+            guard let gespeicherteZeit = try? Date(letzteInsulinZeitString, strategy: .iso8601) else {
+                // Wird ausgeführt, wenn die Konvertierung fehlschlägt (d.h. nil zurückgibt)
+                let now = Date()
+                // schreibt die letzteInsukinZeitString als gültiges Datum in den @AppStorage
+                letzteInsulinZeitString = now.formatted(.iso8601)
+                return now
             }
+            return gespeicherteZeit
         }
         set {
-            letzteInsulinZeitString = ISO8601DateFormatter().string(from: newValue)
+            letzteInsulinZeitString = newValue.formatted(.iso8601)
         }
     }
-    
     
     
     func berechneIE() {
