@@ -20,7 +20,8 @@ struct Ergebnisse: View {
                 }
             }
             
-            Text("Die Tasten speichern den Wert für Restinulin Berechnung")
+            Text("Die Tasten Früh bis Nacht speichern den Wert für Restinulin Berechnung")
+                .multilineTextAlignment(.center)
                 .font(.footnote)
         }
         .padding(.horizontal)
