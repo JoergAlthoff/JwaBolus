@@ -22,7 +22,6 @@ struct StartButton: View {
                 .cornerRadius(10)
         }
         .padding(.horizontal)
-        .padding(.bottom, 20)
     }
 }
 

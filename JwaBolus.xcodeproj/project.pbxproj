@@ -17,7 +17,7 @@
 		1250AE762D736B0600AC9D25 /* InputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6B2D736B0600AC9D25 /* InputFields.swift */; };
 		1250AE782D736B0600AC9D25 /* RestInsulin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6D2D736B0600AC9D25 /* RestInsulin.swift */; };
 		1250AE792D736B0600AC9D25 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6E2D736B0600AC9D25 /* StartButton.swift */; };
-		1250AE7A2D736B0600AC9D25 /* Tageszeiten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6F2D736B0600AC9D25 /* Tageszeiten.swift */; };
+		1250AE7A2D736B0600AC9D25 /* Ergebnisse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6F2D736B0600AC9D25 /* Ergebnisse.swift */; };
 		1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE712D736B0600AC9D25 /* InfoView.swift */; };
 		1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE722D736B0600AC9D25 /* SettIngsView.swift */; };
 		1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE732D736B0600AC9D25 /* WebView.swift */; };
@@ -60,7 +60,7 @@
 		1250AE6B2D736B0600AC9D25 /* InputFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFields.swift; sourceTree = "<group>"; };
 		1250AE6D2D736B0600AC9D25 /* RestInsulin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestInsulin.swift; sourceTree = "<group>"; };
 		1250AE6E2D736B0600AC9D25 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
-		1250AE6F2D736B0600AC9D25 /* Tageszeiten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tageszeiten.swift; sourceTree = "<group>"; };
+		1250AE6F2D736B0600AC9D25 /* Ergebnisse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ergebnisse.swift; sourceTree = "<group>"; };
 		1250AE712D736B0600AC9D25 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		1250AE722D736B0600AC9D25 /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
 		1250AE732D736B0600AC9D25 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -108,9 +108,9 @@
 			children = (
 				1250AE6A2D736B0600AC9D25 /* ContentView.swift */,
 				1250AE6B2D736B0600AC9D25 /* InputFields.swift */,
-				1250AE6D2D736B0600AC9D25 /* RestInsulin.swift */,
 				1250AE6E2D736B0600AC9D25 /* StartButton.swift */,
-				1250AE6F2D736B0600AC9D25 /* Tageszeiten.swift */,
+				1250AE6F2D736B0600AC9D25 /* Ergebnisse.swift */,
+				1250AE6D2D736B0600AC9D25 /* RestInsulin.swift */,
 				12E503EE2D77C1E300DBCA5B /* ResultButton.swift */,
 				121228D92D762C2100907135 /* ShowAppVersion.swift */,
 			);
@@ -362,7 +362,7 @@
 				1250AE762D736B0600AC9D25 /* InputFields.swift in Sources */,
 				1250AE782D736B0600AC9D25 /* RestInsulin.swift in Sources */,
 				1250AE792D736B0600AC9D25 /* StartButton.swift in Sources */,
-				1250AE7A2D736B0600AC9D25 /* Tageszeiten.swift in Sources */,
+				1250AE7A2D736B0600AC9D25 /* Ergebnisse.swift in Sources */,
 				1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */,
 				1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */,
 				12E503ED2D77B83E00DBCA5B /* FontStyleHelper.swift in Sources */,

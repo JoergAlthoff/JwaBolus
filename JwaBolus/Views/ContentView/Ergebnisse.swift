@@ -4,14 +4,14 @@
 //
 import SwiftUI
 
-struct Tageszeiten: View {
+struct Ergebnisse: View {
     @ObservedObject var viewModel: BolusViewModel
     
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
-            Text("Ergebnisse nach Tageszeiten")
+            Text("Einheiten (IE) nach Tageszeit")
                 .font(.headline)
             
             HStack(spacing: 15) {
@@ -19,6 +19,9 @@ struct Tageszeiten: View {
                     ResultButton(period: period, viewModel: viewModel)
                 }
             }
+            
+            Text("Die Tasten speichern den Wert für Restinulin Berechnung")
+                .font(.footnote)
         }
         .padding(.horizontal)
     }
@@ -26,6 +29,6 @@ struct Tageszeiten: View {
 
 #Preview {
     // Hier wird das ViewModel explizit übergeben
-    Tageszeiten(viewModel: BolusViewModel())
+    Ergebnisse(viewModel: BolusViewModel())
         .preferredColorScheme(.dark)
 }

@@ -8,8 +8,10 @@ import SwiftUI
 
 struct InputFields: View {
     @ObservedObject var viewModel: BolusViewModel
-
+    
+    
     var body: some View {
+                
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
                 

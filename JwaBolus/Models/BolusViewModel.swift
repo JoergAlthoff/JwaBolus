@@ -1,7 +1,7 @@
 import SwiftUI
 
 class BolusViewModel: ObservableObject {
-    @Published var aktuellerBZ: Int = 110
+    @Published var aktuellerBZ: Int = 0
     @Published var kohlenhydrate: Int = 0
     @Published var gesamtIE: Double? = nil
     @Published var ergebnisseProTageszeit: [TimePeriod: Double] = [:]
@@ -38,6 +38,10 @@ class BolusViewModel: ObservableObject {
         // Tastatur schließen
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         
+        print("Empfangener aktuellerBZ: \(aktuellerBZ)")
+        print("Empfangener kohlenhydrate: \(kohlenhydrate)")
+        
+        
         // Eingaben validieren
         let bz = Double(aktuellerBZ >= 0 ? aktuellerBZ : 0)
         let kh = Double(kohlenhydrate >= 0 ? kohlenhydrate : 0)
@@ -52,9 +56,12 @@ class BolusViewModel: ObservableObject {
             let bolusIE = kh > 0 ? (kh / 10.0 * mahlzeitenInsulin) : 0.0
             let korrekturIE = (bz - zielBZ) / korrekturFaktor
             ergebnisse[period] = bolusIE + korrekturIE
+            
+            print("zielBz: \(zielBZ), korrekturFaktor: \(korrekturFaktor), mahlzeitenInsulin: \(mahlzeitenInsulin), bolusIE: \(bolusIE), korrekturIE: \(korrekturIE), ergebnis: \(ergebnisse[period] ?? 0)")
         }
         
         ergebnisseProTageszeit = ergebnisse
+        print(ergebnisseProTageszeit)
     }
 
     var insulinDuration: Double {

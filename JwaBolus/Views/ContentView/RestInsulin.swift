@@ -27,8 +27,8 @@ struct RestInsulin: View {
                         .stroke(Color.gray, lineWidth: 2)
                 )
         }
-        .padding(.horizontal, 10)
-        .padding(.bottom, 10)
+        .padding()
+
     }
 }
 
