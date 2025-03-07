@@ -63,7 +63,7 @@ struct SettingsView: View {
                     }
                 }
                 
-                    // Insulin Duration (Global)
+                // Insulin Duration (Global)
                 Section(header: Text("Wirkdauer (Stunden)").font(.headline)) {
                     Stepper(value: $insulinDuration, in: 1...8, step: 0.5) {
                         Text("\(insulinDuration, specifier: "%.1f") Stunden")
@@ -111,4 +111,9 @@ struct SettingsView: View {
             )
         }
     }
+}
+
+#Preview {
+    SettingsView()
+        .preferredColorScheme(.dark)
 }
