@@ -8,13 +8,12 @@ import SwiftUI
 
 struct InputFields: View {
     @ObservedObject var viewModel: BolusViewModel
-    
-    
+
     var body: some View {
-                
+
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
-                
+
                 Text("Aktueller BZ in mg/dl")
                     .foregroundColor(.primary)
                 TextField("BZ eingeben", value: $viewModel.aktuellerBZ, format: .number)
@@ -25,7 +24,7 @@ struct InputFields: View {
                     .cornerRadius(8)
             }
             .padding(.horizontal)
-            
+
             VStack(alignment: .leading, spacing: 8) {
                 Text("Kohlenhydrate g")
                     .foregroundColor(.primary)

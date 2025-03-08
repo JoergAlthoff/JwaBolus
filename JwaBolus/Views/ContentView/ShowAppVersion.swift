@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShowAppVersion: View {
-    
+
     var body: some View {
 
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,

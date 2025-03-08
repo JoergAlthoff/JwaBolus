@@ -10,12 +10,9 @@ struct RestInsulin: View {
     @ObservedObject var viewModel: BolusViewModel
 
     var body: some View {
-        let restInsulin = viewModel.restInsulin()
-        let letzteInsulinZeit = viewModel.letzteInsulinZeit
-        
         let buttonText = """
-            Restinsulin ca. \(String(format: "%.1f", restInsulin)) IE
-            Seit: \(DateFormatter.short.string(from: letzteInsulinZeit))
+            Restinsulin ca. \(String(format: "%.1f", viewModel.restInsulin)) IE
+            Seit: \(DateFormatter.short.string(from: viewModel.letzteInsulinZeit))
             """
 
         VStack(spacing: 5) {

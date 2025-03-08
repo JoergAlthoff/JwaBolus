@@ -8,33 +8,33 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = BolusViewModel()
-    
+
     @State private var showSettings = false
     @State private var showHelp = false
-    
+
     // Timer, der alle 5 Minuten feuert
     let timer = Timer.publish(every: 300, on: .main, in: .common).autoconnect()
-    
+
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
                     // Eingabefelder
                     InputFields(viewModel: viewModel)
-                    
+
                     // Start-Button
                     StartButton(viewModel: viewModel)
-                    
+
                     // Tageszeiten-Ergebnisse
                     Ergebnisse(viewModel: viewModel)
 
                     // Restinsulin-Anzeige
                     RestInsulin(viewModel: viewModel)
-                    
+
                     Spacer()
-                    
+
                     // Versionsanzeige
                     ShowAppVersion()
                 }
@@ -43,15 +43,11 @@ struct ContentView: View {
             .background(colorScheme == .dark ? Color.black : Color.white)
             .navigationBarTitle("Bolusrechner")
             .navigationBarItems(
-                leading: Button(action: { showHelp.toggle() }) {
-                    Image(systemName: "info.circle")
-                },
-                trailing: Button(action: { showSettings.toggle() }) {
-                    Image(systemName: "gearshape.fill")
-                }
+                leading: Button(action: { showHelp.toggle() }, label: { Image(systemName: "info.circle") }),
+                trailing: Button(action: { showSettings.toggle() }, label: { Image(systemName: "gearshape.fill") })
             )
             .sheet(isPresented: $showSettings) {
-                SettingsView()
+                SettingsView(viewModel: viewModel)
             }
             .sheet(isPresented: $showHelp) {
                 InfoView()
@@ -61,14 +57,10 @@ struct ContentView: View {
             }
         }
         .navigationViewStyle(.stack)
- 
     }
-    
 }
 
 #Preview {
     ContentView()
         .preferredColorScheme(.dark)
 }
-
-

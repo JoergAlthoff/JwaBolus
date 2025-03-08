@@ -8,9 +8,9 @@ import SwiftUI
 
 struct StartButton: View {
     let viewModel: BolusViewModel
-    
+
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
         Button(action: viewModel.berechneIE) {
             Text("Start")
