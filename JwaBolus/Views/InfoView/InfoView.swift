@@ -8,7 +8,7 @@ import SwiftUI
 
 struct InfoView: View {
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         NavigationView {
             WebView(htmlFileName: "HelpText")

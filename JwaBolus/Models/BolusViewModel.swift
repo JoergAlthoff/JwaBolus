@@ -1,90 +1,115 @@
 import SwiftUI
 
 class BolusViewModel: ObservableObject {
+    // Dynamische Werte, die in der UI beobachtet werden (nicht persistent)
     @Published var aktuellerBZ: Int = 0
     @Published var kohlenhydrate: Int = 0
-    @Published var gesamtIE: Double? = nil
+    @Published var gesamtIE: Double?
     @Published var ergebnisseProTageszeit: [TimePeriod: Double] = [:]
 
-    @AppStorage("mahlzeitenInsulin") private var mahlzeitenInsulin: Double = 3.5
-    @AppStorage("korrekturFaktor") private var korrekturFaktor: Int = 20
-    
-    @AppStorage("zielBZ") private var gespeicherterZielBZ: Int = 110
-    var zielBZ: Int {
-        gespeicherterZielBZ
+    // Private Backing Properties mit AppStorage für persistente Werte
+    @AppStorage("mahlzeitenInsulin") private var storedMahlzeitenInsulin: Double = 3.5
+    @AppStorage("korrekturFaktor") private var storedKorrekturFaktor: Int = 20
+    @AppStorage("zielBZ") private var storedZielBZ: Int = 110
+    @AppStorage("letzteIE") private var storedLetzteIE: Double = 0.0
+    @AppStorage("letzteInsulinZeit") private var storedLetzteInsulinZeitString: String = ""
+    @AppStorage("insulinDuration") private var storedInsulinDuration: Double = 4.0
+
+    // Computed Properties für persistente Werte (Getter und Setter)
+
+    var mahlzeitenInsulin: Double {
+        get { storedMahlzeitenInsulin }
+        set { storedMahlzeitenInsulin = newValue }
     }
 
-    @AppStorage("letzteIE") private var letzteIE: Double = 0.0
-    
-    @AppStorage("letzteInsulinZeit") private var letzteInsulinZeitString: String = ""
+    var korrekturFaktor: Int {
+        get { storedKorrekturFaktor }
+        set { storedKorrekturFaktor = newValue }
+    }
+
+    var zielBZ: Int {
+        get { storedZielBZ }
+        set { storedZielBZ = newValue }
+    }
+
+    var letzteIE: Double {
+        get { storedLetzteIE }
+        set { storedLetzteIE = newValue }
+    }
+
     var letzteInsulinZeit: Date {
         get {
-            guard let gespeicherteZeit = try? Date(letzteInsulinZeitString, strategy: .iso8601) else {
-                // Wird ausgeführt, wenn die Konvertierung fehlschlägt (d.h. nil zurückgibt)
+            if let date = try? Date(storedLetzteInsulinZeitString, strategy: .iso8601) {
+                return date
+            } else {
                 let now = Date()
-                // schreibt die letzteInsukinZeitString als gültiges Datum in den @AppStorage
-                letzteInsulinZeitString = now.formatted(.iso8601)
+                storedLetzteInsulinZeitString = now.formatted(.iso8601)
                 return now
             }
-            return gespeicherteZeit
         }
         set {
-            letzteInsulinZeitString = newValue.formatted(.iso8601)
+            storedLetzteInsulinZeitString = newValue.formatted(.iso8601)
         }
-    }
-    
-    
-    func berechneIE() {
-        // Tastatur schließen
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-        
-        print("Empfangener aktuellerBZ: \(aktuellerBZ)")
-        print("Empfangener kohlenhydrate: \(kohlenhydrate)")
-        
-        
-        // Eingaben validieren
-        let bz = Double(aktuellerBZ >= 0 ? aktuellerBZ : 0)
-        let kh = Double(kohlenhydrate >= 0 ? kohlenhydrate : 0)
-        
-        var ergebnisse: [TimePeriod: Double] = [:]
-        
-        for period in TimePeriod.allCases {
-            let zielBZ = Double(loadTimeSettings()[period]?.targetBZ ?? 110)
-            let korrekturFaktor = Double(loadTimeSettings()[period]?.correctionFactor ?? 20)
-            let mahlzeitenInsulin = loadTimeSettings()[period]?.mealInsulinFactor ?? 1.0
-            
-            let bolusIE = kh > 0 ? (kh / 10.0 * mahlzeitenInsulin) : 0.0
-            let korrekturIE = (bz - zielBZ) / korrekturFaktor
-            ergebnisse[period] = bolusIE + korrekturIE
-            
-            print("zielBz: \(zielBZ), korrekturFaktor: \(korrekturFaktor), mahlzeitenInsulin: \(mahlzeitenInsulin), bolusIE: \(bolusIE), korrekturIE: \(korrekturIE), ergebnis: \(ergebnisse[period] ?? 0)")
-        }
-        
-        ergebnisseProTageszeit = ergebnisse
-        print(ergebnisseProTageszeit)
     }
 
     var insulinDuration: Double {
-        UserDefaults.standard.double(forKey: "InsulinDuration")
+        get { storedInsulinDuration }
+        set { storedInsulinDuration = newValue }
     }
-    
-    func speichernInsulingabe(menge: Double) {
-        print("Empfangene Insulingabe: \(menge)")
-        letzteIE = menge
-        letzteInsulinZeit = Date()
+
+    // MARK: - Business Logik
+
+    /// Speichert die Insulingabe und aktualisiert den Zeitpunkt.
+    func setInsulingabe(menge: Double) {
+        self.letzteIE = menge
+        self.letzteInsulinZeit = Date()
     }
-    
-    func minutenSeitLetzterInsulingabe() -> Double {
-        let differenz = Date().timeIntervalSince(letzteInsulinZeit)
-        return Double(differenz / 60)
-    }
-    
-    func restInsulin() -> Double {
+
+    // Berechnet das Restinsulin
+    var restInsulin: Double {
         let totalDauerMinuten = insulinDuration * 60
         let verstricheneMinuten = minutenSeitLetzterInsulingabe()
         if verstricheneMinuten >= totalDauerMinuten {
             return 0.0
         }
-            // Linear abnehmend: Ausgangsmenge * (1 - (verstrichene Minuten / Gesamtdauer))
-        return letzteIE * (1 - (Double(verstricheneMinuten) / totalDauerMinuten))
-    }}
+        // Linear abnehmend: Ausgangsmenge * (1 - (verstrichene Minuten / Gesamtdauer))
+        return letzteIE * (1 - (verstricheneMinuten / totalDauerMinuten))
+    }
+
+    /// Setzt den Restinsulinwert zurück: letzteIE wird auf 0 und die letzte Insulinzeit auf den
+    ///  aktuellen Zeitpunkt gesetzt.
+    func resetRestInsulin() {
+        self.letzteIE = 0.0
+        self.letzteInsulinZeit = Date()
+    }
+
+    /// Berechnet die verstrichene Zeit seit der letzten Insulingabe in Minuten.
+    func minutenSeitLetzterInsulingabe() -> Double {
+        let differenz = Date().timeIntervalSince(letzteInsulinZeit)
+        return differenz / 60.0
+    }
+
+    /// Berechnet den verbleibenden Insulinwert (Restinsulin) anhand der verstrichenen Zeit und der Insulindauer.
+    /// Berechnet die Insulinmenge (IE) anhand der aktuellen Werte.
+    func berechneIE() {
+        // Tastatur schließen
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+        var ergebnisse: [TimePeriod: Double] = [:]
+
+        for period in TimePeriod.allCases {
+            let zielBZValue = Double(zielBZ)
+            let korrekturFaktorValue = Double(korrekturFaktor)
+            let mealInsulinFactor = mahlzeitenInsulin
+            let aktKh = Double(max(kohlenhydrate, 0))
+            let aktBz = Double(max(aktuellerBZ, 0))
+
+            let bolusIE = aktKh > 0 ? (aktKh / 10.0 * mealInsulinFactor) : 0.0
+            let korrekturIE = (aktBz - zielBZValue) / korrekturFaktorValue
+            ergebnisse[period] = bolusIE + korrekturIE
+        }
+
+        ergebnisseProTageszeit = ergebnisse
+        print(ergebnisseProTageszeit)
+    }
+}
