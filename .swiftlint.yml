@@ -4,3 +4,4 @@ excluded:
   - .git
   - .vscode
   - JwaBolusTests
+  - SwiftLintPlugins

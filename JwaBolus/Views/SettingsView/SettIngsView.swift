@@ -6,7 +6,8 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var timeSettings = loadTimeSettings()
-    @State private var insulinDuration: Double = UserDefaults.standard.double(forKey: "InsulinDuration")
+//    @State private var insulinDuration: Double = UserDefaults.standard.double(forKey: "InsulinDuration")
+
     @State private var applyMorningSettings: Bool = false
 
     let timePeriods: [TimePeriod] = [.morning, .noon, .evening, .night]
@@ -17,8 +18,8 @@ struct SettingsView: View {
             Form {
                 // Insulin Duration (Global)
                 Section(header: Text("Insulin Wirkdauer (Stunden)").font(.headline)) {
-                    Stepper(value: $insulinDuration, in: 1...8, step: 0.5) {
-                        Text("\(insulinDuration, specifier: "%.1f") Stunden")
+                    Stepper(value: $viewModel.insulinDuration, in: 1...8, step: 0.5) {
+                        Text("\(viewModel.insulinDuration, specifier: "%.1f") Stunden")
                     }
 
                     Button(action: {
@@ -53,19 +54,15 @@ struct SettingsView: View {
             }
             .navigationTitle("Einstellungen")
             .navigationBarItems(trailing: Button("Fertig") {
-                saveTimeSettings(timeSettings)
-                UserDefaults.standard.set(insulinDuration, forKey: "InsulinDuration")
+                viewModel.timePeriodConfigs = timeSettings
                 dismiss()
             })
             .onAppear {
-                if insulinDuration == 0 { // Set default value if not set
-                    insulinDuration = 4.0
-                }
+                timeSettings = viewModel.timePeriodConfigs
                 expandedSections = [.morning] // Start with only morning expanded
             }
             .onDisappear {
-                saveTimeSettings(timeSettings)
-                UserDefaults.standard.set(insulinDuration, forKey: "InsulinDuration")
+                viewModel.timePeriodConfigs = timeSettings
             }
         }
     }

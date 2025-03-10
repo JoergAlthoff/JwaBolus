@@ -8,28 +8,26 @@ class BolusViewModel: ObservableObject {
     @Published var ergebnisseProTageszeit: [TimePeriod: Double] = [:]
 
     // Private Backing Properties mit AppStorage für persistente Werte
-    @AppStorage("mahlzeitenInsulin") private var storedMahlzeitenInsulin: Double = 3.5
-    @AppStorage("korrekturFaktor") private var storedKorrekturFaktor: Int = 20
-    @AppStorage("zielBZ") private var storedZielBZ: Int = 110
     @AppStorage("letzteIE") private var storedLetzteIE: Double = 0.0
     @AppStorage("letzteInsulinZeit") private var storedLetzteInsulinZeitString: String = ""
     @AppStorage("insulinDuration") private var storedInsulinDuration: Double = 4.0
+    @AppStorage("timePeriodConfigs") private var storedTimePeriodConfigsData: Data = {
+        // Initialisierung
+        let encoder = JSONEncoder()
+        return (try? encoder.encode(defaultValues)) ?? Data()
+    }()
 
     // Computed Properties für persistente Werte (Getter und Setter)
-
-    var mahlzeitenInsulin: Double {
-        get { storedMahlzeitenInsulin }
-        set { storedMahlzeitenInsulin = newValue }
-    }
-
-    var korrekturFaktor: Int {
-        get { storedKorrekturFaktor }
-        set { storedKorrekturFaktor = newValue }
-    }
-
-    var zielBZ: Int {
-        get { storedZielBZ }
-        set { storedZielBZ = newValue }
+    var timePeriodConfigs: [TimePeriod: TimePeriodConfig] {
+        get {
+            return (try? JSONDecoder().decode([TimePeriod: TimePeriodConfig].self, from: storedTimePeriodConfigsData))
+            ?? defaultValues
+        }
+        set {
+            if let encoded = try? JSONEncoder().encode(newValue) {
+                storedTimePeriodConfigsData = encoded
+            }
+        }
     }
 
     var letzteIE: Double {
@@ -98,18 +96,23 @@ class BolusViewModel: ObservableObject {
         var ergebnisse: [TimePeriod: Double] = [:]
 
         for period in TimePeriod.allCases {
-            let zielBZValue = Double(zielBZ)
-            let korrekturFaktorValue = Double(korrekturFaktor)
-            let mealInsulinFactor = mahlzeitenInsulin
+            guard let config = timePeriodConfigs[period] else { continue }
+            let zielBZValue = config.targetBZ
+            let korrekturFaktorValue = config.correctionFactor
+            let mealInsulinFactor = config.mealInsulinFactor
             let aktKh = Double(max(kohlenhydrate, 0))
             let aktBz = Double(max(aktuellerBZ, 0))
 
             let bolusIE = aktKh > 0 ? (aktKh / 10.0 * mealInsulinFactor) : 0.0
             let korrekturIE = (aktBz - zielBZValue) / korrekturFaktorValue
             ergebnisse[period] = bolusIE + korrekturIE
+
+            print("Periode \(period.rawValue): zielBZ \(zielBZValue), korrekturFaktor \(korrekturFaktorValue), mahlzeitenInsulin \(mealInsulinFactor), kh \(kohlenhydrate), aktBZ \(aktuellerBZ)"
+            )
         }
 
+        print(ergebnisse)
         ergebnisseProTageszeit = ergebnisse
-        print(ergebnisseProTageszeit)
+
     }
 }
