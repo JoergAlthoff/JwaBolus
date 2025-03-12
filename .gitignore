@@ -69,3 +69,6 @@ fastlane/test_output
 ~$*.xlsx
 # Keine temporären Libre Office Dateien
 .~lock.*
+
+#SwiftLintPlugins nicht
+SwiftLintPlugins/
