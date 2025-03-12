@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolusrechner Hilfe</title>
+    <style>
+      body {
+        font-family: -apple-system, Helvetica, Arial, sans-serif;
+        padding: 20px;
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: auto;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      h1 {
+        color: #007aff;
+        font-size: 28px;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 22px;
+        margin-top: 30px;
+        border-bottom: 2px solid #007aff;
+        padding-bottom: 5px;
+      }
+
+      p,
+      li {
+        margin-left: 0px;
+        padding-left: 0px;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      ul {
+        margin-left: 0px;
+        padding-left: 20px;
+        font-size: 18px;
+      }
+
+      a {
+        color: #007aff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Dark Mode */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #1e1e1e;
+          color: #ddd;
+        }
+        h1,
+        h2 {
+          color: #ffa500;
+        }
+        a {
+          color: #ffa500;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bolusrechner Hilfe</h1>
+    <p>
+      Willkommen beim Bolusrechner! Diese App hilft dir, deine Insulindosis
+      basierend auf deinem aktuellen Blutzuckerwert, der Menge der aufgenommenen
+      Kohlenhydrate und individuellen Parametern zu berechnen.
+    </p>
+
+    <h2>📝 Übersicht</h2>
+    <p>
+      Der Bolusrechner ist ein einfach zu bedienendes Tool, das dich dabei
+      unterstützt, die richtige Insulindosis für deine Mahlzeiten oder
+      Korrekturwerte zu berechnen.
+    </p>
+
+    <p>Die Berechnung basiert auf:</p>
+    <ul>
+      <li>Deinem aktuellen **Blutzuckerwert (BZ)** in mg/dL.</li>
+      <li>Der Menge an **Kohlenhydraten (KH)** in Gramm.</li>
+      <li>
+        Deiner persönlichen **Kohlenhydratfaktor (KH-Faktor)** und
+        **Insulin-Korrekturfaktor**.
+      </li>
+      <li>Zusätzlichen Anpassungen für unterschiedliche **Tageszeiten**.</li>
+    </ul>
+
+    <h2>📊 Berechnungslogik</h2>
+    <p>Die Berechnung erfolgt nach folgender Formel:</p>
+    <pre>
+Insulinbedarf = (BZ - Zielwert) 
+    ÷ Korrekturfaktor 
+    + (KH ÷ KH-Faktor)
+    </pre>
+    <p>
+      Der Zielwert ist der angestrebte Blutzuckerbereich, den du erreichen
+      möchtest.
+    </p>
+
+
+    <h2>⚙️ Nutzungshinweise</h2>
+    <ul>
+      <li>
+        <b>Eingabefelder:</b> Trage deinen aktuellen Blutzuckerwert und die Menge an Kohlenhydraten ein.
+      </li>
+      <li>
+        <b>Start:</b> Drücke den "Berechnen"-Button, um deine Insulindosis zu ermitteln.
+      </li>
+      <li>
+        <b>Ergebnisse:</b> Die berechnete Insulindosis wird basierend auf deinen individuellen Faktoren angezeigt.
+      </li>
+      <li>
+        <b>Speichern:</b> Tippe auf ein Ergebnis, um die Einheiten zu speichern und das Restinsulin zu berechnen.
+      </li>
+      <li>
+        <b>Restinsulin:</b> Zeigt die ungefähre Restinsulinmenge an.
+        <p>
+          Das Tippen auf ein Ergebnis speichert die ausgewählten Einheiten zur Berechnung des Restinsulins.
+          Im Kasten über den Ergebnissen kann man das ungefähre Restinsulin sehen. Die Berechnung richtet sich nach
+          der eingegebenen Wirkungsdauer und erfolgt linear. Aus diesem Grund kann das tatsächliche Restinsulin von
+          der Berechnung abweichen. Der exponentielle Abbau des Insulins (am Anfang schneller, später langsamer)
+          wird nicht berücksichtigt. Da diese Kurve von vielen Faktoren (z. B. der Marke des Insulins) abhängt,
+          ist eine exakte Berechnung nicht möglich.
+        </p>
+      </li>
+      <li>
+        <b>Individuelle Anpassungen:</b> Stelle in den Einstellungen deine persönlichen Faktoren für noch genauere Berechnungen ein.
+      </li>
+    </ul>
+
+    <h2>💡 Tipps</h2>
+    <ul>
+      <li>
+        Prüfe regelmäßig deine Blutzuckerwerte, um eine Über- oder
+        Unterdosierung zu vermeiden.
+      </li>
+      <li>
+        Passe deine KH- und Korrekturfaktoren gegebenenfalls an, falls sich
+        deine Insulinempfindlichkeit ändert.
+      </li>
+      <li>
+        Beachte, dass körperliche Aktivität oder Stress den Blutzucker
+        beeinflussen können – passe deine Dosis entsprechend an.
+      </li>
+    </ul>
+
+    <h2>⚠️ Wichtiger Hinweis</h2>
+    <p>
+      Diese Software ist kein Medizinprodukt und ersetzt keine ärztliche
+      Beratung. Die Nutzung erfolgt auf eigene Gefahr. Der Entwickler übernimmt
+      keine Haftung für mögliche Fehler oder falsche Berechnungen. Bitte
+      konsultiere immer einen Arzt oder Diabetesberater, bevor du eine
+      Entscheidung auf Basis der Berechnungen triffst.
+    </p>
+
+    <h2>🛡️ Datenschutz</h2>
+    <p>
+      Die einegebenen Daten werden ausschließlich auf Deinem Gerät gespeichert.
+      Eine Verbindung zum Internet wird zu keiner Zeit hergestellt. Damit
+      funktioniert die App auch auf einer abgelegenen Insel oder im Flugmodeus.
+    </p>
+
+    <h2>📜 Lizenz</h2>
+    <p>
+      Dieses Projekt steht unter der
+      <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank"
+        >GNU General Public License Version 3.0</a
+      >.
+    </p>
+
+    <p>© 2025 Jörg Althoff</p>
+  </body>
+</html>

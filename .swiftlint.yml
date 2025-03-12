@@ -1,0 +1,7 @@
+excluded:
+  - Resources
+  - docs
+  - .git
+  - .vscode
+  - JwaBolusTests
+  - SwiftLintPlugins
