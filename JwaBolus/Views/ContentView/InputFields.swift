@@ -8,6 +8,7 @@ import SwiftUI
 
 struct InputFields: View {
     @ObservedObject var viewModel: BolusViewModel
+    @State private var ausgewählteOption: String = "Keiner" // Standardwert
 
     var body: some View {
 
@@ -36,11 +37,30 @@ struct InputFields: View {
                     .cornerRadius(8)
             }
             .padding(.horizontal)
+
+            VStack(alignment: .leading, spacing: 8) {
+                let sportOptionen = ["Keiner", "Leicht", "Mittel", "Intensiv"]
+                Menu("Sport innerhalb von 2 Stunden: \(ausgewählteOption)") {
+                    ForEach(sportOptionen, id: \.self) { option in
+                        Button(option) {
+                            ausgewählteOption = option
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding(4)
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(8)
+                .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color(UIColor.systemGray6), lineWidth: 8))
+                .menuStyle(DefaultMenuStyle()) // Standard iOS-Design
+            }
+            .padding()
         }
     }
 }
 
 #Preview {
-    ContentView()
+    InputFields(viewModel: BolusViewModel())
         .preferredColorScheme(.dark)
 }
