@@ -6,6 +6,7 @@ class BolusViewModel: ObservableObject {
     @Published var kohlenhydrate: Int = 0
     @Published var gesamtIE: Double?
     @Published var ergebnisseProTageszeit: [TimePeriod: Double] = [:]
+    @Published var sportIntensität: String = "Keiner" // Neue Variable für die Sportintensität
 
     // Private Backing Properties mit AppStorage für persistente Werte
     @AppStorage("letzteIE") private var storedLetzteIE: Double = 0.0
@@ -103,8 +104,20 @@ class BolusViewModel: ObservableObject {
             let aktKh = Double(max(kohlenhydrate, 0))
             let aktBz = Double(max(aktuellerBZ, 0))
 
-            let bolusIE = aktKh > 0 ? (aktKh / 10.0 * mealInsulinFactor) : 0.0
-            let korrekturIE = (aktBz - zielBZValue) / korrekturFaktorValue
+            let sportFaktor: Double
+            switch sportIntensität {
+            case "Leicht":
+                sportFaktor = 0.75
+            case "Moderat":
+                sportFaktor = 0.67
+            case "Intensiv":
+                sportFaktor = 0.5
+            default:
+                sportFaktor = 1.0
+            }
+
+            let bolusIE = aktKh > 0 ? (aktKh / 10.0 * mealInsulinFactor) * sportFaktor : 0.0
+            let korrekturIE = ((aktBz - zielBZValue) / korrekturFaktorValue) * sportFaktor
             ergebnisse[period] = bolusIE + korrekturIE
 
             print("Periode \(period.rawValue): zielBZ \(zielBZValue), korrekturFaktor \(korrekturFaktorValue), mahlzeitenInsulin \(mealInsulinFactor), kh \(kohlenhydrate), aktBZ \(aktuellerBZ)"
