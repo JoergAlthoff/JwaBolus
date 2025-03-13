@@ -11,8 +11,8 @@ struct RestInsulin: View {
 
     var body: some View {
         let buttonText = """
-            Restinsulin ca. \(String(format: "%.1f", viewModel.restInsulin)) IE
-            Seit: \(DateFormatter.short.string(from: viewModel.letzteInsulinZeit))
+            Restinsulin ca. \(String(format: "%.1f", viewModel.remainingInsulin)) IE
+            Seit: \(DateFormatter.short.string(from: viewModel.lastInsulinTimestamp))
             """
 
         VStack(spacing: 5) {

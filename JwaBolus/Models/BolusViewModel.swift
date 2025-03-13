@@ -1,24 +1,24 @@
 import SwiftUI
 
 class BolusViewModel: ObservableObject {
-    // Dynamische Werte, die in der UI beobachtet werden (nicht persistent)
-    @Published var aktuellerBZ: Int = 0
-    @Published var kohlenhydrate: Int = 0
-    @Published var gesamtIE: Double?
-    @Published var ergebnisseProTageszeit: [TimePeriod: Double] = [:]
-    @Published var sportIntensität: String = "Keiner" // Neue Variable für die Sportintensität
+    // Dynamic values observed in the UI (not persistent)
+    @Published var currentBG: Int = 0
+    @Published var carbohydrates: Int = 0
+    @Published var totalInsulinUnits: Double?
+    @Published var resultsPerTimePeriod: [TimePeriod: Double] = [:]
+    @Published var sportIntensity: SportIntensity = .keiner
 
-    // Private Backing Properties mit AppStorage für persistente Werte
-    @AppStorage("letzteIE") private var storedLetzteIE: Double = 0.0
-    @AppStorage("letzteInsulinZeit") private var storedLetzteInsulinZeitString: String = ""
+    // Private backing properties with AppStorage for persistent values
+    @AppStorage("lastInsulinDose") private var storedLastInsulinDose: Double = 0.0
+    @AppStorage("lastInsulinTimestamp") private var storedLastInsulinTimestampString: String = ""
     @AppStorage("insulinDuration") private var storedInsulinDuration: Double = 4.0
     @AppStorage("timePeriodConfigs") private var storedTimePeriodConfigsData: Data = {
-        // Initialisierung
+        // Initialization
         let encoder = JSONEncoder()
         return (try? encoder.encode(defaultValues)) ?? Data()
     }()
 
-    // Computed Properties für persistente Werte (Getter und Setter)
+    // Computed properties for persistent values (Getter and Setter)
     var timePeriodConfigs: [TimePeriod: TimePeriodConfig] {
         get {
             return (try? JSONDecoder().decode([TimePeriod: TimePeriodConfig].self, from: storedTimePeriodConfigsData))
@@ -31,23 +31,23 @@ class BolusViewModel: ObservableObject {
         }
     }
 
-    var letzteIE: Double {
-        get { storedLetzteIE }
-        set { storedLetzteIE = newValue }
+    var lastInsulinDose: Double {
+        get { storedLastInsulinDose }
+        set { storedLastInsulinDose = newValue }
     }
 
-    var letzteInsulinZeit: Date {
+    var lastInsulinTimestamp: Date {
         get {
-            if let date = try? Date(storedLetzteInsulinZeitString, strategy: .iso8601) {
+            if let date = try? Date(storedLastInsulinTimestampString, strategy: .iso8601) {
                 return date
             } else {
                 let now = Date()
-                storedLetzteInsulinZeitString = now.formatted(.iso8601)
+                storedLastInsulinTimestampString = now.formatted(.iso8601)
                 return now
             }
         }
         set {
-            storedLetzteInsulinZeitString = newValue.formatted(.iso8601)
+            storedLastInsulinTimestampString = newValue.formatted(.iso8601)
         }
     }
 
@@ -56,76 +56,66 @@ class BolusViewModel: ObservableObject {
         set { storedInsulinDuration = newValue }
     }
 
-    // MARK: - Business Logik
+    // MARK: - Business Logic
 
-    /// Speichert die Insulingabe und aktualisiert den Zeitpunkt.
-    func setInsulingabe(menge: Double) {
-        self.letzteIE = menge
-        self.letzteInsulinZeit = Date()
+    // Stores the insulin dose and updates the timestamp.
+    func setInsulinDose(menge: Double) {
+        self.lastInsulinDose = menge
+        self.lastInsulinTimestamp = Date()
     }
 
-    // Berechnet das Restinsulin
-    var restInsulin: Double {
-        let totalDauerMinuten = insulinDuration * 60
-        let verstricheneMinuten = minutenSeitLetzterInsulingabe()
-        if verstricheneMinuten >= totalDauerMinuten {
+    // Calculates the remaining insulin
+    var remainingInsulin: Double {
+        let totalDurationMinutes = insulinDuration * 60
+        let elapsedMinutes = minutesSinceLastInsulinDose()
+        if elapsedMinutes >= totalDurationMinutes {
             return 0.0
         }
-        // Linear abnehmend: Ausgangsmenge * (1 - (verstrichene Minuten / Gesamtdauer))
-        return letzteIE * (1 - (verstricheneMinuten / totalDauerMinuten))
+        // Linear decay: Initial amount * (1 - (elapsed minutes / total duration))
+        return lastInsulinDose * (1 - (elapsedMinutes / totalDurationMinutes))
     }
 
-    /// Setzt den Restinsulinwert zurück: letzteIE wird auf 0 und die letzte Insulinzeit auf den
-    ///  aktuellen Zeitpunkt gesetzt.
-    func resetRestInsulin() {
-        self.letzteIE = 0.0
-        self.letzteInsulinZeit = Date()
+    // Resets the remaining insulin value: lastInsulinDose is set to 0,
+    // and the last insulin time is updated to the current time.
+    func resetRemainingInsulin() {
+        self.lastInsulinDose = 0.0
+        self.lastInsulinTimestamp = Date()
     }
 
-    /// Berechnet die verstrichene Zeit seit der letzten Insulingabe in Minuten.
-    func minutenSeitLetzterInsulingabe() -> Double {
-        let differenz = Date().timeIntervalSince(letzteInsulinZeit)
-        return differenz / 60.0
+    // Calculates the elapsed time since the last insulin dose in minutes.
+    func minutesSinceLastInsulinDose() -> Double {
+        let difference = Date().timeIntervalSince(lastInsulinTimestamp)
+        return difference / 60.0
     }
 
-    /// Berechnet den verbleibenden Insulinwert (Restinsulin) anhand der verstrichenen Zeit und der Insulindauer.
-    /// Berechnet die Insulinmenge (IE) anhand der aktuellen Werte.
-    func berechneIE() {
-        // Tastatur schließen
+    // Calculates the remaining insulin value based on elapsed time and insulin duration.
+    // Computes the insulin dose (IU) based on current values.
+    func calculateInsulinDose() {
+        // Close the keyboard
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 
-        var ergebnisse: [TimePeriod: Double] = [:]
+        var results: [TimePeriod: Double] = [:]
 
         for period in TimePeriod.allCases {
             guard let config = timePeriodConfigs[period] else { continue }
-            let zielBZValue = config.targetBZ
-            let korrekturFaktorValue = config.correctionFactor
+            let targetBGValue = config.targetBZ
+            let correctionFactorValue = config.correctionFactor
             let mealInsulinFactor = config.mealInsulinFactor
-            let aktKh = Double(max(kohlenhydrate, 0))
-            let aktBz = Double(max(aktuellerBZ, 0))
+            let currentCarbs = Double(max(carbohydrates, 0))
+            let currentBGValue = Double(max(currentBG, 0))
 
-            let sportFaktor: Double
-            switch sportIntensität {
-            case "Leicht":
-                sportFaktor = 0.75
-            case "Moderat":
-                sportFaktor = 0.67
-            case "Intensiv":
-                sportFaktor = 0.5
-            default:
-                sportFaktor = 1.0
-            }
-
-            let bolusIE = aktKh > 0 ? (aktKh / 10.0 * mealInsulinFactor) * sportFaktor : 0.0
-            let korrekturIE = ((aktBz - zielBZValue) / korrekturFaktorValue) * sportFaktor
-            ergebnisse[period] = bolusIE + korrekturIE
-
-            print("Periode \(period.rawValue): zielBZ \(zielBZValue), korrekturFaktor \(korrekturFaktorValue), mahlzeitenInsulin \(mealInsulinFactor), kh \(kohlenhydrate), aktBZ \(aktuellerBZ)"
-            )
+            let carbFactor = currentCarbs / 10.0 * mealInsulinFactor
+            let bolusIU = currentCarbs > 0
+                ? carbFactor * sportIntensity.sportFaktor
+                : 0.0
+            let correctionIU = ((currentBGValue - targetBGValue) / correctionFactorValue) * sportIntensity.sportFaktor
+            results[period] = bolusIU + correctionIU
+            print("Sport Intensity: \(sportIntensity), Factor: \(sportIntensity.sportFaktor)")
+            print("Current Carbs: \(currentCarbs), Current BG: \(currentBGValue)")
+            print("Target BG: \(targetBGValue), Correction Factor: \(correctionFactorValue)")
         }
 
-        print(ergebnisse)
-        ergebnisseProTageszeit = ergebnisse
-
+        resultsPerTimePeriod = results
+        print("Final Results: \(resultsPerTimePeriod)")
     }
 }

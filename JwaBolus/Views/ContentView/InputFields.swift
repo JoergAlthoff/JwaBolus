@@ -15,7 +15,7 @@ struct InputFields: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Aktueller BZ in mg/dl")
                     .foregroundColor(.primary)
-                TextField("BZ eingeben", value: $viewModel.aktuellerBZ, format: .number)
+                TextField("BZ eingeben", value: $viewModel.currentBG, format: .number)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding(4)
@@ -27,7 +27,7 @@ struct InputFields: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Kohlenhydrate g")
                     .foregroundColor(.primary)
-                TextField("KH eingeben", value: $viewModel.kohlenhydrate, format: .number)
+                TextField("KH eingeben", value: $viewModel.carbohydrates, format: .number)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding(4)
@@ -37,23 +37,24 @@ struct InputFields: View {
             .padding(.horizontal)
 
             VStack(alignment: .leading, spacing: 8) {
-                let sportOptionen = ["Keiner", "Leicht", "Moderat", "Intensiv"]
-                Menu("Sport innerhalb von 2 Stunden: \(viewModel.sportIntensität)") {
-                    ForEach(sportOptionen, id: \.self) { option in
-                        Button(option) {
-                            viewModel.sportIntensität = option
+                VStack(alignment: .leading, spacing: 8) {
+                    Menu("Sport innerhalb von 2 Stunden: \(viewModel.sportIntensity.rawValue)") {
+                        ForEach(SportIntensity.allCases, id: \.self) { option in
+                            Button(option.rawValue) {
+                                viewModel.sportIntensity = option
+                            }
                         }
                     }
+                    .frame(maxWidth: .infinity)
+                    .padding(4)
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(8)
+                    .overlay(RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color(UIColor.systemGray6), lineWidth: 8))
+                    .menuStyle(DefaultMenuStyle()) // Standard iOS-Design
                 }
-                .frame(maxWidth: .infinity)
-                .padding(4)
-                .background(Color(UIColor.systemGray6))
-                .cornerRadius(8)
-                .overlay(RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color(UIColor.systemGray6), lineWidth: 8))
-                .menuStyle(DefaultMenuStyle()) // Standard iOS-Design
+                .padding()
             }
-            .padding()
         }
         .onChange(of: scenePhase) {
             if scenePhase == .active {
@@ -63,9 +64,9 @@ struct InputFields: View {
     }
 
     private func resetValues() {
-        viewModel.aktuellerBZ = 0
-        viewModel.kohlenhydrate = 0
-        viewModel.sportIntensität = "Keiner"
+        viewModel.currentBG = 0
+        viewModel.carbohydrates = 0
+        viewModel.sportIntensity = .keiner
     }
 }
 

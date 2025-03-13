@@ -16,13 +16,13 @@ struct ResultButton: View {
 
     var body: some View {
 
-        let result = viewModel.ergebnisseProTageszeit[period] ?? 0.0
+        let result = viewModel.resultsPerTimePeriod[period] ?? 0.0
 
         VStack {
             Text(period.rawValue).bold()
 
             Button {
-                viewModel.setInsulingabe(menge: result)
+                viewModel.setInsulinDose(menge: result)
             } label: {
                 Text(String(format: "%.1f", result))
                     .fontWeight(.bold)
