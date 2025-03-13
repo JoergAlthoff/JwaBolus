@@ -45,13 +45,16 @@ final class BolusViewModelTests: XCTestCase {
         
         
         for (bz, kh, erwartet) in testfälle {
-            viewModel.aktuellerBZ = bz
-            viewModel.kohlenhydrate = kh
+            viewModel.currentBG
+currentBG
+currentBG = bz
+            viewModel.carbohydrates = kh
             
-            viewModel.berechneIE()
+            viewModel.calculateInsulinDose()
             
             
-            XCTAssertEqual(viewModel.gesamtIE ?? 0, erwartet, accuracy: 0.15,
+            XCTAssertEqual(viewModel.totalInsulinUnits
+ ?? 0, erwartet, accuracy: 0.15,
                            "Fehlgeschlagen für BZ=\(bz), KH=\(kh)")
         }
     }

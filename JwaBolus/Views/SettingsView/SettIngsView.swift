@@ -23,7 +23,7 @@ struct SettingsView: View {
                     }
 
                     Button(action: {
-                        viewModel.resetRestInsulin()
+                        viewModel.resetRemainingInsulin()
                     }, label: {
                         Text("Restinsulin zurücksetzen")
                             .frame(maxWidth: .infinity)
