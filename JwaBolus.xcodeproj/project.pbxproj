@@ -240,7 +240,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				120BB2C02D7CC3CA00DEB061 /* PBXTargetDependency */,
 			);
 			name = JwaBolus;
 			productName = JwaBolus;
@@ -317,7 +316,7 @@
 			);
 			mainGroup = 12D487FB2C03E71600620E0E;
 			packageReferences = (
-				120BB2BE2D7CBF2500DEB061 /* XCLocalSwiftPackageReference "SwiftLintPlugins" */,
+				128CFAF22D82426F00DE4F2A /* XCLocalSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			productRefGroup = 12D488052C03E71600620E0E /* Products */;
 			projectDirPath = "";
@@ -403,10 +402,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		120BB2C02D7CC3CA00DEB061 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 120BB2BF2D7CC3CA00DEB061 /* SwiftLintBuildToolPlugin */;
-		};
 		12D488162C03E71700620E0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 12D488032C03E71600620E0E /* JwaBolus */;
@@ -721,19 +716,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		120BB2BE2D7CBF2500DEB061 /* XCLocalSwiftPackageReference "SwiftLintPlugins" */ = {
+		128CFAF22D82426F00DE4F2A /* XCLocalSwiftPackageReference "SwiftLintPlugins" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = SwiftLintPlugins;
 		};
 /* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		120BB2BF2D7CC3CA00DEB061 /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 120BB2BE2D7CBF2500DEB061 /* XCLocalSwiftPackageReference "SwiftLintPlugins" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 12D487FC2C03E71600620E0E /* Project object */;
 }
