@@ -12,11 +12,28 @@ class BolusViewModel: ObservableObject {
     @AppStorage("lastInsulinDose") private var storedLastInsulinDose: Double = 0.0
     @AppStorage("lastInsulinTimestamp") private var storedLastInsulinTimestampString: String = ""
     @AppStorage("insulinDuration") private var storedInsulinDuration: Double = 4.0
+
     @AppStorage("timePeriodConfigs") private var storedTimePeriodConfigsData: Data = {
         // Initialization
         let encoder = JSONEncoder()
         return (try? encoder.encode(defaultValues)) ?? Data()
     }()
+
+    @AppStorage("bloodGlucoseUnit") private var storedBloodGlucoseUnit: BloodGlucoseUnit = .mgdL
+    var bloodGlucoseUnit: BloodGlucoseUnit {
+        storedBloodGlucoseUnit
+    }
+    var currentBGConverted: Double {
+        bloodGlucoseUnit.toMGDL(value: Double(currentBG))
+    }
+
+    @AppStorage("carbUnit") private var storedCarbUnit: CarbUnit = .gramm
+    var carbUnit: CarbUnit {
+        storedCarbUnit
+    }
+    var carbohydratesConverted: Double {
+        carbUnit.toGramm(value: Double(carbohydrates))
+    }
 
     // Computed properties for persistent values (Getter and Setter)
     var timePeriodConfigs: [TimePeriod: TimePeriodConfig] {

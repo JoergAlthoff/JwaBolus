@@ -22,6 +22,8 @@
 		1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE712D736B0600AC9D25 /* InfoView.swift */; };
 		1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE722D736B0600AC9D25 /* SettIngsView.swift */; };
 		1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE732D736B0600AC9D25 /* WebView.swift */; };
+		126A9A222D84A44500598446 /* BloodGlucoseUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A9A212D84A44500598446 /* BloodGlucoseUnit.swift */; };
+		126A9A242D84A45C00598446 /* CarbUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A9A232D84A45C00598446 /* CarbUnit.swift */; };
 		1277E21B2D7910270069F6DA /* gpl-3.0-standalone.html in Resources */ = {isa = PBXBuildFile; fileRef = 1277E2192D7910260069F6DA /* gpl-3.0-standalone.html */; };
 		1277E21C2D7910270069F6DA /* gpl-3.0.de.html in Resources */ = {isa = PBXBuildFile; fileRef = 1277E21A2D7910260069F6DA /* gpl-3.0.de.html */; };
 		12C373142D72546B00D40408 /* ShortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C373132D72546B00D40408 /* ShortDateFormatter.swift */; };
@@ -65,6 +67,8 @@
 		1250AE712D736B0600AC9D25 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		1250AE722D736B0600AC9D25 /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
 		1250AE732D736B0600AC9D25 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		126A9A212D84A44500598446 /* BloodGlucoseUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGlucoseUnit.swift; sourceTree = "<group>"; };
+		126A9A232D84A45C00598446 /* CarbUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbUnit.swift; sourceTree = "<group>"; };
 		1277E2192D7910260069F6DA /* gpl-3.0-standalone.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "gpl-3.0-standalone.html"; sourceTree = "<group>"; };
 		1277E21A2D7910260069F6DA /* gpl-3.0.de.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "gpl-3.0.de.html"; sourceTree = "<group>"; };
 		12C373132D72546B00D40408 /* ShortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortDateFormatter.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 		12C373162D72583F00D40408 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				126A9A232D84A45C00598446 /* CarbUnit.swift */,
+				126A9A212D84A44500598446 /* BloodGlucoseUnit.swift */,
 				120CBFA72D836BEB00388B78 /* SportIntensity.swift */,
 				124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */,
 				122428742D7236CB00CDFC96 /* PressableButtonStyle.swift */,
@@ -361,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1250AE752D736B0600AC9D25 /* ContentView.swift in Sources */,
+				126A9A242D84A45C00598446 /* CarbUnit.swift in Sources */,
 				121228DA2D762C2100907135 /* ShowAppVersion.swift in Sources */,
 				1250AE762D736B0600AC9D25 /* InputFields.swift in Sources */,
 				1250AE782D736B0600AC9D25 /* RemainingInsulin.swift in Sources */,
@@ -368,6 +375,7 @@
 				1250AE7A2D736B0600AC9D25 /* Results.swift in Sources */,
 				120CBFA82D836BEB00388B78 /* SportIntensity.swift in Sources */,
 				1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */,
+				126A9A222D84A44500598446 /* BloodGlucoseUnit.swift in Sources */,
 				1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */,
 				1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */,
 				122428752D7236CB00CDFC96 /* PressableButtonStyle.swift in Sources */,
