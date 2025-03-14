@@ -4,7 +4,7 @@
 //
 import SwiftUI
 
-struct Ergebnisse: View {
+struct Results: View {
     @ObservedObject var viewModel: BolusViewModel
 
     @Environment(\.colorScheme) var colorScheme
@@ -30,6 +30,6 @@ struct Ergebnisse: View {
 
 #Preview {
     // Hier wird das ViewModel explizit übergeben
-    Ergebnisse(viewModel: BolusViewModel())
+    Results(viewModel: BolusViewModel())
         .preferredColorScheme(.dark)
 }

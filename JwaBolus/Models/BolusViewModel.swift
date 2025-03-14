@@ -6,7 +6,7 @@ class BolusViewModel: ObservableObject {
     @Published var carbohydrates: Int = 0
     @Published var totalInsulinUnits: Double?
     @Published var resultsPerTimePeriod: [TimePeriod: Double] = [:]
-    @Published var sportIntensity: SportIntensity = .keiner
+    @Published var sportIntensity: SportIntensity = .no
 
     // Private backing properties with AppStorage for persistent values
     @AppStorage("lastInsulinDose") private var storedLastInsulinDose: Double = 0.0

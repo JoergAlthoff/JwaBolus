@@ -66,7 +66,7 @@ struct InputFields: View {
     private func resetValues() {
         viewModel.currentBG = 0
         viewModel.carbohydrates = 0
-        viewModel.sportIntensity = .keiner
+        viewModel.sportIntensity = .no
     }
 }
 

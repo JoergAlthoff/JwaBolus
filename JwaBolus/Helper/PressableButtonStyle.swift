@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// Benutzerdefinierter ButtonStyle, der den Button skaliert und die Opazität ändert, wenn er gedrückt wird
+// Custom ButtonStyle that scales the button and changes its opacity when pressed
 struct PressableButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
