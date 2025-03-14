@@ -7,17 +7,17 @@
 import Foundation
 
 enum SportIntensity: String, CaseIterable {
-    case keiner = "Keiner"
-    case leicht = "Leicht"
-    case moderat = "Moderat"
-    case intensiv = "Intensiv"
+    case no = "Keiner"
+    case light = "Leicht"
+    case moderate = "Moderat"
+    case intense = "Intensiv"
 
     var sportFaktor: Double {
         switch self {
-        case .leicht: return 0.75
-        case .moderat: return 0.67
-        case .intensiv: return 0.5
-        case .keiner: return 1.0
+        case .light: return 0.75
+        case .moderate: return 0.67
+        case .intense: return 0.5
+        case .no: return 1.0
         }
     }
 }

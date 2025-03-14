@@ -28,10 +28,10 @@ struct ContentView: View {
                     StartButton(viewModel: viewModel)
 
                     // Tageszeiten-Ergebnisse
-                    Ergebnisse(viewModel: viewModel)
+                    Results(viewModel: viewModel)
 
                     // Restinsulin-Anzeige
-                    RestInsulin(viewModel: viewModel)
+                    RemainingInsulin(viewModel: viewModel)
 
                     Spacer()
 
