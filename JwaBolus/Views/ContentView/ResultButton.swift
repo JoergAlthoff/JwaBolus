@@ -4,25 +4,25 @@
 //
 //  Created by Jörg Althoff on 05.03.25.
 //
-// Zeigt einen einzelnen Button für die Tageszeit an
+// Displays a single button for the time of day
 
 import SwiftUI
 
 struct ResultButton: View {
     let period: TimePeriod
     @ObservedObject var viewModel: BolusViewModel
-
+    
     @Environment(\.colorScheme) var colorScheme
-
+    
     var body: some View {
-
-        let result = viewModel.ergebnisseProTageszeit[period] ?? 0.0
-
+        
+        let result = viewModel.resultsPerTimePeriod[period] ?? 0.0
+        
         VStack {
             Text(period.rawValue).bold()
-
+            
             Button {
-                viewModel.setInsulingabe(menge: result)
+                viewModel.setInsulinDose(menge: result)
             } label: {
                 Text(String(format: "%.1f", result))
                     .fontWeight(.bold)

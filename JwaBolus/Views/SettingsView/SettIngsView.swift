@@ -6,8 +6,6 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var timeSettings = loadTimeSettings()
-//    @State private var insulinDuration: Double = UserDefaults.standard.double(forKey: "InsulinDuration")
-
     @State private var applyMorningSettings: Bool = false
 
     let timePeriods: [TimePeriod] = [.morning, .noon, .evening, .night]
@@ -23,7 +21,7 @@ struct SettingsView: View {
                     }
 
                     Button(action: {
-                        viewModel.resetRestInsulin()
+                        viewModel.resetRemainingInsulin()
                     }, label: {
                         Text("Restinsulin zurücksetzen")
                             .frame(maxWidth: .infinity)

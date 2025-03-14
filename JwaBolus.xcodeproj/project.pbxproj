@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */; };
 		120BE5DB2D5FE9D900CFCF4F /* BolusViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */; };
+		120CBFA82D836BEB00388B78 /* SportIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120CBFA72D836BEB00388B78 /* SportIntensity.swift */; };
 		121228DA2D762C2100907135 /* ShowAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121228D92D762C2100907135 /* ShowAppVersion.swift */; };
 		122428752D7236CB00CDFC96 /* PressableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122428742D7236CB00CDFC96 /* PressableButtonStyle.swift */; };
 		124792B22D6B9B7A003B4F13 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124792B12D6B9B65003B4F13 /* TimePeriod.swift */; };
 		124792B42D6B9C56003B4F13 /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */; };
 		1250AE752D736B0600AC9D25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6A2D736B0600AC9D25 /* ContentView.swift */; };
 		1250AE762D736B0600AC9D25 /* InputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6B2D736B0600AC9D25 /* InputFields.swift */; };
-		1250AE782D736B0600AC9D25 /* RestInsulin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6D2D736B0600AC9D25 /* RestInsulin.swift */; };
+		1250AE782D736B0600AC9D25 /* RemainingInsulin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6D2D736B0600AC9D25 /* RemainingInsulin.swift */; };
 		1250AE792D736B0600AC9D25 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6E2D736B0600AC9D25 /* StartButton.swift */; };
-		1250AE7A2D736B0600AC9D25 /* Ergebnisse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6F2D736B0600AC9D25 /* Ergebnisse.swift */; };
+		1250AE7A2D736B0600AC9D25 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6F2D736B0600AC9D25 /* Results.swift */; };
 		1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE712D736B0600AC9D25 /* InfoView.swift */; };
 		1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE722D736B0600AC9D25 /* SettIngsView.swift */; };
 		1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE732D736B0600AC9D25 /* WebView.swift */; };
@@ -28,7 +29,6 @@
 		12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488072C03E71600620E0E /* JwaBolusApp.swift */; };
 		12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880B2C03E71700620E0E /* Assets.xcassets */; };
 		12D4880F2C03E71700620E0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880E2C03E71700620E0E /* Preview Assets.xcassets */; };
-		12E503ED2D77B83E00DBCA5B /* FontStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E503EC2D77B83E00DBCA5B /* FontStyleHelper.swift */; };
 		12E503EF2D77C1E300DBCA5B /* ResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E503EE2D77C1E300DBCA5B /* ResultButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,15 +52,16 @@
 /* Begin PBXFileReference section */
 		120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModel.swift; sourceTree = "<group>"; };
 		120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModelTests.swift; sourceTree = "<group>"; };
+		120CBFA72D836BEB00388B78 /* SportIntensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportIntensity.swift; sourceTree = "<group>"; };
 		121228D92D762C2100907135 /* ShowAppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAppVersion.swift; sourceTree = "<group>"; };
 		122428742D7236CB00CDFC96 /* PressableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressableButtonStyle.swift; sourceTree = "<group>"; };
 		124792B12D6B9B65003B4F13 /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
 		124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
 		1250AE6A2D736B0600AC9D25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1250AE6B2D736B0600AC9D25 /* InputFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFields.swift; sourceTree = "<group>"; };
-		1250AE6D2D736B0600AC9D25 /* RestInsulin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestInsulin.swift; sourceTree = "<group>"; };
+		1250AE6D2D736B0600AC9D25 /* RemainingInsulin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingInsulin.swift; sourceTree = "<group>"; };
 		1250AE6E2D736B0600AC9D25 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
-		1250AE6F2D736B0600AC9D25 /* Ergebnisse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ergebnisse.swift; sourceTree = "<group>"; };
+		1250AE6F2D736B0600AC9D25 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		1250AE712D736B0600AC9D25 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		1250AE722D736B0600AC9D25 /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
 		1250AE732D736B0600AC9D25 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		12D4880E2C03E71700620E0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		12D488142C03E71700620E0E /* JwaBolusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JwaBolusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D4881E2C03E71700620E0E /* JwaBolusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JwaBolusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		12E503EC2D77B83E00DBCA5B /* FontStyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleHelper.swift; sourceTree = "<group>"; };
 		12E503EE2D77C1E300DBCA5B /* ResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,8 +109,8 @@
 				1250AE6A2D736B0600AC9D25 /* ContentView.swift */,
 				1250AE6B2D736B0600AC9D25 /* InputFields.swift */,
 				1250AE6E2D736B0600AC9D25 /* StartButton.swift */,
-				1250AE6F2D736B0600AC9D25 /* Ergebnisse.swift */,
-				1250AE6D2D736B0600AC9D25 /* RestInsulin.swift */,
+				1250AE6F2D736B0600AC9D25 /* Results.swift */,
+				1250AE6D2D736B0600AC9D25 /* RemainingInsulin.swift */,
 				12E503EE2D77C1E300DBCA5B /* ResultButton.swift */,
 				121228D92D762C2100907135 /* ShowAppVersion.swift */,
 			);
@@ -147,11 +147,11 @@
 		12C373162D72583F00D40408 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				120CBFA72D836BEB00388B78 /* SportIntensity.swift */,
 				124792B32D6B9C4F003B4F13 /* SettingsStorage.swift */,
 				122428742D7236CB00CDFC96 /* PressableButtonStyle.swift */,
 				12C373132D72546B00D40408 /* ShortDateFormatter.swift */,
 				124792B12D6B9B65003B4F13 /* TimePeriod.swift */,
-				12E503EC2D77B83E00DBCA5B /* FontStyleHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -363,12 +363,12 @@
 				1250AE752D736B0600AC9D25 /* ContentView.swift in Sources */,
 				121228DA2D762C2100907135 /* ShowAppVersion.swift in Sources */,
 				1250AE762D736B0600AC9D25 /* InputFields.swift in Sources */,
-				1250AE782D736B0600AC9D25 /* RestInsulin.swift in Sources */,
+				1250AE782D736B0600AC9D25 /* RemainingInsulin.swift in Sources */,
 				1250AE792D736B0600AC9D25 /* StartButton.swift in Sources */,
-				1250AE7A2D736B0600AC9D25 /* Ergebnisse.swift in Sources */,
+				1250AE7A2D736B0600AC9D25 /* Results.swift in Sources */,
+				120CBFA82D836BEB00388B78 /* SportIntensity.swift in Sources */,
 				1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */,
 				1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */,
-				12E503ED2D77B83E00DBCA5B /* FontStyleHelper.swift in Sources */,
 				1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */,
 				122428752D7236CB00CDFC96 /* PressableButtonStyle.swift in Sources */,
 				120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */,
@@ -553,12 +553,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
 		};
@@ -585,12 +586,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
 		};

@@ -6,17 +6,17 @@
 //
 import SwiftUI
 
-struct RestInsulin: View {
+struct RemainingInsulin: View {
     @ObservedObject var viewModel: BolusViewModel
 
     var body: some View {
-        let buttonText = """
-            Restinsulin ca. \(String(format: "%.1f", viewModel.restInsulin)) IE
-            Seit: \(DateFormatter.short.string(from: viewModel.letzteInsulinZeit))
+        let labelText = """
+            Restinsulin ca. \(String(format: "%.1f", viewModel.remainingInsulin)) IE
+            Seit: \(DateFormatter.short.string(from: viewModel.lastInsulinTimestamp))
             """
 
         VStack(spacing: 5) {
-            Text(buttonText)
+            Text(labelText)
                 .multilineTextAlignment(.center)
                 .padding(10)
                 .overlay(
@@ -30,6 +30,6 @@ struct RestInsulin: View {
 }
 
 #Preview {
-    ContentView()
+    RemainingInsulin(viewModel: BolusViewModel())
         .preferredColorScheme(.dark)
 }

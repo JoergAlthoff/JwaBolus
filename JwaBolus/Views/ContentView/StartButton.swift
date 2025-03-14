@@ -12,7 +12,7 @@ struct StartButton: View {
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
-        Button(action: viewModel.berechneIE) {
+        Button(action: viewModel.calculateInsulinDose) {
             Text("Start")
                 .font(.title2)
                 .frame(maxWidth: .infinity)
