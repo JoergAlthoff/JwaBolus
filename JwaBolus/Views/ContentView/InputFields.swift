@@ -66,11 +66,11 @@ struct InputFields: View {
     private func resetValues() {
         viewModel.currentBG = 0
         viewModel.carbohydrates = 0
-        viewModel.sportIntensity = .no
+        viewModel.sportIntensity = .none
     }
 }
 
 #Preview {
-    InputFields(viewModel: BolusViewModel())
-        .preferredColorScheme(.dark)
+    SettingsView()
+        .environmentObject(SettingsStorage())
 }

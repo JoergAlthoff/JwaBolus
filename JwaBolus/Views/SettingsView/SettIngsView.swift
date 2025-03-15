@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @ObservedObject var viewModel: BolusViewModel
+    @EnvironmentObject var settingsStorage: SettingsStorage
 
     @Environment(\.dismiss) private var dismiss
 
-    @State private var timeSettings = loadTimeSettings()
+    @State private var timeSettings: [TimePeriod: TimePeriodConfig] = [:]
     @State private var applyMorningSettings: Bool = false
 
     let timePeriods: [TimePeriod] = [.morning, .noon, .evening, .night]
@@ -16,12 +16,12 @@ struct SettingsView: View {
             Form {
                 // Insulin Duration (Global)
                 Section(header: Text("Insulin Wirkdauer (Stunden)").font(.headline)) {
-                    Stepper(value: $viewModel.insulinDuration, in: 1...8, step: 0.5) {
-                        Text("\(viewModel.insulinDuration, specifier: "%.1f") Stunden")
+                    Stepper(value: $settingsStorage.insulinDuration, in: 1...8, step: 0.5) {
+                        Text("\(settingsStorage.insulinDuration, specifier: "%.1f") Stunden")
                     }
 
                     Button(action: {
-                        viewModel.resetRemainingInsulin()
+                        settingsStorage.resetToDefaults()
                     }, label: {
                         Text("Restinsulin zurücksetzen")
                             .frame(maxWidth: .infinity)
@@ -48,19 +48,20 @@ struct SettingsView: View {
                         }
                     }
                 }
-
             }
             .navigationTitle("Einstellungen")
             .navigationBarItems(trailing: Button("Fertig") {
-                viewModel.timePeriodConfigs = timeSettings
+                settingsStorage.timePeriodConfigs = timeSettings
+                settingsStorage.save()
                 dismiss()
             })
             .onAppear {
-                timeSettings = viewModel.timePeriodConfigs
-                expandedSections = [.morning] // Start with only morning expanded
+                timeSettings = settingsStorage.timePeriodConfigs ?? [:]
+                expandedSections = [.morning]
             }
             .onDisappear {
-                viewModel.timePeriodConfigs = timeSettings
+                settingsStorage.timePeriodConfigs = timeSettings
+                settingsStorage.save()
             }
         }
     }
@@ -68,11 +69,7 @@ struct SettingsView: View {
     private func binding(for period: TimePeriod) -> Binding<TimePeriodConfig> {
         return Binding(
             get: {
-                timeSettings[period] ?? TimePeriodConfig(
-                    targetBZ: 110,
-                    correctionFactor: 20,
-                    mealInsulinFactor: 1.0
-                )
+                timeSettings[period] ?? TimePeriodConfig(targetBZ: 110, correctionFactor: 20, mealInsulinFactor: 1.0)
             },
             set: { newValue in
                 timeSettings[period] = newValue
@@ -140,6 +137,6 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView(viewModel: BolusViewModel())
+    SettingsView()
         .preferredColorScheme(.dark)
 }

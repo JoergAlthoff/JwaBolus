@@ -4,7 +4,6 @@
 //
 //  Created by Jörg Althoff on 28.02.25.
 //
-
 import Foundation
 
 extension DateFormatter {

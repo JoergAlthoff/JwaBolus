@@ -22,7 +22,7 @@ struct ResultButton: View {
             Text(period.rawValue).bold()
             
             Button {
-                viewModel.setInsulinDose(menge: result)
+                viewModel.setInsulinDose(amount: result)
             } label: {
                 Text(String(format: "%.1f", result))
                     .fontWeight(.bold)
@@ -38,5 +38,10 @@ struct ResultButton: View {
 }
 
 #Preview {
-    ResultButton(period: TimePeriod.morning, viewModel: BolusViewModel())
+    let settingsStorage = SettingsStorage()
+    let viewModel = BolusViewModel(settingsStorage: settingsStorage)
+
+    return ResultButton(period: TimePeriod.morning, viewModel: viewModel)
+        .environmentObject(settingsStorage)
+        .preferredColorScheme(.dark)
 }

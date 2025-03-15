@@ -7,7 +7,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = BolusViewModel()
+    @EnvironmentObject var viewModel: BolusViewModel
+    @EnvironmentObject var settingsStorage: SettingsStorage
 
     @State private var showSettings = false
     @State private var showHelp = false
@@ -47,7 +48,7 @@ struct ContentView: View {
                 trailing: Button(action: { showSettings.toggle() }, label: { Image(systemName: "gearshape.fill") })
             )
             .sheet(isPresented: $showSettings) {
-                SettingsView(viewModel: viewModel)
+                SettingsView()
             }
             .sheet(isPresented: $showHelp) {
                 InfoView()

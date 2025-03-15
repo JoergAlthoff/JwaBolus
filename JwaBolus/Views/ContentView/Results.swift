@@ -29,7 +29,10 @@ struct Results: View {
 }
 
 #Preview {
-    // Hier wird das ViewModel explizit übergeben
-    Results(viewModel: BolusViewModel())
+    let settingsStorage = SettingsStorage()
+    let viewModel = BolusViewModel(settingsStorage: settingsStorage)
+
+    return Results(viewModel: viewModel)
+        .environmentObject(settingsStorage)
         .preferredColorScheme(.dark)
 }

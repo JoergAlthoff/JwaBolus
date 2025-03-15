@@ -4,7 +4,6 @@
 //
 //  Created by Jörg Althoff on 23.02.25.
 //
-
 import Foundation
 
 // Enum representing different time periods of the day
