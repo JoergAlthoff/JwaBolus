@@ -1,19 +1,14 @@
-//
-//  InputFieldsView.swift
-//  JwaBolus
-//
-//  Created by Jörg Althoff on 01.03.25.
-//
 import SwiftUI
 
 struct InputFields: View {
-    @ObservedObject var viewModel: BolusViewModel
+    @EnvironmentObject var viewModel: BolusViewModel
+    @EnvironmentObject var settingsStorage: SettingsStorage
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Aktueller BZ in mg/dl")
+                Text("Aktueller BZ in \(settingsStorage.bloodGlucoseUnit.rawValue)")
                     .foregroundColor(.primary)
                 TextField("BZ eingeben", value: $viewModel.currentBG, format: .number)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -21,11 +16,12 @@ struct InputFields: View {
                     .padding(4)
                     .background(Color(UIColor.systemGray6))
                     .cornerRadius(8)
+                    .onSubmit { KeyboardHelper.hideKeyboard() }
             }
             .padding(.horizontal)
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("Kohlenhydrate g")
+                Text("Kohlenhydrate in \(settingsStorage.carbUnit.rawValue)")
                     .foregroundColor(.primary)
                 TextField("KH eingeben", value: $viewModel.carbohydrates, format: .number)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -33,28 +29,28 @@ struct InputFields: View {
                     .padding(4)
                     .background(Color(UIColor.systemGray6))
                     .cornerRadius(8)
+                    .onSubmit { KeyboardHelper.hideKeyboard() }
             }
             .padding(.horizontal)
 
             VStack(alignment: .leading, spacing: 8) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Menu("Sport innerhalb von 2 Stunden: \(viewModel.sportIntensity.rawValue)") {
-                        ForEach(SportIntensity.allCases, id: \.self) { option in
-                            Button(option.rawValue) {
-                                viewModel.sportIntensity = option
-                            }
+                Menu("Sport innerhalb von 2 Stunden: \(viewModel.sportIntensity.rawValue)") {
+                    ForEach(SportIntensity.allCases, id: \.self) { option in
+                        Button(option.rawValue) {
+                            viewModel.sportIntensity = option
+                            KeyboardHelper.hideKeyboard()
                         }
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(4)
-                    .background(Color(UIColor.systemGray6))
-                    .cornerRadius(8)
-                    .overlay(RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color(UIColor.systemGray6), lineWidth: 8))
-                    .menuStyle(DefaultMenuStyle()) // Standard iOS-Design
                 }
-                .padding()
+                .frame(maxWidth: .infinity)
+                .padding(4)
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(8)
+                .overlay(RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color(UIColor.systemGray6), lineWidth: 8))
+                .menuStyle(DefaultMenuStyle())
             }
+            .padding()
         }
         .onChange(of: scenePhase) {
             if scenePhase == .active {
@@ -71,6 +67,7 @@ struct InputFields: View {
 }
 
 #Preview {
-    SettingsView()
+    InputFields()
+        .environmentObject(BolusViewModel(settingsStorage: SettingsStorage()))
         .environmentObject(SettingsStorage())
 }

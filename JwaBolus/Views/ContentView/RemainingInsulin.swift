@@ -7,22 +7,20 @@
 import SwiftUI
 
 struct RemainingInsulin: View {
-    @ObservedObject var viewModel: BolusViewModel
+    @EnvironmentObject var viewModel: BolusViewModel
     @EnvironmentObject var settingsStorage: SettingsStorage
 
+    @State private var elapsedTime: String = ""
+
     // MARK: - Helper Methods
-    private func minutesSinceLastInsulinDose(from timestamp: Date) -> Double {
-        let difference = Date().timeIntervalSince(timestamp)
-        return difference / 60.0
+    private func updateElapsedTime() {
+        elapsedTime = viewModel.timeSinceLastDose()
     }
 
     var body: some View {
-        let elapsedMinutes = minutesSinceLastInsulinDose(from: settingsStorage.lastInsulinTimestamp)
-
         let labelText = """
             Restinsulin ca. \(String(format: "%.1f", viewModel.remainingInsulin)) IE
-            Seit: \(DateFormatter.short.string(from: settingsStorage.lastInsulinTimestamp))
-            Vor \(Int(elapsedMinutes)) Minuten verabreicht
+            Gespeichert vor \(elapsedTime) Stunden
             """
 
         VStack(spacing: 5) {
@@ -35,6 +33,12 @@ struct RemainingInsulin: View {
                 )
         }
         .padding()
+        .onAppear {
+            updateElapsedTime() // Erste Aktualisierung direkt bei Anzeige
+            Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { _ in
+                updateElapsedTime()
+            }
+        }
     }
 }
 
@@ -42,7 +46,8 @@ struct RemainingInsulin: View {
     let settingsStorage = SettingsStorage()
     let viewModel = BolusViewModel(settingsStorage: settingsStorage)
 
-    return RemainingInsulin(viewModel: viewModel)
+    return RemainingInsulin()
+        .environmentObject(viewModel)
         .environmentObject(settingsStorage)
         .preferredColorScheme(.dark)
 }

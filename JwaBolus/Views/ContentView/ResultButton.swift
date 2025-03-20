@@ -1,29 +1,18 @@
-//
-//  ResultButton.swift
-//  JwaBolus
-//
-//  Created by Jörg Althoff on 05.03.25.
-//
-// Displays a single button for the time of day
-
 import SwiftUI
 
 struct ResultButton: View {
-    let period: TimePeriod
-    @ObservedObject var viewModel: BolusViewModel
-    
+    let title: String
+    let result: Double
+    let onTap: () -> Void  // ✅ Korrekt: `onTap` ist eine Closure
+
+    @EnvironmentObject var viewModel: BolusViewModel  // ✅ ViewModel holen
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
-        
-        let result = viewModel.resultsPerTimePeriod[period] ?? 0.0
-        
         VStack {
-            Text(period.rawValue).bold()
-            
-            Button {
-                viewModel.setInsulinDose(amount: result)
-            } label: {
+            Text(title).bold()
+
+            Button(action: onTap) {  // ✅ Button ruft jetzt `onTap` korrekt auf
                 Text(String(format: "%.1f", result))
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
@@ -38,10 +27,10 @@ struct ResultButton: View {
 }
 
 #Preview {
-    let settingsStorage = SettingsStorage()
-    let viewModel = BolusViewModel(settingsStorage: settingsStorage)
-
-    return ResultButton(period: TimePeriod.morning, viewModel: viewModel)
-        .environmentObject(settingsStorage)
-        .preferredColorScheme(.dark)
+    ResultButton(title: "Morning", result: 2.5, onTap: {
+        print("Button wurde getippt!")
+    })
+    .environmentObject(SettingsStorage())
+    .environmentObject(BolusViewModel(settingsStorage: SettingsStorage()))
+    .preferredColorScheme(.dark)
 }

@@ -2,14 +2,11 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var settingsStorage: SettingsStorage
-
     @Environment(\.dismiss) private var dismiss
-
-    @State private var timeSettings: [TimePeriod: TimePeriodConfig] = [:]
-    @State private var applyMorningSettings: Bool = false
 
     let timePeriods: [TimePeriod] = [.morning, .noon, .evening, .night]
     @State private var expandedSections: Set<TimePeriod> = [.morning]
+    @State private var applyMorningSettings: Bool = false
 
     var body: some View {
         NavigationView {
@@ -19,16 +16,38 @@ struct SettingsView: View {
                     Stepper(value: $settingsStorage.insulinDuration, in: 1...8, step: 0.5) {
                         Text("\(settingsStorage.insulinDuration, specifier: "%.1f") Stunden")
                     }
-
-                    Button(action: {
-                        settingsStorage.resetToDefaults()
-                    }, label: {
-                        Text("Restinsulin zurücksetzen")
-                            .frame(maxWidth: .infinity)
-                            .multilineTextAlignment(.center)
-                    })
-                    .buttonStyle(BorderedProminentButtonStyle())
                 }
+
+                // Blutzucker Einheit Picker
+                Section(header: Text("Blutzucker Einheit").font(.headline)) {
+                    Picker("Einheit", selection: $settingsStorage.bloodGlucoseUnit) {
+                        ForEach(BloodGlucoseUnit.allCases, id: \.self) { unit in
+                            Text(unit.rawValue).tag(unit)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+
+                // Kohlenhydrate Einheit Picker
+                Section(header: Text("Kohlenhydrate Einheit").font(.headline)) {
+                    Picker("Einheit", selection: $settingsStorage.carbUnit) {
+                        ForEach(CarbUnit.allCases, id: \.self) { unit in
+                            Text(unit.rawValue).tag(unit)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+
+                // Restinsulin zurücksetzen
+                Button(action: {
+                    settingsStorage.resetToDefaults()
+                }, label: {
+                    Text("Einstellungen zurücksetzen")
+                        .frame(maxWidth: .infinity)
+                        .multilineTextAlignment(.center)
+                })
+                .buttonStyle(BorderedProminentButtonStyle())
+                .padding()
 
                 // Apply Morning Settings Button
                 Button(action: {
@@ -44,77 +63,40 @@ struct SettingsView: View {
                 ForEach(timePeriods, id: \.self) { period in
                     Section(header: headerView(for: period)) {
                         if expandedSections.contains(period) {
-                            periodSettingsView(for: period)
+                            PeriodSettingsView(period: period)
+                                .environmentObject(settingsStorage)
                         }
                     }
                 }
             }
             .navigationTitle("Einstellungen")
             .navigationBarItems(trailing: Button("Fertig") {
-                settingsStorage.timePeriodConfigs = timeSettings
-                settingsStorage.save()
                 dismiss()
             })
-            .onAppear {
-                timeSettings = settingsStorage.timePeriodConfigs ?? [:]
-                expandedSections = [.morning]
-            }
-            .onDisappear {
-                settingsStorage.timePeriodConfigs = timeSettings
-                settingsStorage.save()
-            }
         }
     }
 
-    private func binding(for period: TimePeriod) -> Binding<TimePeriodConfig> {
-        return Binding(
-            get: {
-                timeSettings[period] ?? TimePeriodConfig(targetBZ: 110, correctionFactor: 20, mealInsulinFactor: 1.0)
-            },
-            set: { newValue in
-                timeSettings[period] = newValue
-                if period == .morning {
-                    applyMorningSettings = false
-                }
-            }
-        )
-    }
-
     private func applyMorningSettingsToAll() {
-        guard let morningSettings = timeSettings[.morning] else { return }
+        guard let morningSettings = settingsStorage.timePeriodConfigs[.morning] else {
+            print("❌ Fehler: Kein Config für Früh gefunden!")
+            return
+        }
+
+        print("📌 Werte aus Früh:", morningSettings)
+
+        var updatedConfigs = settingsStorage.timePeriodConfigs
         for period in timePeriods where period != .morning {
-            timeSettings[period] = TimePeriodConfig(
+            updatedConfigs[period] = TimePeriodConfig(
                 targetBZ: morningSettings.targetBZ,
                 correctionFactor: morningSettings.correctionFactor,
                 mealInsulinFactor: morningSettings.mealInsulinFactor
             )
         }
-    }
 
-    private func periodSettingsView(for period: TimePeriod) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            VStack(alignment: .leading) {
-                Text("Ziel-BZ (mg/dL)")
-                TextField("", value: binding(for: period).targetBZ, formatter: NumberFormatter())
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.decimalPad)
-            }
+        settingsStorage.timePeriodConfigs = updatedConfigs
+        settingsStorage.saveSettings()
 
-            VStack(alignment: .leading) {
-                Text("Korrekturfaktor (mg/dL)")
-                TextField("", value: binding(for: period).correctionFactor, formatter: NumberFormatter())
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.decimalPad)
-            }
-
-            VStack(alignment: .leading) {
-                Text("Mahlzeiten-Insulin")
-                TextField("", value: binding(for: period).mealInsulinFactor,
-                          format: .number.precision(.fractionLength(1)))
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.decimalPad)
-            }
-        }
+        print("✅ Nach Übernahme:", settingsStorage.timePeriodConfigs)
     }
 
     private func headerView(for period: TimePeriod) -> some View {
@@ -138,5 +120,6 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environmentObject(SettingsStorage())
         .preferredColorScheme(.dark)
 }

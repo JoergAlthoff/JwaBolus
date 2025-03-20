@@ -16,15 +16,28 @@ enum TimePeriod: String, CaseIterable, Codable {
 
 // Struct holding configuration values for each time period
 struct TimePeriodConfig: Codable {
-    var targetBZ: Double
-    var correctionFactor: Double
-    var mealInsulinFactor: Double
+    var targetBZ: String
+    var correctionFactor: String
+    var mealInsulinFactor: String
+
+    // Computed Properties, die Strings automatisch in Double umwandeln
+    var targetBZDouble: Double {
+        return Double(targetBZ) ?? 110.0
+    }
+
+    var correctionFactorDouble: Double {
+        return Double(correctionFactor) ?? 20.0
+    }
+
+    var mealInsulinFactorDouble: Double {
+        return Double(mealInsulinFactor) ?? 1.0
+    }
 }
 
 // Default values for each time period
 let defaultValues: [TimePeriod: TimePeriodConfig] = [
-    .morning: TimePeriodConfig(targetBZ: 110, correctionFactor: 20, mealInsulinFactor: 1.0),
-    .noon: TimePeriodConfig(targetBZ: 110, correctionFactor: 20, mealInsulinFactor: 1.0),
-    .evening: TimePeriodConfig(targetBZ: 110, correctionFactor: 20, mealInsulinFactor: 1.0),
-    .night: TimePeriodConfig(targetBZ: 110, correctionFactor: 20, mealInsulinFactor: 1.0)
+    .morning: TimePeriodConfig(targetBZ: "110", correctionFactor: "20", mealInsulinFactor: "1.0"),
+    .noon: TimePeriodConfig(targetBZ: "110", correctionFactor: "20", mealInsulinFactor: "1.0"),
+    .evening: TimePeriodConfig(targetBZ: "110", correctionFactor: "20", mealInsulinFactor: "1.0"),
+    .night: TimePeriodConfig(targetBZ: "130", correctionFactor: "20", mealInsulinFactor: "1.0")
 ]

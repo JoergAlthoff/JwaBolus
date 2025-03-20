@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  JwaBolus
-//
-//  Created by Jörg Althoff on 28.02.25.
-//
 import SwiftUI
 
 struct ContentView: View {
@@ -23,16 +17,16 @@ struct ContentView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     // Eingabefelder
-                    InputFields(viewModel: viewModel)
+                    InputFields()
 
                     // Start-Button
-                    StartButton(viewModel: viewModel)
+                    StartButton()
 
                     // Tageszeiten-Ergebnisse
-                    Results(viewModel: viewModel)
+                    Results()
 
                     // Restinsulin-Anzeige
-                    RemainingInsulin(viewModel: viewModel)
+                    RemainingInsulin()
 
                     Spacer()
 
@@ -49,12 +43,13 @@ struct ContentView: View {
             )
             .sheet(isPresented: $showSettings) {
                 SettingsView()
+                    .environmentObject(settingsStorage) // 🔥 SettingsStorage übergeben
             }
             .sheet(isPresented: $showHelp) {
                 InfoView()
             }
             .onReceive(timer) { _ in
-                viewModel.objectWillChange.send()
+                viewModel.objectWillChange.send() // 🔍 Überprüfen, ob noch notwendig
             }
         }
         .navigationViewStyle(.stack)
@@ -63,5 +58,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(BolusViewModel(settingsStorage: SettingsStorage()))
+        .environmentObject(SettingsStorage())
         .preferredColorScheme(.dark)
 }
