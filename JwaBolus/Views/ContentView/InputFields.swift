@@ -2,13 +2,12 @@ import SwiftUI
 
 struct InputFields: View {
     @EnvironmentObject var viewModel: BolusViewModel
-    @EnvironmentObject var settingsStorage: SettingsStorage
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Aktueller BZ in \(settingsStorage.bloodGlucoseUnit.rawValue)")
+                Text("Aktueller BZ in \(viewModel.bloodGlucoseUnit.rawValue)")
                     .foregroundColor(.primary)
                 TextField("BZ eingeben", value: $viewModel.currentBG, format: .number)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -21,7 +20,7 @@ struct InputFields: View {
             .padding(.horizontal)
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("Kohlenhydrate in \(settingsStorage.carbUnit.rawValue)")
+                Text("Kohlenhydrate in \(viewModel.carbUnit.rawValue)")
                     .foregroundColor(.primary)
                 TextField("KH eingeben", value: $viewModel.carbohydrates, format: .number)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -68,6 +67,5 @@ struct InputFields: View {
 
 #Preview {
     InputFields()
-        .environmentObject(BolusViewModel(settingsStorage: SettingsStorage()))
-        .environmentObject(SettingsStorage())
+        .environmentObject(BolusViewModel())
 }

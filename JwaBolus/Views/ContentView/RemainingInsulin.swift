@@ -8,7 +8,6 @@ import SwiftUI
 
 struct RemainingInsulin: View {
     @EnvironmentObject var viewModel: BolusViewModel
-    @EnvironmentObject var settingsStorage: SettingsStorage
 
     @State private var elapsedTime: String = ""
 
@@ -43,11 +42,7 @@ struct RemainingInsulin: View {
 }
 
 #Preview {
-    let settingsStorage = SettingsStorage()
-    let viewModel = BolusViewModel(settingsStorage: settingsStorage)
-
     return RemainingInsulin()
-        .environmentObject(viewModel)
-        .environmentObject(settingsStorage)
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }

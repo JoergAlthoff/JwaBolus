@@ -4,7 +4,6 @@
 //
 //  Created by Jörg Althoff on 28.02.25.
 //
-
 import SwiftUI
 
 // Custom ButtonStyle that scales the button and changes its opacity when pressed

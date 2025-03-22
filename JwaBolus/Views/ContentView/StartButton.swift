@@ -2,7 +2,6 @@ import SwiftUI
 
 struct StartButton: View {
     @EnvironmentObject var viewModel: BolusViewModel
-    @EnvironmentObject var settingsStorage: SettingsStorage
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
@@ -24,7 +23,6 @@ struct StartButton: View {
 
 #Preview {
     StartButton()
-        .environmentObject(BolusViewModel(settingsStorage: SettingsStorage()))
-        .environmentObject(SettingsStorage())
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }

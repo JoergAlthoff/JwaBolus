@@ -30,7 +30,6 @@ struct ResultButton: View {
     ResultButton(title: "Morning", result: 2.5, onTap: {
         print("Button wurde getippt!")
     })
-    .environmentObject(SettingsStorage())
-    .environmentObject(BolusViewModel(settingsStorage: SettingsStorage()))
+    .environmentObject(BolusViewModel())
     .preferredColorScheme(.dark)
 }

@@ -2,63 +2,63 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: BolusViewModel
-    @EnvironmentObject var settingsStorage: SettingsStorage
 
     @State private var showSettings = false
     @State private var showHelp = false
 
-    // Timer, der alle 5 Minuten feuert
+    // Timer, every 5 Minuts to refresh view
     let timer = Timer.publish(every: 300, on: .main, in: .common).autoconnect()
+
+    // App comes to foreground
+    let willEnterForeground: NotificationCenter.Publisher =
+            NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
 
     @Environment(\.colorScheme) var colorScheme
 
+    init() {
+        print("🔄 ContentView re-rendered")
+    }
+
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Eingabefelder
-                    InputFields()
+        NavigationStack {
+            ZStack {
+                (colorScheme == .dark ? Color.black : Color.white)
+                    .ignoresSafeArea()
 
-                    // Start-Button
-                    StartButton()
-
-                    // Tageszeiten-Ergebnisse
-                    Results()
-
-                    // Restinsulin-Anzeige
-                    RemainingInsulin()
-
-                    Spacer()
-
-                    // Versionsanzeige
-                    ShowAppVersion()
+                ScrollView {
+                    VStack(spacing: 20) {
+                        InputFields()
+                        StartButton()
+                        Results()
+                        RemainingInsulin()
+                        Spacer()
+                        ShowAppVersion()
+                    }
+                    .padding(.vertical, 15)
                 }
-                .padding(.vertical, 25)
             }
-            .background(colorScheme == .dark ? Color.black : Color.white)
-            .navigationBarTitle("Bolusrechner")
-            .navigationBarItems(
-                leading: Button(action: { showHelp.toggle() }, label: { Image(systemName: "info.circle") }),
-                trailing: Button(action: { showSettings.toggle() }, label: { Image(systemName: "gearshape.fill") })
-            )
+            .navigationTitle("Bolusrechner")
+            .toolbar {
+                NavigationToolbar(showHelp: $showHelp, showSettings: $showSettings)
+            }
             .sheet(isPresented: $showSettings) {
                 SettingsView()
-                    .environmentObject(settingsStorage) // 🔥 SettingsStorage übergeben
             }
             .sheet(isPresented: $showHelp) {
                 InfoView()
             }
             .onReceive(timer) { _ in
-                viewModel.objectWillChange.send() // 🔍 Überprüfen, ob noch notwendig
+                viewModel.objectWillChange.send()
+            }
+            .onReceive(willEnterForeground) { _ in
+                viewModel.objectWillChange.send()
             }
         }
-        .navigationViewStyle(.stack)
     }
 }
 
 #Preview {
     ContentView()
-        .environmentObject(BolusViewModel(settingsStorage: SettingsStorage()))
-        .environmentObject(SettingsStorage())
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }

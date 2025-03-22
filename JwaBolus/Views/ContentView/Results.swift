@@ -33,7 +33,6 @@ struct Results: View {
 
 #Preview {
     Results()
-        .environmentObject(BolusViewModel(settingsStorage: SettingsStorage()))
-        .environmentObject(SettingsStorage())
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }
