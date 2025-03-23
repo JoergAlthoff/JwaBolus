@@ -6,7 +6,6 @@ struct SettingsView: View {
 
     let timePeriods: [TimePeriod] = [.morning, .noon, .evening, .night]
     @State private var expandedSections: Set<TimePeriod> = [.morning]
-    @State private var applyMorningSettings: Bool = false
 
     var body: some View {
         NavigationView {

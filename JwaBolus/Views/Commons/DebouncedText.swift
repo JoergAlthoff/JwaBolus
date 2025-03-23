@@ -8,7 +8,7 @@ import SwiftUI
 import Combine
 
 class DebouncedText: ObservableObject {
-    @Published var text: String = ""
+    @Published var text: String
     @Published var errorMessage: String? = nil
 
     private var cancellable: AnyCancellable?
@@ -16,16 +16,19 @@ class DebouncedText: ObservableObject {
     private let onCommit: (String) -> Void
 
     init(
+        initialText: String = "",
         delay: TimeInterval = 1.0,
         validator: @escaping (String) -> Bool = { _ in true },
         onCommit: @escaping (String) -> Void = { _ in }
     ) {
+        self.text = initialText
         self.validator = validator
         self.onCommit = onCommit
 
         cancellable = $text
             .debounce(for: .seconds(delay), scheduler: RunLoop.main)
             .sink { [weak self] newValue in
+                print("🔎 DebouncedText prüft: '\(newValue)'")
                 self?.validateAndCommit(newValue)
             }
     }

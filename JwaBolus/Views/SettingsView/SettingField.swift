@@ -14,26 +14,30 @@ struct SettingField: View {
 
     @StateObject private var debouncedText: DebouncedText
 
-    private static let numberRegex: String = #"^\d+([.,]\d+)?$"#
+    init(
+        title: String,
+        text: Binding<String>,
+        onCommit: @escaping () -> Void = {}
+    ) {
+        let initialText = text.wrappedValue  // Zugriff vor self init
 
-    init(title: String, text: Binding<String>, onCommit: @escaping () -> Void = {}) {
         self.title = title
         self._text = text
         self.onCommit = onCommit
 
-        _debouncedText = StateObject(
-            wrappedValue: DebouncedText(
-                validator: { input in
-                    input.range(of: Self.numberRegex, options: .regularExpression) != nil
-                },
-                onCommit: {
-                    text.wrappedValue = $0  // Update external binding after debounce
-                    onCommit()
-                }
-            )   // DebouncedText
-        )   // StateObject
-    }   // init
-
+        _debouncedText = StateObject(wrappedValue: DebouncedText(
+            initialText: initialText,
+            validator: { input in
+                let normalized = input.replacingOccurrences(of: ",", with: ".")
+                return Double(normalized) != nil
+            },
+            onCommit: { newValue in
+                let normalized = newValue.replacingOccurrences(of: ",", with: ".")
+                text.wrappedValue = normalized
+                onCommit()
+            }
+        ))
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -43,6 +47,7 @@ struct SettingField: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.decimalPad)
                 .onAppear {
+                    print("🟠 SettingField onAppear – text: \(text)")
                     debouncedText.text = text
                 }
                 .onChange(of: text) { oldValue, newValue in
@@ -59,3 +64,4 @@ struct SettingField: View {
         }
     }
 }
+

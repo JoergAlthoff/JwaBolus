@@ -31,10 +31,15 @@ class BolusViewModel: ObservableObject {
     // MARK: - Constants
     private let SECONDS_PER_HOUR = 3600
     private let MINUTES_PER_HOUR = 60
+    private static let defaultTargetBZ = "120"
+    private static let defaultCorrectionFactor = "20"
+    private static let defaultMealFactor = "1.0"
 
     // MARK: - Anzeige-Only Konvertierung für SettingsView
     func displayTargetBZ(for period: TimePeriod) -> String {
-        guard let raw = Double(timePeriodConfigs[period]?.targetBZ ?? "") else { return "" }
+        guard let raw = Double(timePeriodConfigs[period]?.targetBZ ?? "120") else {
+            return "120.0"
+        }
         let displayValue = UnitConverter.toDisplayBZ(raw, as: bloodGlucoseUnit)
         return String(format: "%.1f", displayValue)
     }
@@ -47,7 +52,9 @@ class BolusViewModel: ObservableObject {
     }
 
     func displayCorrectionFactor(for period: TimePeriod) -> String {
-        guard let raw = Double(timePeriodConfigs[period]?.correctionFactor ?? "") else { return "" }
+        guard let raw = Double(timePeriodConfigs[period]?.correctionFactor ?? "20") else {
+            return "20.0"
+        }
         let displayValue = UnitConverter.toDisplayBZ(raw, as: bloodGlucoseUnit)
         return String(format: "%.1f", displayValue)
     }
@@ -60,7 +67,9 @@ class BolusViewModel: ObservableObject {
     }
 
     func displayMealFactor(for period: TimePeriod) -> String {
-        guard let raw = Double(timePeriodConfigs[period]?.mealInsulinFactor ?? "") else { return "" }
+        guard let raw = Double(timePeriodConfigs[period]?.mealInsulinFactor ?? "1.0") else {
+            return "1.0"
+        }
         let displayValue = UnitConverter.toDisplayCarbs(raw, as: carbUnit)
         return String(format: "%.1f", displayValue)
     }
