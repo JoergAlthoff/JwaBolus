@@ -15,4 +15,11 @@ extension NumberFormatter {
         formatter.alwaysShowsDecimalSeparator = true
         return formatter
     }()
+
+    static var localizedDecimal: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .decimal
+        return formatter
+    }
 }

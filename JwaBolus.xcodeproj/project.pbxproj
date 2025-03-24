@@ -27,9 +27,9 @@
 		126A9A262D84D25000598446 /* RemainingInsulinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A9A252D84D25000598446 /* RemainingInsulinManager.swift */; };
 		1277E21B2D7910270069F6DA /* gpl-3.0-standalone.html in Resources */ = {isa = PBXBuildFile; fileRef = 1277E2192D7910260069F6DA /* gpl-3.0-standalone.html */; };
 		1277E21C2D7910270069F6DA /* gpl-3.0.de.html in Resources */ = {isa = PBXBuildFile; fileRef = 1277E21A2D7910260069F6DA /* gpl-3.0.de.html */; };
-		12B4FAA72D8A0E8C0022D585 /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAA52D8A0B460022D585 /* DecimalFormatter.swift */; };
+		12B4FAA72D8A0E8C0022D585 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAA52D8A0B460022D585 /* NumberFormatter.swift */; };
 		12B4FAA92D8A1D1E0022D585 /* PeriodSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAA82D8A1D1E0022D585 /* PeriodSettingsView.swift */; };
-		12B4FAAB2D8A1E9A0022D585 /* SettingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAAA2D8A1E9A0022D585 /* SettingField.swift */; };
+		12B4FAAB2D8A1E9A0022D585 /* ValidatedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAAA2D8A1E9A0022D585 /* ValidatedNumberField.swift */; };
 		12C3732D2D727FB200D40408 /* HelpText.html in Resources */ = {isa = PBXBuildFile; fileRef = 12C3732C2D727FB200D40408 /* HelpText.html */; };
 		12C449552D85D46500A74E45 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C449542D85D46500A74E45 /* KeyboardHelper.swift */; };
 		12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488072C03E71600620E0E /* JwaBolusApp.swift */; };
@@ -82,9 +82,9 @@
 		126A9A252D84D25000598446 /* RemainingInsulinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingInsulinManager.swift; sourceTree = "<group>"; };
 		1277E2192D7910260069F6DA /* gpl-3.0-standalone.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "gpl-3.0-standalone.html"; sourceTree = "<group>"; };
 		1277E21A2D7910260069F6DA /* gpl-3.0.de.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "gpl-3.0.de.html"; sourceTree = "<group>"; };
-		12B4FAA52D8A0B460022D585 /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
+		12B4FAA52D8A0B460022D585 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		12B4FAA82D8A1D1E0022D585 /* PeriodSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSettingsView.swift; sourceTree = "<group>"; };
-		12B4FAAA2D8A1E9A0022D585 /* SettingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingField.swift; sourceTree = "<group>"; };
+		12B4FAAA2D8A1E9A0022D585 /* ValidatedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedNumberField.swift; sourceTree = "<group>"; };
 		12C3732C2D727FB200D40408 /* HelpText.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = HelpText.html; sourceTree = "<group>"; };
 		12C449542D85D46500A74E45 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		12D488042C03E71600620E0E /* JwaBolus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JwaBolus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,7 +170,6 @@
 				12E5C1E32D8F5251004C6C65 /* CarbUnitSection.swift */,
 				12E5C1E12D8F5034004C6C65 /* BloodGlucoseUnitSection.swift */,
 				12E5C1E52D8F5439004C6C65 /* ApplyMorningButton.swift */,
-				12B4FAAA2D8A1E9A0022D585 /* SettingField.swift */,
 				12B4FAA82D8A1D1E0022D585 /* PeriodSettingsView.swift */,
 			);
 			path = SettingsView;
@@ -199,7 +198,7 @@
 		12C373162D72583F00D40408 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				12B4FAA52D8A0B460022D585 /* DecimalFormatter.swift */,
+				12B4FAA52D8A0B460022D585 /* NumberFormatter.swift */,
 				12C449542D85D46500A74E45 /* KeyboardHelper.swift */,
 				122428742D7236CB00CDFC96 /* CustomStyles.swift */,
 			);
@@ -279,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				12E5C1E82D8F5CFC004C6C65 /* DebouncedText.swift */,
+				12B4FAAA2D8A1E9A0022D585 /* ValidatedNumberField.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -422,11 +422,11 @@
 			files = (
 				1250AE752D736B0600AC9D25 /* ContentView.swift in Sources */,
 				126A9A242D84A45C00598446 /* CarbUnit.swift in Sources */,
-				12B4FAA72D8A0E8C0022D585 /* DecimalFormatter.swift in Sources */,
+				12B4FAA72D8A0E8C0022D585 /* NumberFormatter.swift in Sources */,
 				12E5C1E62D8F5439004C6C65 /* ApplyMorningButton.swift in Sources */,
 				121228DA2D762C2100907135 /* ShowAppVersion.swift in Sources */,
 				126A9A262D84D25000598446 /* RemainingInsulinManager.swift in Sources */,
-				12B4FAAB2D8A1E9A0022D585 /* SettingField.swift in Sources */,
+				12B4FAAB2D8A1E9A0022D585 /* ValidatedNumberField.swift in Sources */,
 				1250AE762D736B0600AC9D25 /* InputFields.swift in Sources */,
 				1247D5302D8D74EB00CE35C3 /* UnitConverter.swift in Sources */,
 				12E5C1E02D8F4F8E004C6C65 /* InsulinManagementSection.swift in Sources */,

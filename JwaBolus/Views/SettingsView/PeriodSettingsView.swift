@@ -11,7 +11,7 @@ struct PeriodSettingsView: View {
 
     var body: some View {
         VStack {
-            SettingField(
+            ValidatedNumberField(
                 title: "Ziel-BZ (\(viewModel.bloodGlucoseUnit.rawValue))",
                 text: Binding(
                     get: { viewModel.displayTargetBZ(for: period) },
@@ -19,7 +19,7 @@ struct PeriodSettingsView: View {
                 )
             )
 
-            SettingField(
+            ValidatedNumberField(
                 title: "Korrekturfaktor (\(viewModel.bloodGlucoseUnit.rawValue))",
                 text: Binding(
                     get: { viewModel.displayCorrectionFactor(for: period) },
@@ -27,7 +27,7 @@ struct PeriodSettingsView: View {
                 )
             )
 
-            SettingField(
+            ValidatedNumberField(
                 title: "Mahlzeiten-Insulin",
                 text: Binding(
                     get: { viewModel.displayMealFactor(for: period) },

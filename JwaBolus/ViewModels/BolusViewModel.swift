@@ -2,8 +2,18 @@ import SwiftUI
 
 class BolusViewModel: ObservableObject {
     // MARK: - UI-Related Values
-    @Published var currentBG: Double = 0
-    @Published var carbohydrates: Double = 0
+    @Published var currentBG: Double = 0 {
+        didSet {
+            currentBGConverted = bloodGlucoseUnit.toMGDL(value: currentBG)
+        }
+    }
+
+    @Published var carbohydrates: Double = 0 {
+        didSet {
+            carbohydratesConverted = carbUnit.toGrams(value: carbohydrates)
+        }
+    }
+
     @Published var totalInsulinUnits: Double?
     @Published var resultsPerTimePeriod: [TimePeriod: Double] = [:]
     @Published var sportIntensity: SportIntensity = .none
@@ -135,7 +145,7 @@ class BolusViewModel: ObservableObject {
 
             results[period] = totalIU
 
-            print("Period: \(period), Carbs: \(currentCarbs), BG: \(currentBGValue), Bolus: \(bolusIU), Korrektur: \(correctionIU), Total: \(totalIU)")
+            print("Period: \(period), Carbs: \(currentCarbs), BG: \(currentBGValue), Sport: \(sportIntensity.sportFaktor), Bolus: \(bolusIU), Korrektur: \(correctionIU), Total: \(totalIU)")
         }
 
         print("Ergebnisse:", results)

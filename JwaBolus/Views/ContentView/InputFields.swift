@@ -7,28 +7,24 @@ struct InputFields: View {
     var body: some View {
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Aktueller BZ in \(viewModel.bloodGlucoseUnit.rawValue)")
-                    .foregroundColor(.primary)
-                TextField("BZ eingeben", value: $viewModel.currentBG, format: .number)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.numberPad)
-                    .padding(4)
-                    .background(Color(UIColor.systemGray6))
-                    .cornerRadius(8)
-                    .onSubmit { KeyboardHelper.hideKeyboard() }
+                ValidatedNumberField(
+                    title: "Aktueller BZ in \(viewModel.bloodGlucoseUnit.rawValue)",
+                    text: Binding(
+                        get: { String(viewModel.currentBG) },
+                        set: { viewModel.currentBG = Double($0) ?? 0 }
+                    )
+                )
             }
             .padding(.horizontal)
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("Kohlenhydrate in \(viewModel.carbUnit.rawValue)")
-                    .foregroundColor(.primary)
-                TextField("KH eingeben", value: $viewModel.carbohydrates, format: .number)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.numberPad)
-                    .padding(4)
-                    .background(Color(UIColor.systemGray6))
-                    .cornerRadius(8)
-                    .onSubmit { KeyboardHelper.hideKeyboard() }
+                ValidatedNumberField(
+                    title: "Kohlenhydrate in \(viewModel.carbUnit.rawValue)",
+                    text: Binding(
+                        get: { String(viewModel.carbohydrates) },
+                        set: { viewModel.carbohydrates = Double($0) ?? 0 }
+                    )
+                )
             }
             .padding(.horizontal)
 
