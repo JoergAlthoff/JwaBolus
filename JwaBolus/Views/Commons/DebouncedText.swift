@@ -42,7 +42,7 @@ class DebouncedText: ObservableObject {
             errorMessage = nil
             onCommit(value)
         } else {
-            errorMessage = "Invalid input"
+            errorMessage = "Ungültige Eingabe"
             print(errorMessage!)
         }
     }
