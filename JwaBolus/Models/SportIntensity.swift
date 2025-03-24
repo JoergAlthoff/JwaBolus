@@ -7,7 +7,7 @@
 import Foundation
 
 enum SportIntensity: String, CaseIterable {
-    case no = "Keiner"
+    case none = "Keiner"
     case light = "Leicht"
     case moderate = "Moderat"
     case intense = "Intensiv"
@@ -17,7 +17,7 @@ enum SportIntensity: String, CaseIterable {
         case .light: return 0.75
         case .moderate: return 0.67
         case .intense: return 0.5
-        case .no: return 1.0
+        case .none: return 1.0
         }
     }
 }

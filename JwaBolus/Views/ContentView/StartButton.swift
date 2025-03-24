@@ -1,18 +1,14 @@
-//
-//  StartButtonView.swift
-//  JwaBolus
-//
-//  Created by Jörg Althoff on 28.02.25.
-//
 import SwiftUI
 
 struct StartButton: View {
-    let viewModel: BolusViewModel
-
+    @EnvironmentObject var viewModel: BolusViewModel
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
-        Button(action: viewModel.calculateInsulinDose) {
+        Button(action: {
+            KeyboardHelper.hideKeyboard()
+            viewModel.calculateInsulinDose()
+        }) {
             Text("Start")
                 .font(.title2)
                 .frame(maxWidth: .infinity)
@@ -26,6 +22,7 @@ struct StartButton: View {
 }
 
 #Preview {
-    ContentView()
+    StartButton()
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }
