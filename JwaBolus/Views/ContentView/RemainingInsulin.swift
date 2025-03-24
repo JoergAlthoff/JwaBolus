@@ -18,8 +18,8 @@ struct RemainingInsulin: View {
 
     var body: some View {
         let labelText = """
-            Restinsulin ca. \(String(format: "%.1f", viewModel.remainingInsulin)) IE
-            Gespeichert vor \(elapsedTime) Stunden
+            \(String(format: NSLocalizedString("remainingInsulinLine", comment: ""), viewModel.remainingInsulin))
+            \(String(format: NSLocalizedString("savedTimeLine", comment: ""), elapsedTime))
             """
 
         VStack(spacing: 5) {
@@ -33,7 +33,7 @@ struct RemainingInsulin: View {
         }
         .padding()
         .onAppear {
-            updateElapsedTime() // Erste Aktualisierung direkt bei Anzeige
+            updateElapsedTime() // Initial update immediately upon display
             Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { _ in
                 updateElapsedTime()
             }

@@ -5,7 +5,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
 
     let timePeriods: [TimePeriod] = [.morning, .noon, .evening, .night]
-    @State private var expandedSections: Set<TimePeriod> = [.morning]
+    @State private(set) var expandedSections: Set<TimePeriod> = [.morning]
 
     var body: some View {
         NavigationView {
@@ -25,16 +25,20 @@ struct SettingsView: View {
                     }
                 }
             }
-            .navigationTitle("Einstellungen")
-            .navigationBarItems(trailing: Button("Fertig") {
-                dismiss()
-            })
+            .navigationTitle("settings")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("done") {
+                        dismiss()
+                    }
+                }
+            }
         }
     }
 
     private func applyMorningSettingsToAll() {
         guard let morningSettings = viewModel.timePeriodConfigs[.morning] else {
-            print("❌ Fehler: Kein Config für Früh gefunden!")
+            print(Constants.noMorningConfigError)
             return
         }
 
@@ -47,7 +51,7 @@ struct SettingsView: View {
             )
         }
 
-        // 🔥 Speichern der aktualisierten Werte ins ViewModel
+        // 🔥 Store actualized values to ViewModel
         viewModel.timePeriodConfigs = updatedConfigs
     }
 
@@ -63,10 +67,19 @@ struct SettingsView: View {
                     expandedSections.insert(period)
                 }
             }, label: {
-                Image(systemName: expandedSections.contains(period) ? "chevron.down" : "chevron.right")
+                Image(systemName: expandedSections.contains(period) ? Symbols.chevronDown : Symbols.chevronRight)
                     .foregroundColor(.blue)
             })
         }
+    }
+
+    private enum Constants {
+        static let noMorningConfigError = "❌ Error: No Config found for morning!"
+    }
+
+    private enum Symbols {
+        static let chevronDown = "chevron.down"
+        static let chevronRight = "chevron.right"
     }
 }
 

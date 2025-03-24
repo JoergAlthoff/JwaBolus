@@ -9,7 +9,7 @@ struct StartButton: View {
             KeyboardHelper.hideKeyboard()
             viewModel.calculateInsulinDose()
         }) {
-            Text("Start")
+            Text("startButton")
                 .font(.title2)
                 .frame(maxWidth: .infinity)
                 .padding()

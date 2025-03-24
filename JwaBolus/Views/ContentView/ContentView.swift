@@ -37,7 +37,7 @@ struct ContentView: View {
                     .padding(.vertical, 15)
                 }
             }
-            .navigationTitle("Bolusrechner")
+            .navigationTitle("appTitle")
             .toolbar {
                 NavigationToolbar(showHelp: $showHelp, showSettings: $showSettings)
             }

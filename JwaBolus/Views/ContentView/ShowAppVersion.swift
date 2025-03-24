@@ -11,13 +11,18 @@ struct ShowAppVersion: View {
 
     var body: some View {
 
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-           let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+        if let version = Bundle.main.infoDictionary?[InfoPlistKeys.version] as? String,
+           let build = Bundle.main.infoDictionary?[InfoPlistKeys.build] as? String {
             Text("Version \(version) (Build \(build))")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .padding(.bottom, 10)
         }
+    }
+
+    enum InfoPlistKeys {
+        static let version = "CFBundleShortVersionString"
+        static let build = "CFBundleVersion"
     }
 }
 
