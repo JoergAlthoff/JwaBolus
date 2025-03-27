@@ -29,8 +29,12 @@ struct SettingsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("done") {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         dismiss()
                     }
+                    .accessibilityLabel(Text("accessibility.done"))
+                    .accessibilityHint(Text("accessibility.hint.done"))
+
                 }
             }
         }
@@ -45,7 +49,7 @@ struct SettingsView: View {
         var updatedConfigs = viewModel.timePeriodConfigs
         for period in timePeriods where period != .morning {
             updatedConfigs[period] = TimePeriodConfig(
-                targetBZ: morningSettings.targetBZ,
+                targetBg: morningSettings.targetBg,
                 correctionFactor: morningSettings.correctionFactor,
                 mealInsulinFactor: morningSettings.mealInsulinFactor
             )
@@ -57,29 +61,37 @@ struct SettingsView: View {
 
     private func headerView(for period: TimePeriod) -> some View {
         HStack {
-            Text(period.rawValue)
+            Text(period.localizedValue)
                 .font(.headline)
             Spacer()
-            Button(action: {
-                if expandedSections.contains(period) {
-                    expandedSections.remove(period)
-                } else {
-                    expandedSections.insert(period)
-                }
-            }, label: {
-                Image(systemName: expandedSections.contains(period) ? Symbols.chevronDown : Symbols.chevronRight)
+            Button(
+                action: {
+                    if expandedSections.contains(period) {
+                        expandedSections.remove(period)
+                    } else {
+                        expandedSections.insert(period)
+                    }
+                },
+                label: {
+                    Image(systemName: expandedSections.contains(period)
+                          ? SymbolNames.chevronDown : SymbolNames.chevronRight)
                     .foregroundColor(.blue)
-            })
+                }
+            )
+            .accessibilityLabel(
+                Text(expandedSections.contains(period)
+                     ? "accessibility.chevron.collapse" : "accessibility.chevron.expand")
+            )
+            .accessibilityHint(
+                Text(expandedSections.contains(period)
+                     ? "accessibility.hint.chevron.collapse"
+                     : "accessibility.hint.chevron.expand")
+            )
         }
     }
 
     private enum Constants {
         static let noMorningConfigError = "❌ Error: No Config found for morning!"
-    }
-
-    private enum Symbols {
-        static let chevronDown = "chevron.down"
-        static let chevronRight = "chevron.right"
     }
 }
 

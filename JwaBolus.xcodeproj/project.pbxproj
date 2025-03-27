@@ -10,8 +10,14 @@
 		120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */; };
 		120BE5DB2D5FE9D900CFCF4F /* BolusViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */; };
 		120CBFA82D836BEB00388B78 /* SportIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120CBFA72D836BEB00388B78 /* SportIntensity.swift */; };
+		12109B362D94AE3700B0833B /* gpl-3.0.md in Resources */ = {isa = PBXBuildFile; fileRef = 12109B332D94AE3700B0833B /* gpl-3.0.md */; };
+		12109B372D94AE3700B0833B /* gpl-3.0.txt in Resources */ = {isa = PBXBuildFile; fileRef = 12109B342D94AE3700B0833B /* gpl-3.0.txt */; };
+		12109B3B2D94B7BE00B0833B /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 12109B3A2D94B7BE00B0833B /* Algorithms */; };
+		12109B3D2D94B82800B0833B /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 12109B3C2D94B82800B0833B /* Algorithms */; };
+		12109B3F2D94B83A00B0833B /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 12109B3E2D94B83A00B0833B /* MarkdownUI */; };
 		121228DA2D762C2100907135 /* ShowAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121228D92D762C2100907135 /* ShowAppVersion.swift */; };
 		122428752D7236CB00CDFC96 /* CustomStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122428742D7236CB00CDFC96 /* CustomStyles.swift */; };
+		12308B5E2D95B18500F90717 /* MarkdownText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12308B5D2D95B18500F90717 /* MarkdownText.swift */; };
 		1237A3382D91FCE2002A1DC0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1237A3372D91FCE2002A1DC0 /* Localizable.strings */; };
 		1237A33A2D91FD2F002A1DC0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1237A3342D91FCAC002A1DC0 /* Localizable.strings */; };
 		124792B22D6B9B7A003B4F13 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124792B12D6B9B65003B4F13 /* TimePeriod.swift */; };
@@ -23,16 +29,15 @@
 		1250AE7A2D736B0600AC9D25 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE6F2D736B0600AC9D25 /* Results.swift */; };
 		1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE712D736B0600AC9D25 /* InfoView.swift */; };
 		1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE722D736B0600AC9D25 /* SettIngsView.swift */; };
-		1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AE732D736B0600AC9D25 /* WebView.swift */; };
 		126A9A222D84A44500598446 /* BloodGlucoseUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A9A212D84A44500598446 /* BloodGlucoseUnit.swift */; };
 		126A9A242D84A45C00598446 /* CarbUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A9A232D84A45C00598446 /* CarbUnit.swift */; };
 		126A9A262D84D25000598446 /* RemainingInsulinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A9A252D84D25000598446 /* RemainingInsulinManager.swift */; };
-		1277E21B2D7910270069F6DA /* gpl-3.0-standalone.html in Resources */ = {isa = PBXBuildFile; fileRef = 1277E2192D7910260069F6DA /* gpl-3.0-standalone.html */; };
-		1277E21C2D7910270069F6DA /* gpl-3.0.de.html in Resources */ = {isa = PBXBuildFile; fileRef = 1277E21A2D7910260069F6DA /* gpl-3.0.de.html */; };
+		1277E4622D930F7C00EA2D3C /* SymbolNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1277E4612D930F7C00EA2D3C /* SymbolNames.swift */; };
+		1277E4642D93305200EA2D3C /* SportIntensityMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1277E4632D93305200EA2D3C /* SportIntensityMenu.swift */; };
+		1277E4662D93668300EA2D3C /* ConversionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1277E4652D93668300EA2D3C /* ConversionConstants.swift */; };
 		12B4FAA72D8A0E8C0022D585 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAA52D8A0B460022D585 /* NumberFormatter.swift */; };
 		12B4FAA92D8A1D1E0022D585 /* PeriodSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAA82D8A1D1E0022D585 /* PeriodSettingsView.swift */; };
 		12B4FAAB2D8A1E9A0022D585 /* ValidatedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAAA2D8A1E9A0022D585 /* ValidatedNumberField.swift */; };
-		12C3732D2D727FB200D40408 /* HelpText.html in Resources */ = {isa = PBXBuildFile; fileRef = 12C3732C2D727FB200D40408 /* HelpText.html */; };
 		12C449552D85D46500A74E45 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C449542D85D46500A74E45 /* KeyboardHelper.swift */; };
 		12D488082C03E71600620E0E /* JwaBolusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D488072C03E71600620E0E /* JwaBolusApp.swift */; };
 		12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D4880B2C03E71700620E0E /* Assets.xcassets */; };
@@ -44,6 +49,9 @@
 		12E5C1E42D8F5251004C6C65 /* CarbUnitSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E5C1E32D8F5251004C6C65 /* CarbUnitSection.swift */; };
 		12E5C1E62D8F5439004C6C65 /* ApplyMorningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E5C1E52D8F5439004C6C65 /* ApplyMorningButton.swift */; };
 		12E5C1E92D8F5CFC004C6C65 /* DebouncedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E5C1E82D8F5CFC004C6C65 /* DebouncedText.swift */; };
+		12E6A52F2D9475AC00629861 /* InitialSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6A52E2D9475AC00629861 /* InitialSetupView.swift */; };
+		12E6A5322D94877000629861 /* HelpContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6A5312D94877000629861 /* HelpContentView.swift */; };
+		12E6A5362D94A0A300629861 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6A5352D94A0A300629861 /* LicenseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +75,11 @@
 		120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModel.swift; sourceTree = "<group>"; };
 		120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModelTests.swift; sourceTree = "<group>"; };
 		120CBFA72D836BEB00388B78 /* SportIntensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportIntensity.swift; sourceTree = "<group>"; };
+		12109B332D94AE3700B0833B /* gpl-3.0.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "gpl-3.0.md"; sourceTree = "<group>"; };
+		12109B342D94AE3700B0833B /* gpl-3.0.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "gpl-3.0.txt"; sourceTree = "<group>"; };
 		121228D92D762C2100907135 /* ShowAppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAppVersion.swift; sourceTree = "<group>"; };
 		122428742D7236CB00CDFC96 /* CustomStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyles.swift; sourceTree = "<group>"; };
+		12308B5D2D95B18500F90717 /* MarkdownText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownText.swift; sourceTree = "<group>"; };
 		1237A3362D91FCE2002A1DC0 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		1237A33B2D91FD38002A1DC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		124792B12D6B9B65003B4F13 /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
@@ -80,16 +91,15 @@
 		1250AE6F2D736B0600AC9D25 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		1250AE712D736B0600AC9D25 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		1250AE722D736B0600AC9D25 /* SettIngsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettIngsView.swift; sourceTree = "<group>"; };
-		1250AE732D736B0600AC9D25 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		126A9A212D84A44500598446 /* BloodGlucoseUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGlucoseUnit.swift; sourceTree = "<group>"; };
 		126A9A232D84A45C00598446 /* CarbUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbUnit.swift; sourceTree = "<group>"; };
 		126A9A252D84D25000598446 /* RemainingInsulinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingInsulinManager.swift; sourceTree = "<group>"; };
-		1277E2192D7910260069F6DA /* gpl-3.0-standalone.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "gpl-3.0-standalone.html"; sourceTree = "<group>"; };
-		1277E21A2D7910260069F6DA /* gpl-3.0.de.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "gpl-3.0.de.html"; sourceTree = "<group>"; };
+		1277E4612D930F7C00EA2D3C /* SymbolNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolNames.swift; sourceTree = "<group>"; };
+		1277E4632D93305200EA2D3C /* SportIntensityMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportIntensityMenu.swift; sourceTree = "<group>"; };
+		1277E4652D93668300EA2D3C /* ConversionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionConstants.swift; sourceTree = "<group>"; };
 		12B4FAA52D8A0B460022D585 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		12B4FAA82D8A1D1E0022D585 /* PeriodSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSettingsView.swift; sourceTree = "<group>"; };
 		12B4FAAA2D8A1E9A0022D585 /* ValidatedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedNumberField.swift; sourceTree = "<group>"; };
-		12C3732C2D727FB200D40408 /* HelpText.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = HelpText.html; sourceTree = "<group>"; };
 		12C449542D85D46500A74E45 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		12D488042C03E71600620E0E /* JwaBolus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JwaBolus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D488072C03E71600620E0E /* JwaBolusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaBolusApp.swift; sourceTree = "<group>"; };
@@ -104,6 +114,9 @@
 		12E5C1E32D8F5251004C6C65 /* CarbUnitSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbUnitSection.swift; sourceTree = "<group>"; };
 		12E5C1E52D8F5439004C6C65 /* ApplyMorningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyMorningButton.swift; sourceTree = "<group>"; };
 		12E5C1E82D8F5CFC004C6C65 /* DebouncedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncedText.swift; sourceTree = "<group>"; };
+		12E6A52E2D9475AC00629861 /* InitialSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetupView.swift; sourceTree = "<group>"; };
+		12E6A5312D94877000629861 /* HelpContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpContentView.swift; sourceTree = "<group>"; };
+		12E6A5352D94A0A300629861 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +124,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12109B3F2D94B83A00B0833B /* MarkdownUI in Frameworks */,
+				12109B3D2D94B82800B0833B /* Algorithms in Frameworks */,
+				12109B3B2D94B7BE00B0833B /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12109B352D94AE3700B0833B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				12109B332D94AE3700B0833B /* gpl-3.0.md */,
+				12109B342D94AE3700B0833B /* gpl-3.0.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		1237A3322D91FC7A002A1DC0 /* de.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +178,7 @@
 				1250AE6A2D736B0600AC9D25 /* ContentView.swift */,
 				12E5C1DD2D8F0DB8004C6C65 /* NavigationToolbar.swift */,
 				1250AE6B2D736B0600AC9D25 /* InputFields.swift */,
+				1277E4632D93305200EA2D3C /* SportIntensityMenu.swift */,
 				1250AE6E2D736B0600AC9D25 /* StartButton.swift */,
 				1250AE6F2D736B0600AC9D25 /* Results.swift */,
 				1250AE6D2D736B0600AC9D25 /* RemainingInsulin.swift */,
@@ -165,6 +191,7 @@
 		1250AE742D736B0600AC9D25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				12E6A5302D94800000629861 /* Onboarding */,
 				12E5C1E72D8F5CDB004C6C65 /* Commons */,
 				1250AE702D736B0600AC9D25 /* ContentView */,
 				1250AE7E2D736B6000AC9D25 /* InfoView */,
@@ -177,7 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				1250AE712D736B0600AC9D25 /* InfoView.swift */,
-				1250AE732D736B0600AC9D25 /* WebView.swift */,
+				12E6A5312D94877000629861 /* HelpContentView.swift */,
+				12E6A5352D94A0A300629861 /* LicenseView.swift */,
 			);
 			path = InfoView;
 			sourceTree = "<group>";
@@ -198,6 +226,7 @@
 		126A9A272D84DC5600598446 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1277E4652D93668300EA2D3C /* ConversionConstants.swift */,
 				1247D52F2D8D74EB00CE35C3 /* UnitConverter.swift */,
 				126A9A232D84A45C00598446 /* CarbUnit.swift */,
 				126A9A212D84A44500598446 /* BloodGlucoseUnit.swift */,
@@ -218,6 +247,7 @@
 		12C373162D72583F00D40408 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				12308B5D2D95B18500F90717 /* MarkdownText.swift */,
 				12B4FAA52D8A0B460022D585 /* NumberFormatter.swift */,
 				12C449542D85D46500A74E45 /* KeyboardHelper.swift */,
 				122428742D7236CB00CDFC96 /* CustomStyles.swift */,
@@ -233,20 +263,9 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		12D320EF2D75077A00489FCC /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				12C3732C2D727FB200D40408 /* HelpText.html */,
-				1277E21A2D7910260069F6DA /* gpl-3.0.de.html */,
-				1277E2192D7910260069F6DA /* gpl-3.0-standalone.html */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		12D487FB2C03E71600620E0E = {
 			isa = PBXGroup;
 			children = (
-				12D320EF2D75077A00489FCC /* Resources */,
 				12D488062C03E71600620E0E /* JwaBolus */,
 				12D488172C03E71700620E0E /* JwaBolusTests */,
 				12D488052C03E71600620E0E /* Products */,
@@ -266,6 +285,7 @@
 		12D488062C03E71600620E0E /* JwaBolus */ = {
 			isa = PBXGroup;
 			children = (
+				12109B352D94AE3700B0833B /* Resources */,
 				1237A3332D91FC9C002A1DC0 /* en.lproj */,
 				1237A3322D91FC7A002A1DC0 /* de.lproj */,
 				126A9A282D84DEFD00598446 /* Logic */,
@@ -299,10 +319,19 @@
 		12E5C1E72D8F5CDB004C6C65 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				1277E4612D930F7C00EA2D3C /* SymbolNames.swift */,
 				12E5C1E82D8F5CFC004C6C65 /* DebouncedText.swift */,
 				12B4FAAA2D8A1E9A0022D585 /* ValidatedNumberField.swift */,
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		12E6A5302D94800000629861 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				12E6A52E2D9475AC00629861 /* InitialSetupView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +425,8 @@
 			mainGroup = 12D487FB2C03E71600620E0E;
 			packageReferences = (
 				128CFAF22D82426F00DE4F2A /* XCLocalSwiftPackageReference "SwiftLintPlugins" */,
+				12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */,
+				12109B392D94B7BE00B0833B /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 12D488052C03E71600620E0E /* Products */;
 			projectDirPath = "";
@@ -416,10 +447,9 @@
 				12D4880F2C03E71700620E0E /* Preview Assets.xcassets in Resources */,
 				1237A3382D91FCE2002A1DC0 /* Localizable.strings in Resources */,
 				12D4880C2C03E71700620E0E /* Assets.xcassets in Resources */,
+				12109B362D94AE3700B0833B /* gpl-3.0.md in Resources */,
+				12109B372D94AE3700B0833B /* gpl-3.0.txt in Resources */,
 				1237A33A2D91FD2F002A1DC0 /* Localizable.strings in Resources */,
-				12C3732D2D727FB200D40408 /* HelpText.html in Resources */,
-				1277E21B2D7910270069F6DA /* gpl-3.0-standalone.html in Resources */,
-				1277E21C2D7910270069F6DA /* gpl-3.0.de.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,8 +474,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1277E4642D93305200EA2D3C /* SportIntensityMenu.swift in Sources */,
 				1250AE752D736B0600AC9D25 /* ContentView.swift in Sources */,
 				126A9A242D84A45C00598446 /* CarbUnit.swift in Sources */,
+				12E6A5322D94877000629861 /* HelpContentView.swift in Sources */,
 				12B4FAA72D8A0E8C0022D585 /* NumberFormatter.swift in Sources */,
 				12E5C1E62D8F5439004C6C65 /* ApplyMorningButton.swift in Sources */,
 				121228DA2D762C2100907135 /* ShowAppVersion.swift in Sources */,
@@ -453,20 +485,24 @@
 				12B4FAAB2D8A1E9A0022D585 /* ValidatedNumberField.swift in Sources */,
 				1250AE762D736B0600AC9D25 /* InputFields.swift in Sources */,
 				1247D5302D8D74EB00CE35C3 /* UnitConverter.swift in Sources */,
+				12E6A52F2D9475AC00629861 /* InitialSetupView.swift in Sources */,
 				12E5C1E02D8F4F8E004C6C65 /* InsulinManagementSection.swift in Sources */,
 				12E5C1E22D8F5034004C6C65 /* BloodGlucoseUnitSection.swift in Sources */,
 				1250AE782D736B0600AC9D25 /* RemainingInsulin.swift in Sources */,
+				1277E4662D93668300EA2D3C /* ConversionConstants.swift in Sources */,
 				1250AE792D736B0600AC9D25 /* StartButton.swift in Sources */,
 				1250AE7A2D736B0600AC9D25 /* Results.swift in Sources */,
 				12E5C1DE2D8F0DB8004C6C65 /* NavigationToolbar.swift in Sources */,
 				120CBFA82D836BEB00388B78 /* SportIntensity.swift in Sources */,
 				12B4FAA92D8A1D1E0022D585 /* PeriodSettingsView.swift in Sources */,
+				12E6A5362D94A0A300629861 /* LicenseView.swift in Sources */,
 				12C449552D85D46500A74E45 /* KeyboardHelper.swift in Sources */,
+				1277E4622D930F7C00EA2D3C /* SymbolNames.swift in Sources */,
 				1250AE7B2D736B0600AC9D25 /* InfoView.swift in Sources */,
 				126A9A222D84A44500598446 /* BloodGlucoseUnit.swift in Sources */,
+				12308B5E2D95B18500F90717 /* MarkdownText.swift in Sources */,
 				1250AE7C2D736B0600AC9D25 /* SettIngsView.swift in Sources */,
 				12E5C1E42D8F5251004C6C65 /* CarbUnitSection.swift in Sources */,
-				1250AE7D2D736B0600AC9D25 /* WebView.swift in Sources */,
 				122428752D7236CB00CDFC96 /* CustomStyles.swift in Sources */,
 				120BE5D92D5FE84600CFCF4F /* BolusViewModel.swift in Sources */,
 				124792B22D6B9B7A003B4F13 /* TimePeriod.swift in Sources */,
@@ -832,6 +868,43 @@
 			relativePath = SwiftLintPlugins;
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/MarkdownUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
+		12109B392D94B7BE00B0833B /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		12109B3A2D94B7BE00B0833B /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12109B392D94B7BE00B0833B /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		12109B3C2D94B82800B0833B /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12109B392D94B7BE00B0833B /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		12109B3E2D94B83A00B0833B /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 12D487FC2C03E71600620E0E /* Project object */;
 }

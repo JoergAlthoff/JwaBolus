@@ -1,18 +1,127 @@
-"targetBZ" = "Target BG";
-"correctionFactor" = "Correction Factor";
-"mealFactor" = "Meal Insulin";
-"startButton" = "Start";
-"settings" = "Settings";
-"invalidInput" = "Invalid input";
-"bloodGlucose" = "Blood Glucose";
-"carbohydrates" = "Carbohydrates";
-"settings" = "Settings";
+/// MARK: - General
+"app.title" = "Bolus Calculator";
 "done" = "Done";
-"invalidInput" = "Invalid input";
-"targetBGTitle" = "Target BG (%@)";
-"correctionFactorTitle" = "Correction Factor (%@)";
-"mealFactorTitle" = "Meal Insulin";
-"appTitle" = "Bolus Calculator";
-"startButton" = "Start";
-"remainingInsulinLine" = "Remaining insulin approx. %.1f IU";
-"savedTimeLine" = "Saved %@ hours ago";
+"invalid.input" = "Invalid input";
+"settings" = "Settings";
+"startButton.title" = "Start";
+
+/// MARK: - Units
+"bgunit.mgdl" = "mg/dL";
+"bgunit.mmol" = "mmol/L";
+"bgunit.picker.label" = "Unit";
+"bgunit.section.title" = "Blood Glucose Unit";
+
+"carbunit.bu" = "BU";
+"carbunit.cu" = "CU";
+"carbunit.grams" = "g";
+"carbunit.picker.label" = "Unit";
+"carbunit.section.title" = "Carbohydrate Unit";
+
+/// MARK: - Input Texts
+"input.bg.title" = "Current BG in %@";
+"input.carbohydrates.title" = "Carbohydrates in %@";
+
+/// MARK: - Target & Factors
+"target.bg" = "Target BG";
+"target.bg.title" = "Target BG (%@)";
+"correction.factor" = "Correction Factor";
+"correction.factor.title" = "Correction Factor (%@)";
+"meal.factor" = "Meal Insulin";
+"meal.factor.title" = "Meal Insulin";
+
+/// MARK: - Insulin Results
+"remaining.insulin.iu" = "Remaining insulin approx. %.1f IU";
+"saved.insulin.time" = "Saved %@ hours ago";
+"insulin.section.title" = "Insulin Duration & Reset";
+"insulin.duration.label" = "%.1f hours";
+"resetInsulin.button.title" = "Reset Remaining Insulin";
+"applyMorning.button.title" = "Apply morning settings to all time periods";
+"results.headline" = "Units (IU) by time of day";
+"results.footnote" = "The buttons Morning to Night save the value for remaining insulin calculation";
+
+/// MARK: - Time Periods
+"timePeriod.morning" = "Morning";
+"timePeriod.noon" = "Noon";
+"timePeriod.evening" = "Evening";
+"timePeriod.night" = "Night";
+
+/// MARK: - Sport
+"sport.menu.title" = "Sport within 2 hours:";
+"sportintensity.none" = "No sport";
+"sportintensity.light" = "Light exercise";
+"sportintensity.moderate" = "Moderate exercise";
+"sportintensity.intense" = "Intense exercise";
+
+/// MARK: - Accessibility – General
+"accessibility.done" = "Close";
+
+/// MARK: - Accessibility Hints (English)
+"accessibility.hint.info" = "Opens help and legal information";
+"accessibility.hint.settings" = "Opens settings to customize your parameters";
+"accessibility.hint.startButton" = "Calculates the recommended insulin dose";
+"accessibility.hint.resultButton" = "Saves the value for remaining insulin calculation";
+"accessibility.hint.applyMorning" = "Copies the morning settings to all time periods";
+"accessibility.hint.resetInsulin" = "Resets the stored remaining insulin to zero";
+"accessibility.hint.expandSection" = "Tap to show values for this time period";
+"accessibility.hint.collapseSection" = "Tap to hide values for this time period";
+"accessibility.hint.initialSetup.done" = "Completes the setup and shows the main interface";
+"accessibility.hint.done" = "Closes the settings and returns";
+"accessibility.hint.chevron.expand" = "Tap to show input fields for this time period";
+"accessibility.hint.chevron.collapse" = "Tap to hide input fields for this time period";
+"accessibility.hint.resetInsulin" = "Resets the stored remaining insulin value";
+"accessibility.hint.applyMorning" = "Copies the morning settings to all time periods";
+
+/// MARK: - Accessibility
+"accessibility.info" = "Show information";
+"accessibility.settings" = "Open settings";
+"accessibility.startButton" = "Start calculation";
+"accessibility.applyMorning" = "Apply morning settings to all";
+"accessibility.resetInsulin" = "Reset remaining insulin";
+"accessibility.sport.menu" = "Select sport intensity";
+"accessibility.sportintensity.none" = "No sport";
+"accessibility.sportintensity.light" = "Light exercise";
+"accessibility.sportintensity.moderate" = "Moderate exercise";
+"accessibility.sportintensity.intense" = "Intense exercise";
+"accessibility.saveResultButton.morning" = "Save remaining insulin for morning";
+"accessibility.saveResultButton.noon" = "Save remaining insulin for noon";
+"accessibility.saveResultButton.evening" = "Save remaining insulin for evening";
+"accessibility.saveResultButton.night" = "Save remaining insulin for night";
+"accessibility.initial.setup.done" = "Finish initial setup";
+"accessibility.initial.setup.done.hint" = "Completes the initial setup and returns to the main view.";
+"accessibility.chevron.expand" = "Expand section";
+"accessibility.chevron.collapse" = "Collapse section";
+
+/// MARK: - Initial Setup
+"initial.setup.title" = "Welcome to JwaBolus!";
+"initial.setup.message" = "Please review and configure your personal settings first. This is important to ensure accurate calculations.";
+"initial.setup.goToSettings" = "Open Settings";
+"initial.setup.done" = "Done";
+"initial.setup.navigationTitle" = "Initial Setup";
+"initial.setup.disclaimer" = "This app was created as a learning tool and personal project. It is not a medical device and does not provide medical diagnosis, treatment, or monitoring. Use it at your own risk. Always consult a healthcare professional or diabetes advisor for medical decisions.";
+
+/// MARK: - Help / Info
+"help.navTitle" = "Help & Info";
+
+"help.title.purpose" = "📝 Purpose of the App";
+"help.content.purpose" = "This app is a learning tool for calculating insulin dosage. It is not a medical device.";
+
+"help.title.logic" = "📊 Calculation Logic";
+"help.content.logic" = "Insulin dose = ((BG - target) ÷ correction factor + (carbs ÷ carb factor)) × sport factor";
+
+"help.title.disclaimer" = "⚠️ Disclaimer";
+"help.content.disclaimer" = "This app is not a medical device. Use at your own risk.";
+
+"help.title.privacy" = "🛡️ Privacy";
+"help.content.privacy" = "All data remains on your device. No internet connection is used.";
+
+"help.title.sport" = "🏃‍♂️ Sport Factor";
+"help.content.sport" = "The calculated insulin dose is adjusted based on activity level:\n• no sport = 1.0\n• light sport = 0.75\n• moderate sport = 0.67\n• intense sport = 0.5.";
+
+"help.title.usage" = "⚙️ Usage";
+"help.content.usage" = "Enter your current blood glucose and carbohydrates. Tap Start to calculate the insulin dose. Tap a result to save it for remaining insulin calculation. Remaining insulin is estimated linearly based on your entered duration.";
+
+"help.title.tips" = "💡 Tips";
+"help.content.tips" = "Regularly check your blood glucose to avoid over- or underdosing. Adjust your correction and carb factors if your sensitivity changes. Keep in mind that exercise or stress can influence your blood glucose.";
+
+"help.title.license" = "📜 License";
+"help.content.license" = "Show GNU License";

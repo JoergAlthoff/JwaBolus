@@ -3,15 +3,12 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewModel: BolusViewModel
 
-    @State private var showSettings = false
-    @State private var showHelp = false
+    @AppStorage("hasCompletedInitialSetup") private var hasCompletedInitialSetup: Bool = false
 
-    // Timer, every 5 Minuts to refresh view
+    @State private var activeSheet: ActiveSheet?
+
     let timer = Timer.publish(every: 300, on: .main, in: .common).autoconnect()
-
-    // App comes to foreground
-    let willEnterForeground: NotificationCenter.Publisher =
-            NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
+    let willEnterForeground = NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
 
     @Environment(\.colorScheme) var colorScheme
 
@@ -37,15 +34,31 @@ struct ContentView: View {
                     .padding(.vertical, 15)
                 }
             }
-            .navigationTitle("appTitle")
+            .navigationTitle("app.title")
             .toolbar {
-                NavigationToolbar(showHelp: $showHelp, showSettings: $showSettings)
+                NavigationToolbar(
+                    showHelp: Binding(
+                        get: { activeSheet == .help },
+                        set: { if $0 { activeSheet = .help } else { activeSheet = nil } }
+                    ),
+                    showSettings: Binding(
+                        get: { activeSheet == .settings },
+                        set: { if $0 { activeSheet = .settings } else { activeSheet = nil } }
+                    )
+                )
             }
-            .sheet(isPresented: $showSettings) {
-                SettingsView()
-            }
-            .sheet(isPresented: $showHelp) {
-                InfoView()
+            .sheet(item: $activeSheet) { sheet in
+                switch sheet {
+                    case .settings:
+                        SettingsView()
+                    case .help:
+                        InfoView()
+                    case .initialSetup:
+                        InitialSetupView {
+                            hasCompletedInitialSetup = true
+                            activeSheet = nil
+                        }
+                }
             }
             .onReceive(timer) { _ in
                 viewModel.objectWillChange.send()
@@ -53,9 +66,26 @@ struct ContentView: View {
             .onReceive(willEnterForeground) { _ in
                 viewModel.objectWillChange.send()
             }
+            .onAppear {
+                if !hasCompletedInitialSetup {
+                    activeSheet = .initialSetup
+                }
+            }
         }
     }
 }
+
+// MARK: - Enum for Active Sheet
+
+enum ActiveSheet: Identifiable {
+    case settings
+    case help
+    case initialSetup
+
+    var id: Int { hashValue }
+}
+
+// MARK: - Preview
 
 #Preview {
     ContentView()

@@ -4,7 +4,7 @@ class BolusViewModel: ObservableObject {
     // MARK: - UI-Related Values
     @Published var currentBG: Double = 0 {
         didSet {
-            currentBGConverted = bloodGlucoseUnit.toMGDL(value: currentBG)
+            currentBGConverted = bgunit.toMGDL(value: currentBG)
         }
     }
 
@@ -16,7 +16,7 @@ class BolusViewModel: ObservableObject {
 
     @Published var totalInsulinUnits: Double?
     @Published var resultsPerTimePeriod: [TimePeriod: Double] = [:]
-    @Published var sportIntensity: SportIntensity = .none
+    @Published var sportintensity: SportIntensity = .none
     @Published var remainingInsulin: Double = 0.0
     @Published var insulinDuration: Double = 4.0
     @Published var lastInsulinDose: Double = 0.0
@@ -26,9 +26,9 @@ class BolusViewModel: ObservableObject {
     @Published var currentBGConverted: Double = 0
     @Published var carbohydratesConverted: Double = 0
 
-    @Published var bloodGlucoseUnit: BloodGlucoseUnit = .mgdL {
+    @Published var bgunit: BloodGlucoseUnit = .mgdL {
         didSet {
-            currentBGConverted = bloodGlucoseUnit.toMGDL(value: currentBG)
+            currentBGConverted = bgunit.toMGDL(value: currentBG)
         }
     }
 
@@ -41,23 +41,23 @@ class BolusViewModel: ObservableObject {
     // MARK: - Constants
     private let SECONDS_PER_HOUR = 3600
     private let MINUTES_PER_HOUR = 60
-    private static let defaultTargetBZ = "120"
+    private static let defaultTargetBG = "120"
     private static let defaultCorrectionFactor = "20"
     private static let defaultMealFactor = "1.0"
 
     // MARK: - Anzeige-Only Konvertierung für SettingsView
-    func displayTargetBZ(for period: TimePeriod) -> String {
-        guard let raw = Double(timePeriodConfigs[period]?.targetBZ ?? "120") else {
+    func displayTargetBG(for period: TimePeriod) -> String {
+        guard let raw = Double(timePeriodConfigs[period]?.targetBg ?? "120") else {
             return "120.0"
         }
-        let displayValue = UnitConverter.toDisplayBZ(raw, as: bloodGlucoseUnit)
+        let displayValue = UnitConverter.toDisplayBG(raw, as: bgunit)
         return String(format: "%.1f", displayValue)
     }
 
-    func updateTargetBZ(for period: TimePeriod, from displayValue: String) {
+    func updateTargetBG(for period: TimePeriod, from displayValue: String) {
         if let val = Double(displayValue.replacingOccurrences(of: ",", with: ".")) {
-            let internalVal = UnitConverter.fromDisplayBZ(val, from: bloodGlucoseUnit)
-            timePeriodConfigs[period]?.targetBZ = String(format: "%.1f", internalVal)
+            let internalVal = UnitConverter.fromDisplayBG(val, from: bgunit)
+            timePeriodConfigs[period]?.targetBg = String(format: "%.1f", internalVal)
         }
     }
 
@@ -65,13 +65,13 @@ class BolusViewModel: ObservableObject {
         guard let raw = Double(timePeriodConfigs[period]?.correctionFactor ?? "20") else {
             return "20.0"
         }
-        let displayValue = UnitConverter.toDisplayBZ(raw, as: bloodGlucoseUnit)
+        let displayValue = UnitConverter.toDisplayBG(raw, as: bgunit)
         return String(format: "%.1f", displayValue)
     }
 
     func updateCorrectionFactor(for period: TimePeriod, from displayValue: String) {
         if let val = Double(displayValue.replacingOccurrences(of: ",", with: ".")) {
-            let internalVal = UnitConverter.fromDisplayBZ(val, from: bloodGlucoseUnit)
+            let internalVal = UnitConverter.fromDisplayBG(val, from: bgunit)
             timePeriodConfigs[period]?.correctionFactor = String(format: "%.1f", internalVal)
         }
     }
@@ -123,32 +123,32 @@ class BolusViewModel: ObservableObject {
 
     // MARK: - Main Calculation: Insulin Dose
     func calculateInsulinDose() {
-        print("calculateInsulinDose wurde aufgerufen")
+        print("calculateInsulinDose called")
         var results: [TimePeriod: Double] = [:]
 
         for period in TimePeriod.allCases {
             guard let config = timePeriodConfigs[period] else {
-                print("Kein Config für \(period)")
+                print("No config für \(period)")
                 continue
             }
 
-            let targetBGValue = Double(config.targetBZ) ?? 110.0
+            let targetBgValue = Double(config.targetBg) ?? 110.0
             let correctionFactorValue = Double(config.correctionFactor) ?? 20.0
             let mealInsulinFactor = Double(config.mealInsulinFactor) ?? 1.0
             let currentCarbs = carbohydratesConverted
             let currentBGValue = currentBGConverted
 
             let carbFactor = currentCarbs / 10.0 * mealInsulinFactor
-            let bolusIU = currentCarbs > 0 ? carbFactor * sportIntensity.sportFaktor : 0.0
-            let correctionIU = ((currentBGValue - targetBGValue) / correctionFactorValue) * sportIntensity.sportFaktor
+            let bolusIU = currentCarbs > 0 ? carbFactor * sportintensity.sportFaktor : 0.0
+            let correctionIU = ((currentBGValue - targetBgValue) / correctionFactorValue) * sportintensity.sportFaktor
             let totalIU = bolusIU + correctionIU
 
             results[period] = totalIU
 
-            print("Period: \(period), Carbs: \(currentCarbs), BG: \(currentBGValue), Sport: \(sportIntensity.sportFaktor), Bolus: \(bolusIU), Korrektur: \(correctionIU), Total: \(totalIU)")
+            print("Period: \(period), Carbs: \(currentCarbs), BG: \(currentBGValue), Sport: \(sportintensity.sportFaktor), Bolus: \(bolusIU), CorrectionFaktor: \(correctionIU), Total: \(totalIU)")
         }
 
-        print("Ergebnisse:", results)
+        print("Results:", results)
         resultsPerTimePeriod = results
     }
 }

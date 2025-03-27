@@ -6,10 +6,11 @@ struct StartButton: View {
 
     var body: some View {
         Button(action: {
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
             KeyboardHelper.hideKeyboard()
             viewModel.calculateInsulinDose()
         }) {
-            Text("startButton")
+            Text("start.button.title")
                 .font(.title2)
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -18,6 +19,8 @@ struct StartButton: View {
                 .cornerRadius(10)
         }
         .padding(.horizontal)
+        .accessibilityLabel(Text("accessibility.startButton"))
+        .accessibilityHint(Text("accessibility.hint.startButton"))
     }
 }
 

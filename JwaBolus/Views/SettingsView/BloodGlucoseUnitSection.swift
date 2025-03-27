@@ -10,13 +10,15 @@ struct BloodGlucoseUnitSection: View {
     @EnvironmentObject var viewModel: BolusViewModel
 
     var body: some View {
-        Section(header: Text("Blutzucker Einheit").font(.headline)) {
-            Picker("Einheit", selection: $viewModel.bloodGlucoseUnit) {
+        Section(header: Text("bgunit.section.title").font(.headline)) {
+            Picker("bgunit.picker.label", selection: $viewModel.bgunit) {
                 ForEach(BloodGlucoseUnit.allCases, id: \.self) { unit in
-                    Text(unit.rawValue).tag(unit)
+                    Text(unit.localizedName)
+                        .tag(unit)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
+
         }
     }
 }

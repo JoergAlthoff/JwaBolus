@@ -4,11 +4,12 @@ struct InputFields: View {
     @EnvironmentObject var viewModel: BolusViewModel
     @Environment(\.scenePhase) private var scenePhase
 
-    var body: some View {
+    var body: some View{
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
                 ValidatedNumberField(
-                    title: "Aktueller BZ in \(viewModel.bloodGlucoseUnit.rawValue)",
+                    title: String(format: NSLocalizedString("input.bg.title", comment: ""),
+                                  viewModel.bgunit.localizedName),
                     text: Binding(
                         get: { String(viewModel.currentBG) },
                         set: { viewModel.currentBG = Double($0) ?? 0 }
@@ -19,7 +20,8 @@ struct InputFields: View {
 
             VStack(alignment: .leading, spacing: 8) {
                 ValidatedNumberField(
-                    title: "Kohlenhydrate in \(viewModel.carbUnit.rawValue)",
+                    title: String(format: NSLocalizedString("input.carbohydrates.title", comment: ""),
+                                  viewModel.carbUnit.localizedName),
                     text: Binding(
                         get: { String(viewModel.carbohydrates) },
                         set: { viewModel.carbohydrates = Double($0) ?? 0 }
@@ -29,23 +31,8 @@ struct InputFields: View {
             .padding(.horizontal)
 
             VStack(alignment: .leading, spacing: 8) {
-                Menu("Sport innerhalb von 2 Stunden: \(viewModel.sportIntensity.rawValue)") {
-                    ForEach(SportIntensity.allCases, id: \.self) { option in
-                        Button(option.rawValue) {
-                            viewModel.sportIntensity = option
-                            KeyboardHelper.hideKeyboard()
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding(4)
-                .background(Color(UIColor.systemGray6))
-                .cornerRadius(8)
-                .overlay(RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color(UIColor.systemGray6), lineWidth: 8))
-                .menuStyle(DefaultMenuStyle())
+                SportIntensityMenu(sportintensity: $viewModel.sportintensity)
             }
-            .padding()
         }
         .onChange(of: scenePhase) {
             if scenePhase == .active {
@@ -57,7 +44,7 @@ struct InputFields: View {
     private func resetValues() {
         viewModel.currentBG = 0
         viewModel.carbohydrates = 0
-        viewModel.sportIntensity = .none
+        viewModel.sportintensity = .none
     }
 }
 

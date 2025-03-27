@@ -4,17 +4,28 @@
 //
 //  Created by Jörg Althoff on 14.03.25.
 //
-enum BloodGlucoseUnit: String, CaseIterable {
+import Foundation
+
+enum BloodGlucoseUnit: String, CaseIterable, Identifiable {
     case mgdL = "mg/dL"
     case mmolL = "mmol/L"
 
-    private var conversionFactor: Double { 18.0182 } 
+    var id: String { rawValue }
+
+    var localizedName: String {
+        switch self {
+            case .mgdL:
+                return NSLocalizedString("bgunit.mgdl", comment: "")
+            case .mmolL:
+                return NSLocalizedString("bgunit.mmol", comment: "")
+        }
+    }
 
     func toMGDL(value: Double) -> Double {
-        return self == .mmolL ? value * conversionFactor : value
+        return self == .mmolL ? value * GlucoseConversion.mmolToMgdl : value
     }
 
     func fromMGDL(value: Double) -> Double {
-        return self == .mmolL ? value / conversionFactor : value
+        return self == .mmolL ? value / GlucoseConversion.mmolToMgdl : value
     }
 }

@@ -4,24 +4,37 @@
 //
 //  Created by Jörg Althoff on 14.03.25.
 //
+import SwiftUI
+
 enum CarbUnit: String, CaseIterable {
     case grams = "g"
-    case breadUnits = "BE"
-    case carbUnits = "KHE"
+    case bu = "BU"
+    case cu = "CU"
 
+    private static let gramsPerBU: Double = 12.0
+    private static let gramsPerCU: Double = 10.0
+
+    var localizedName: String {
+        switch self {
+            case .grams: return NSLocalizedString("carbUnit.grams", comment: "")
+            case .bu: return NSLocalizedString("carbUnit.bu", comment: "")
+            case .cu: return NSLocalizedString("carbUnit.cu", comment: "")
+        }
+    }
+    
     func toGrams(value: Double) -> Double {
         switch self {
             case .grams: return value
-            case .breadUnits: return value * 12.0 // 1 BE = 12g
-            case .carbUnits: return value * 10.0 // 1 KHE = 10g
+            case .bu: return value * Self.gramsPerBU
+            case .cu: return value * Self.gramsPerCU
         }
     }
 
     func fromGrams(value: Double) -> Double {
         switch self {
             case .grams: return value
-            case .breadUnits: return value / 12.0
-            case .carbUnits: return value / 10.0
+            case .bu: return value / Self.gramsPerBU
+            case .cu: return value / Self.gramsPerCU
         }
     }
 }

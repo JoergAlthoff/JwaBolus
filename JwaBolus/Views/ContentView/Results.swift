@@ -7,23 +7,23 @@ struct Results: View {
 
     var body: some View {
         VStack {
-            Text("Einheiten (IE) nach Tageszeit")
+            Text(NSLocalizedString("results.headline", comment: ""))
                 .font(.headline)
 
             HStack(spacing: 15) {
                 ForEach(TimePeriod.allCases, id: \.self) { period in
                     ResultButton(
-                        title: period.rawValue,
+                        title: period.localizedValue,
                         result: viewModel.resultsPerTimePeriod[period] ?? 0.0,
                         onTap: {
                             viewModel.setInsulinDose(amount: viewModel.resultsPerTimePeriod[period] ?? 0.0)
-                            viewModel.updateRemainingInsulin() // ✅ Direkt nach dem Setzen aktualisieren
+                            viewModel.updateRemainingInsulin()
                         }
                     )
                 }
             }
 
-            Text("Die Tasten Früh bis Nacht speichern den Wert für die Restinsulin Berechnung")
+            Text(NSLocalizedString("results.footnote", comment: ""))
                 .multilineTextAlignment(.center)
                 .font(.footnote)
         }

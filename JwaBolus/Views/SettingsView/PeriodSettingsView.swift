@@ -12,17 +12,17 @@ struct PeriodSettingsView: View {
     var body: some View {
         VStack {
             ValidatedNumberField(
-                title: String(format: NSLocalizedString("targetBGTitle", comment: ""),
-                              viewModel.bloodGlucoseUnit.rawValue),
+                title: String(format: NSLocalizedString("target.bg.title", comment: ""),
+                              viewModel.bgunit.rawValue),
                 text: Binding(
-                    get: { viewModel.displayTargetBZ(for: period) },
-                    set: { viewModel.updateTargetBZ(for: period, from: $0) }
+                    get: { viewModel.displayTargetBG(for: period) },
+                    set: { viewModel.updateTargetBG(for: period, from: $0) }
                 )
             )
 
             ValidatedNumberField(
-                title: String(format: NSLocalizedString("correctionFactorTitle", comment: ""),
-                              viewModel.bloodGlucoseUnit.rawValue),
+                title: String(format: NSLocalizedString("correction.factor.title", comment: ""),
+                              viewModel.bgunit.rawValue),
                 text: Binding(
                     get: { viewModel.displayCorrectionFactor(for: period) },
                     set: { viewModel.updateCorrectionFactor(for: period, from: $0) }
@@ -30,7 +30,7 @@ struct PeriodSettingsView: View {
             )
 
             ValidatedNumberField(
-                title: NSLocalizedString("mealFactorTitle", comment: ""),
+                title: NSLocalizedString("meal.factor.title", comment: ""),
                 text: Binding(
                     get: { viewModel.displayMealFactor(for: period) },
                     set: { viewModel.updateMealFactor(for: period, from: $0) }
@@ -38,7 +38,7 @@ struct PeriodSettingsView: View {
             )
         }
         .onAppear {
-            print("🟢 Values: BG=\(viewModel.displayTargetBZ(for: period))")
+            print("🟢 Values: BG=\(viewModel.displayTargetBG(for: period))")
         }
     }
 }

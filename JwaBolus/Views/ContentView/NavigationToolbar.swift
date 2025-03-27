@@ -12,14 +12,24 @@ struct NavigationToolbar: ToolbarContent {
 
     var body: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
-            Button(action: { showHelp.toggle() }) {
-                Image(systemName: "info.circle")
+            Button(action: {
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                showHelp.toggle()
+            }) {
+                Image(systemName: SymbolNames.info)
+                    .accessibilityLabel(Text("accessibility.info"))
+                    .accessibilityHint(Text("accessibility.hint.info"))
             }
         }
 
         ToolbarItem(placement: .navigationBarTrailing) {
-            Button(action: { showSettings.toggle() }) {
-                Image(systemName: "gearshape.fill")
+            Button(action: {
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                showSettings.toggle()
+            }) {
+                Image(systemName: SymbolNames.settings)
+                    .accessibilityLabel(Text("accessibility.settings"))
+                    .accessibilityHint(Text("accessibility.hint.settings"))
             }
         }
     }

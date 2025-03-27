@@ -18,8 +18,8 @@ struct RemainingInsulin: View {
 
     var body: some View {
         let labelText = """
-            \(String(format: NSLocalizedString("remainingInsulinLine", comment: ""), viewModel.remainingInsulin))
-            \(String(format: NSLocalizedString("savedTimeLine", comment: ""), elapsedTime))
+            \(String(format: NSLocalizedString("remaining.insulin.iu", comment: ""), viewModel.remainingInsulin))
+            \(String(format: NSLocalizedString("saved.insulin.time", comment: ""), elapsedTime))
             """
 
         VStack(spacing: 5) {
