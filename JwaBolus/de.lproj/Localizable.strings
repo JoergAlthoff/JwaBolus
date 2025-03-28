@@ -22,12 +22,12 @@
 "input.carbohydrates.title" = "Kohlenhydrate in %@";
 
 /// MARK: - Zielwerte & Faktoren
-"correction.factor" = "Korrekturfaktor";
-"correction.factor.title" = "Korrekturfaktor (%@)";
-"meal.factor" = "Mahlzeiten-Insulin";
-"meal.factor.title" = "Mahlzeiten-Insulin";
-"target.bg" = "Ziel-BZ";
-"target.bg.title" = "Ziel-BZ (%@)";
+"correctionFactor" = "Korrekturfaktor";
+"correctionFactor.title" = "Korrekturfaktor (%@)";
+"mealFactor" = "Mahlzeiten-Insulin";
+"mealFactor.title" = "Mahlzeiten-Insulin";
+"targetBG" = "Ziel-BZ";
+"targetBG.title" = "Ziel-BZ (%@)";
 
 /// MARK: - Insulinberechnung & Ergebnisse
 "applyMorning.button.title" = "Einstellungen von Früh für alle Tageszeiten übernehmen";
@@ -60,6 +60,10 @@
 "accessibility.hint.settings" = "Öffnet die Einstellungen zur Anpassung der Werte";
 "accessibility.hint.startButton" = "Berechnet die empfohlene Insulindosis";
 "accessibility.hint.resultButton" = "Speichert den Wert zur Restinsulinberechnung";
+"accessibility.hint.resultButton.morning" = "Speichert das Ergebnis für den Zeitraum morgens zur Restinsulinberechnung";
+"accessibility.hint.resultButton.noon" = "Speichert das Ergebnis für den Zeitraum mittags zur Restinsulinberechnung";
+"accessibility.hint.resultButton.evening" = "Speichert das Ergebnis für den Zeitraum abends zur Restinsulinberechnung";
+"accessibility.hint.resultButton.night" = "Speichert das Ergebnis für den Zeitraum nachts zur Restinsulinberechnung";
 "accessibility.hint.applyMorning" = "Kopiert die Früh-Einstellungen auf alle Tageszeiten";
 "accessibility.hint.resetInsulin" = "Setzt den gespeicherten Restinsulinwert auf null zurück";
 "accessibility.hint.expandSection" = "Tippen zum Anzeigen der Werte für diese Tageszeit";

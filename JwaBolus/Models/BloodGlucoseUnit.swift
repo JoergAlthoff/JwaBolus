@@ -14,10 +14,10 @@ enum BloodGlucoseUnit: String, CaseIterable, Identifiable {
 
     var localizedName: String {
         switch self {
-            case .mgdL:
-                return NSLocalizedString("bgunit.mgdl", comment: "")
-            case .mmolL:
-                return NSLocalizedString("bgunit.mmol", comment: "")
+        case .mgdL:
+            return NSLocalizedString("bgunit.mgdl", comment: "")
+        case .mmolL:
+            return NSLocalizedString("bgunit.mmol", comment: "")
         }
     }
 

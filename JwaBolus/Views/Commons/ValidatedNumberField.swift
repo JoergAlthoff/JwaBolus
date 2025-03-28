@@ -57,7 +57,7 @@ struct ValidatedNumberField: View {
                         from: NSNumber(value: Double(text) ?? 0)
                     ) ?? ""
                 }
-                .onChange(of: text) { oldValue, newValue in
+                .onChange(of: text) { _, newValue in
                     let localized = NumberFormatter.localizedDecimal.string(
                         from: NSNumber(value: Double(newValue) ?? 0)
                     ) ?? ""
@@ -79,4 +79,3 @@ struct ValidatedNumberField: View {
         }
     }
 }
-

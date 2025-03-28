@@ -4,15 +4,13 @@
 //
 //  Created by Jörg Althoff on 26.03.25.
 //
-
-
 import SwiftUI
 
 struct HelpContentView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                
+
                 SectionTitle("help.title.purpose")
                 Text("help.content.purpose")
 
@@ -24,7 +22,7 @@ struct HelpContentView: View {
 
                 SectionTitle("help.title.usage")
                 Text("help.content.usage")
-                
+
                 SectionTitle("help.title.disclaimer")
                 Text("help.content.disclaimer")
 

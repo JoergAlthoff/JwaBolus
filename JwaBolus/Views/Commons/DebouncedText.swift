@@ -9,7 +9,7 @@ import Combine
 
 class DebouncedText: ObservableObject {
     @Published var text: String
-    @Published var errorMessage: String? = nil
+    @Published var errorMessage: String?
 
     private var cancellable: AnyCancellable?
     private let validator: (String) -> Bool

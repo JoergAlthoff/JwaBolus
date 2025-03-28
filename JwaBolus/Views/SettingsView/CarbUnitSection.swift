@@ -4,8 +4,6 @@
 //
 //  Created by Jörg Althoff on 22.03.25.
 //
-
-
 import SwiftUI
 
 struct CarbUnitSection: View {

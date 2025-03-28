@@ -1,0 +1,53 @@
+/* MARK: - Загальні */
+"app.title" = "Інсуліновий калькулятор";
+"done" = "Готово";
+"invalid.input" = "Недійсний ввід";
+"settings" = "Налаштування";
+"startButton.title" = "Старт";
+
+/* MARK: - Одиниці */
+"bgunit.mgdl" = "мг/дл";
+"bgunit.mmol" = "ммоль/л";
+"bgunit.picker.label" = "Одиниця";
+"bgunit.section.title" = "Одиниця глюкози в крові";
+
+"carbunit.bu" = "ХО";
+"carbunit.cu" = "ВУ";
+"carbunit.grams" = "г";
+"carbunit.picker.label" = "Одиниця";
+"carbunit.section.title" = "Одиниця вуглеводів";
+
+/* MARK: - Введення */
+"input.bg.title" = "Поточний рівень глюкози в %@";
+"input.carbohydrates.title" = "Вуглеводи в %@";
+
+/* MARK: - Цільові значення та коефіцієнти */
+"correctionFactor" = "Коефіцієнт корекції";
+"correctionFactor.title" = "Коефіцієнт корекції (%@)";
+"mealFactor" = "Інсулін до їжі";
+"mealFactor.title" = "Інсулін до їжі";
+"targetBG" = "Цільовий рівень глюкози";
+"targetBG.title" = "Цільовий рівень глюкози (%@)";
+
+/* MARK: - Результати */
+"applyMorning.button.title" = "Застосувати ранкові налаштування до всіх періодів";
+"insulin.duration.label" = "%.1f годин";
+"insulin.section.title" = "Тривалість дії інсуліну та скидання";
+"remaining.insulin.iu" = "Залишковий інсулін приблизно %.1f ОД";
+"resetInsulin.button.title" = "Скинути залишковий інсулін";
+"results.headline" = "Одиниці (ОД) за часом доби";
+"results.footnote" = "Кнопки від ранку до ночі зберігають значення для розрахунку залишкового інсуліну";
+"saved.insulin.time" = "Збережено %@ годин тому";
+
+/* MARK: - Час доби */
+"timePeriod.evening" = "Вечір";
+"timePeriod.morning" = "Ранок";
+"timePeriod.night" = "Ніч";
+"timePeriod.noon" = "Полудень";
+
+/* MARK: - Спорт */
+"sport.menu.title" = "Спорт протягом наступних 2 годин:";
+"sportintensity.intense" = "Інтенсивний спорт";
+"sportintensity.light" = "Легкий спорт";
+"sportintensity.moderate" = "Помірний спорт";
+"sportintensity.none" = "Без спорту";

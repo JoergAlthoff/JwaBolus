@@ -19,9 +19,9 @@ struct SportIntensityMenu: View {
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
                     sportintensity = option
                     KeyboardHelper.hideKeyboard()
-                }) {
+                }, label: {
                     Text(option.localizedName)
-                }
+                })
                 .accessibilityLabel(Text("accessibility.sportintensity.\(option.rawValue)"))
             }
         } label: {

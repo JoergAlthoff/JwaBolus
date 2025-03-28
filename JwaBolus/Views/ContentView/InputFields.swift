@@ -4,7 +4,7 @@ struct InputFields: View {
     @EnvironmentObject var viewModel: BolusViewModel
     @Environment(\.scenePhase) private var scenePhase
 
-    var body: some View{
+    var body: some View {
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
                 ValidatedNumberField(

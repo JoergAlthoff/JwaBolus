@@ -9,15 +9,15 @@ struct StartButton: View {
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
             KeyboardHelper.hideKeyboard()
             viewModel.calculateInsulinDose()
-        }) {
-            Text("start.button.title")
+        }, label: {
+            Text("startButton.title")
                 .font(.title2)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(colorScheme == .dark ? Color.orange : Color.blue)
                 .foregroundColor(.white)
                 .cornerRadius(10)
-        }
+        })
         .padding(.horizontal)
         .accessibilityLabel(Text("accessibility.startButton"))
         .accessibilityHint(Text("accessibility.hint.startButton"))

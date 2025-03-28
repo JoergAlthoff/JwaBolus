@@ -13,7 +13,7 @@ struct Results: View {
             HStack(spacing: 15) {
                 ForEach(TimePeriod.allCases, id: \.self) { period in
                     ResultButton(
-                        title: period.localizedValue,
+                        period: period,
                         result: viewModel.resultsPerTimePeriod[period] ?? 0.0,
                         onTap: {
                             viewModel.setInsulinDose(amount: viewModel.resultsPerTimePeriod[period] ?? 0.0)

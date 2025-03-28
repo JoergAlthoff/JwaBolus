@@ -4,8 +4,6 @@
 //
 //  Created by Jörg Althoff on 26.03.25.
 //
-
-
 import SwiftUI
 
 struct InitialSetupView: View {
@@ -37,7 +35,6 @@ struct InitialSetupView: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .padding(.horizontal)
-                
                 Button("initial.setup.done") {
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
                     onFinish()

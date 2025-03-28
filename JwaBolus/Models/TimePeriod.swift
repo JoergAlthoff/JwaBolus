@@ -15,10 +15,10 @@ enum TimePeriod: String, CaseIterable, Codable {
 
     var localizedValue: String {
         switch self {
-            case .morning: return NSLocalizedString("timePeriod.morning", comment: "")
-            case .noon: return NSLocalizedString("timePeriod.noon", comment: "")
-            case .evening: return NSLocalizedString("timePeriod.evening", comment: "")
-            case .night: return NSLocalizedString("timePeriod.night", comment: "")
+        case .morning: return NSLocalizedString("timePeriod.morning", comment: "")
+        case .noon: return NSLocalizedString("timePeriod.noon", comment: "")
+        case .evening: return NSLocalizedString("timePeriod.evening", comment: "")
+        case .night: return NSLocalizedString("timePeriod.night", comment: "")
         }
     }
 }

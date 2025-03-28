@@ -39,8 +39,6 @@ class BolusViewModel: ObservableObject {
     }
 
     // MARK: - Constants
-    private let SECONDS_PER_HOUR = 3600
-    private let MINUTES_PER_HOUR = 60
     private static let defaultTargetBG = "120"
     private static let defaultCorrectionFactor = "20"
     private static let defaultMealFactor = "1.0"
@@ -114,9 +112,10 @@ class BolusViewModel: ObservableObject {
     func timeSinceLastDose() -> String {
         let now = Date()
         let interval = now.timeIntervalSince(lastInsulinTimestamp)
-
-        let hours = Int(interval) / SECONDS_PER_HOUR
-        let minutes = (Int(interval) % SECONDS_PER_HOUR) / MINUTES_PER_HOUR
+        let duration = Measurement(value: interval, unit: UnitDuration.seconds)
+        let totalMinutes = Int(duration.converted(to: .minutes).value)
+        let hours = totalMinutes / 60
+        let minutes = totalMinutes % 60
 
         return String(format: "%02d:%02d", hours, minutes)
     }
@@ -145,7 +144,15 @@ class BolusViewModel: ObservableObject {
 
             results[period] = totalIU
 
-            print("Period: \(period), Carbs: \(currentCarbs), BG: \(currentBGValue), Sport: \(sportintensity.sportFaktor), Bolus: \(bolusIU), CorrectionFaktor: \(correctionIU), Total: \(totalIU)")
+            print("""
+                Period: \(period), \
+                Carbs: \(currentCarbs), \
+                BG: \(currentBGValue), \
+                Sport: \(sportintensity.sportFaktor), \
+                Bolus: \(bolusIU), \
+                CorrectionFaktor: \(correctionIU), \
+                Total: \(totalIU)
+                """)
         }
 
         print("Results:", results)

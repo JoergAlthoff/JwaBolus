@@ -4,8 +4,6 @@
 //
 //  Created by Jörg Althoff on 27.03.25.
 //
-
-
 import SwiftUI
 
 /// A SwiftUI Text view that loads a localized string and renders it as Markdown.

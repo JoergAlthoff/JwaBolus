@@ -14,13 +14,13 @@ enum SportIntensity: String, CaseIterable {
 
     var localizedName: String {
         switch self {
-            case .none: return NSLocalizedString("sportintensity.none", comment: "")
-            case .light: return NSLocalizedString("sportintensity.light", comment: "")
-            case .moderate: return NSLocalizedString("sportintensity.moderate", comment: "")
-            case .intense: return NSLocalizedString("sportintensity.intense", comment: "")
+        case .none: return NSLocalizedString("sportintensity.none", comment: "")
+        case .light: return NSLocalizedString("sportintensity.light", comment: "")
+        case .moderate: return NSLocalizedString("sportintensity.moderate", comment: "")
+        case .intense: return NSLocalizedString("sportintensity.intense", comment: "")
         }
     }
-    
+
     var sportFaktor: Double {
         switch self {
         case .light: return 0.75

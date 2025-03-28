@@ -15,22 +15,22 @@ struct NavigationToolbar: ToolbarContent {
             Button(action: {
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 showHelp.toggle()
-            }) {
+            }, label: {
                 Image(systemName: SymbolNames.info)
                     .accessibilityLabel(Text("accessibility.info"))
                     .accessibilityHint(Text("accessibility.hint.info"))
-            }
+            })
         }
 
         ToolbarItem(placement: .navigationBarTrailing) {
             Button(action: {
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 showSettings.toggle()
-            }) {
+            }, label: {
                 Image(systemName: SymbolNames.settings)
                     .accessibilityLabel(Text("accessibility.settings"))
                     .accessibilityHint(Text("accessibility.hint.settings"))
-            }
+            })
         }
     }
 }

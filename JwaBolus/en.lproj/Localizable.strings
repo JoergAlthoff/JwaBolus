@@ -22,12 +22,12 @@
 "input.carbohydrates.title" = "Carbohydrates in %@";
 
 /// MARK: - Target & Factors
-"target.bg" = "Target BG";
-"target.bg.title" = "Target BG (%@)";
-"correction.factor" = "Correction Factor";
-"correction.factor.title" = "Correction Factor (%@)";
-"meal.factor" = "Meal Insulin";
-"meal.factor.title" = "Meal Insulin";
+"targetBG" = "Target BG";
+"targetBG.title" = "Target BG (%@)";
+"correctionFactor" = "Correction Factor";
+"correctionFactor.title" = "Correction Factor (%@)";
+"mealFactor" = "Meal Insulin";
+"mealFactor.title" = "Meal Insulin";
 
 /// MARK: - Insulin Results
 "remaining.insulin.iu" = "Remaining insulin approx. %.1f IU";
@@ -60,6 +60,10 @@
 "accessibility.hint.settings" = "Opens settings to customize your parameters";
 "accessibility.hint.startButton" = "Calculates the recommended insulin dose";
 "accessibility.hint.resultButton" = "Saves the value for remaining insulin calculation";
+"accessibility.hint.resultButton.morning" = "Saves the result for the morning period to calculate remaining insulin";
+"accessibility.hint.resultButton.noon" = "Saves the result for the noon period to calculate remaining insulin";
+"accessibility.hint.resultButton.evening" = "Saves the result for the evening period to calculate remaining insulin";
+"accessibility.hint.resultButton.night" = "Saves the result for the night period to calculate remaining insulin";
 "accessibility.hint.applyMorning" = "Copies the morning settings to all time periods";
 "accessibility.hint.resetInsulin" = "Resets the stored remaining insulin to zero";
 "accessibility.hint.expandSection" = "Tap to show values for this time period";

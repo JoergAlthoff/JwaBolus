@@ -49,15 +49,15 @@ struct ContentView: View {
             }
             .sheet(item: $activeSheet) { sheet in
                 switch sheet {
-                    case .settings:
-                        SettingsView()
-                    case .help:
-                        InfoView()
-                    case .initialSetup:
-                        InitialSetupView {
-                            hasCompletedInitialSetup = true
-                            activeSheet = nil
-                        }
+                case .settings:
+                    SettingsView()
+                case .help:
+                    InfoView()
+                case .initialSetup:
+                    InitialSetupView {
+                        hasCompletedInitialSetup = true
+                        activeSheet = nil
+                    }
                 }
             }
             .onReceive(timer) { _ in
