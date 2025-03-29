@@ -38,16 +38,22 @@ enum UnitConverter {
 
         // Convert to grams first
         let inGrams: Double = switch fromCU {
-        case .grams: value
-        case .cu: value * CarbConversion.gramsPerCU
-        case .bu: value * CarbConversion.gramsPerBU
+        case .grams:
+            value
+        case .cu:
+            value * CarbConversion.gramsPerCU
+        case .bu:
+            value * CarbConversion.gramsPerBU
         }
 
         // Then from grams to target unit
         switch toCU {
-        case .grams: return inGrams
-        case .cu: return inGrams / CarbConversion.gramsPerCU
-        case .bu: return inGrams / CarbConversion.gramsPerBU
+        case .grams:
+            return inGrams
+        case .cu:
+            return inGrams / CarbConversion.gramsPerCU
+        case .bu:
+            return inGrams / CarbConversion.gramsPerBU
         }
     }
 

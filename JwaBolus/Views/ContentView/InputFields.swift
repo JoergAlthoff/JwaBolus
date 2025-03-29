@@ -19,6 +19,10 @@ struct InputFields: View {
                 )
             }
             .padding(.horizontal)
+            .onAppear {
+                print("Localized CarbUnit: \(viewModel.carbUnit.localizedName)")
+            }
+
 
             VStack(alignment: .leading, spacing: 8) {
                 ValidatedNumberField(
@@ -33,6 +37,9 @@ struct InputFields: View {
                 )
             }
             .padding(.horizontal)
+            .onAppear {
+                print("Localized BloodGlucoseUnit: \(viewModel.bgunit.localizedName)")
+            }
 
             VStack(alignment: .leading, spacing: 8) {
                 SportIntensityMenu(sportintensity: $viewModel.sportintensity)

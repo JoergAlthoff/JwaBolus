@@ -4,14 +4,13 @@ struct ResultButton: View {
     let period: TimePeriod
     let result: Double
     let onTap: () -> Void
-    
+
     @EnvironmentObject var viewModel: BolusViewModel
     @Environment(\.colorScheme) var colorScheme
-    
     var body: some View {
         VStack {
             Text(period.localizedValue).bold()
-            
+
             Button(action: {
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 onTap()

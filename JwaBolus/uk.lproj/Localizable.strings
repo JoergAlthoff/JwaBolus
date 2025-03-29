@@ -12,11 +12,11 @@
 "bgunit.picker.label" = "Одиниця";
 "bgunit.section.title" = "Одиниця рівня глюкози";
 
-"carbunit.bu" = "ХО";
-"carbunit.cu" = "КХО";
-"carbunit.grams" = "г";
-"carbunit.picker.label" = "Одиниця";
-"carbunit.section.title" = "Одиниця вуглеводів";
+"carbUnit.bu" = "ХО";
+"carbUnit.cu" = "КХО";
+"carbUnit.grams" = "г";
+"carbUnit.picker.label" = "Одиниця";
+"carbUnit.section.title" = "Одиниця вуглеводів";
 
 /* MARK: - Input Texts */
 "input.bg.title" = "Поточний рівень глюкози у %@";

@@ -12,11 +12,11 @@
 "bgunit.picker.label" = "Unit";
 "bgunit.section.title" = "Blood glucose unit";
 
-"carbunit.bu" = "BU";
-"carbunit.cu" = "CU";
-"carbunit.grams" = "g";
-"carbunit.picker.label" = "Unit";
-"carbunit.section.title" = "Carbohydrate unit";
+"carbUnit.bu" = "BU";
+"carbUnit.cu" = "CU";
+"carbUnit.grams" = "g";
+"carbUnit.picker.label" = "Unit";
+"carbUnit.section.title" = "Carbohydrate unit";
 
 /// MARK: - Input Texts
 "input.bg.title" = "Current BG in %@";

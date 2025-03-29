@@ -10,8 +10,8 @@ struct CarbUnitSection: View {
     @EnvironmentObject var viewModel: BolusViewModel
 
     var body: some View {
-        Section(header: Text("carbunit.section.title").font(.headline)) {
-            Picker("carbunit.picker.label", selection: $viewModel.carbUnit) {
+        Section(header: Text("carbUnit.section.title").font(.headline)) {
+            Picker("carbUnit.picker.label", selection: $viewModel.carbUnit) {
                 ForEach(CarbUnit.allCases, id: \.self) { unit in
                     Text(unit.localizedName).tag(unit)
                 }

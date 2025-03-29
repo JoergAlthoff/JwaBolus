@@ -18,25 +18,34 @@ enum CarbUnit: String, CaseIterable {
 
     var localizedName: String {
         switch self {
-        case .grams: NSLocalizedString("carbUnit.grams", comment: "")
-        case .bu: NSLocalizedString("carbUnit.bu", comment: "")
-        case .cu: NSLocalizedString("carbUnit.cu", comment: "")
+        case .grams:
+            return NSLocalizedString("carbUnit.grams", comment: "")
+        case .bu:
+            return NSLocalizedString("carbUnit.bu", comment: "")
+        case .cu:
+            return NSLocalizedString("carbUnit.cu", comment: "")
         }
     }
 
     func toGrams(value: Double) -> Double {
         switch self {
-        case .grams: value
-        case .bu: value * Self.gramsPerBU
-        case .cu: value * Self.gramsPerCU
+        case .grams:
+                return value
+        case .bu:
+                return value * Self.gramsPerBU
+        case .cu:
+                return value * Self.gramsPerCU
         }
     }
 
     func fromGrams(value: Double) -> Double {
         switch self {
-        case .grams: value
-        case .bu: value / Self.gramsPerBU
-        case .cu: value / Self.gramsPerCU
+        case .grams:
+                return value
+        case .bu:
+                return value / Self.gramsPerBU
+        case .cu:
+                return value / Self.gramsPerCU
         }
     }
 }

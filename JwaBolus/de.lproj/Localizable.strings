@@ -12,11 +12,11 @@
 "bgunit.picker.label" = "Einheit";
 "bgunit.section.title" = "Blutzuckereinheit";
 
-"carbunit.bu" = "BE";
-"carbunit.cu" = "KHE";
-"carbunit.grams" = "g";
-"carbunit.picker.label" = "Einheit";
-"carbunit.section.title" = "Kohlenhydrateinheit";
+"carbUnit.bu" = "BE";
+"carbUnit.cu" = "KHE";
+"carbUnit.grams" = "g";
+"carbUnit.picker.label" = "Einheit";
+"carbUnit.section.title" = "Kohlenhydrateinheit";
 
 /// MARK: - Input-Texte
 "input.bg.title" = "Aktueller BZ in %@";
