@@ -4,8 +4,8 @@
 //
 //  Created by Jörg Althoff on 22.03.25.
 //
-import SwiftUI
 import Combine
+import SwiftUI
 
 class DebouncedText: ObservableObject {
     @Published var text: String
@@ -21,7 +21,7 @@ class DebouncedText: ObservableObject {
         validator: @escaping (String) -> Bool = { _ in true },
         onCommit: @escaping (String) -> Void = { _ in }
     ) {
-        self.text = initialText
+        text = initialText
         self.validator = validator
         self.onCommit = onCommit
 

@@ -12,15 +12,16 @@ struct RemainingInsulin: View {
     @State private var elapsedTime: String = ""
 
     // MARK: - Helper Methods
+
     private func updateElapsedTime() {
         elapsedTime = viewModel.timeSinceLastDose()
     }
 
     var body: some View {
         let labelText = """
-            \(String(format: NSLocalizedString("remaining.insulin.iu", comment: ""), viewModel.remainingInsulin))
-            \(String(format: NSLocalizedString("saved.insulin.time", comment: ""), elapsedTime))
-            """
+        \(String(format: NSLocalizedString("remaining.insulin.iu", comment: ""), viewModel.remainingInsulin))
+        \(String(format: NSLocalizedString("saved.insulin.time", comment: ""), elapsedTime))
+        """
 
         VStack(spacing: 5) {
             Text(labelText)
@@ -42,7 +43,7 @@ struct RemainingInsulin: View {
 }
 
 #Preview {
-    return RemainingInsulin()
+    RemainingInsulin()
         .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }

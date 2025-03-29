@@ -15,17 +15,17 @@ enum BloodGlucoseUnit: String, CaseIterable, Identifiable {
     var localizedName: String {
         switch self {
         case .mgdL:
-            return NSLocalizedString("bgunit.mgdl", comment: "")
+            NSLocalizedString("bgunit.mgdl", comment: "")
         case .mmolL:
-            return NSLocalizedString("bgunit.mmol", comment: "")
+            NSLocalizedString("bgunit.mmol", comment: "")
         }
     }
 
     func toMGDL(value: Double) -> Double {
-        return self == .mmolL ? value * GlucoseConversion.mmolToMgdl : value
+        self == .mmolL ? value * GlucoseConversion.mmolToMgdl : value
     }
 
     func fromMGDL(value: Double) -> Double {
-        return self == .mmolL ? value / GlucoseConversion.mmolToMgdl : value
+        self == .mmolL ? value / GlucoseConversion.mmolToMgdl : value
     }
 }

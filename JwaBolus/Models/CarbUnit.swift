@@ -8,35 +8,35 @@ import SwiftUI
 
 enum CarbUnit: String, CaseIterable {
     case grams = "g"
-    // swiftlint:disable:next identifier_name
+    // swiftlint:disable identifier_name
     case bu = "BU"
-    // swiftlint:disable:next identifier_name
     case cu = "CU"
+    // swiftlint:enable identifier_name
 
     private static let gramsPerBU: Double = 12.0
     private static let gramsPerCU: Double = 10.0
 
     var localizedName: String {
         switch self {
-        case .grams: return NSLocalizedString("carbUnit.grams", comment: "")
-        case .bu: return NSLocalizedString("carbUnit.bu", comment: "")
-        case .cu: return NSLocalizedString("carbUnit.cu", comment: "")
+        case .grams: NSLocalizedString("carbUnit.grams", comment: "")
+        case .bu: NSLocalizedString("carbUnit.bu", comment: "")
+        case .cu: NSLocalizedString("carbUnit.cu", comment: "")
         }
     }
 
     func toGrams(value: Double) -> Double {
         switch self {
-        case .grams: return value
-        case .bu: return value * Self.gramsPerBU
-        case .cu: return value * Self.gramsPerCU
+        case .grams: value
+        case .bu: value * Self.gramsPerBU
+        case .cu: value * Self.gramsPerCU
         }
     }
 
     func fromGrams(value: Double) -> Double {
         switch self {
-        case .grams: return value
-        case .bu: return value / Self.gramsPerBU
-        case .cu: return value / Self.gramsPerCU
+        case .grams: value
+        case .bu: value / Self.gramsPerBU
+        case .cu: value / Self.gramsPerCU
         }
     }
 }

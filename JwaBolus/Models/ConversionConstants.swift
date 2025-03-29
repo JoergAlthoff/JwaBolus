@@ -4,11 +4,11 @@
 //
 //  Created by Jörg Althoff on 25.03.25.
 //
-struct CarbConversion {
+enum CarbConversion {
     static let gramsPerBU: Double = 12.0
     static let gramsPerCU: Double = 10.0
 }
 
-struct GlucoseConversion {
+enum GlucoseConversion {
     static let mmolToMgdl: Double = 18.0182
 }

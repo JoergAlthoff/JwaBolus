@@ -5,9 +5,7 @@
 //  Created by Jörg Althoff on 14.02.25.
 //
 
-import XCTest
 @testable import JwaBolus
+import XCTest
 
-final class BolusViewModelTests: XCTestCase {
-    
-}
+final class BolusViewModelTests: XCTestCase { }

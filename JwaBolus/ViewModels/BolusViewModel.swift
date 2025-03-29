@@ -2,6 +2,7 @@ import SwiftUI
 
 class BolusViewModel: ObservableObject {
     // MARK: - UI-Related Values
+
     @Published var currentBG: Double = 0 {
         didSet {
             currentBGConverted = bgunit.toMGDL(value: currentBG)
@@ -20,7 +21,7 @@ class BolusViewModel: ObservableObject {
     @Published var remainingInsulin: Double = 0.0
     @Published var insulinDuration: Double = 4.0
     @Published var lastInsulinDose: Double = 0.0
-    @Published var lastInsulinTimestamp: Date = Date()
+    @Published var lastInsulinTimestamp: Date = .init()
     @Published var timePeriodConfigs: [TimePeriod: TimePeriodConfig] = defaultValues
 
     @Published var currentBGConverted: Double = 0
@@ -39,11 +40,13 @@ class BolusViewModel: ObservableObject {
     }
 
     // MARK: - Constants
+
     private static let defaultTargetBG = "120"
     private static let defaultCorrectionFactor = "20"
     private static let defaultMealFactor = "1.0"
 
     // MARK: - Anzeige-Only Konvertierung für SettingsView
+
     func displayTargetBG(for period: TimePeriod) -> String {
         guard let raw = Double(timePeriodConfigs[period]?.targetBg ?? "120") else {
             return "120.0"
@@ -90,6 +93,7 @@ class BolusViewModel: ObservableObject {
     }
 
     // MARK: - Insulin Dose Management
+
     func setInsulinDose(amount: Double) {
         lastInsulinDose = amount
         lastInsulinTimestamp = Date()
@@ -121,6 +125,7 @@ class BolusViewModel: ObservableObject {
     }
 
     // MARK: - Main Calculation: Insulin Dose
+
     func calculateInsulinDose() {
         print("calculateInsulinDose called")
         var results: [TimePeriod: Double] = [:]
@@ -145,14 +150,14 @@ class BolusViewModel: ObservableObject {
             results[period] = totalIU
 
             print("""
-                Period: \(period), \
-                Carbs: \(currentCarbs), \
-                BG: \(currentBGValue), \
-                Sport: \(sportintensity.sportFaktor), \
-                Bolus: \(bolusIU), \
-                CorrectionFaktor: \(correctionIU), \
-                Total: \(totalIU)
-                """)
+            Period: \(period), \
+            Carbs: \(currentCarbs), \
+            BG: \(currentBGValue), \
+            Sport: \(sportintensity.sportFaktor), \
+            Bolus: \(bolusIU), \
+            CorrectionFaktor: \(correctionIU), \
+            Total: \(totalIU)
+            """)
         }
 
         print("Results:", results)

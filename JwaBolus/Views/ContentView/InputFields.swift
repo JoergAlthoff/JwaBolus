@@ -8,8 +8,10 @@ struct InputFields: View {
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
                 ValidatedNumberField(
-                    title: String(format: NSLocalizedString("input.bg.title", comment: ""),
-                                  viewModel.bgunit.localizedName),
+                    title: String(
+                        format: NSLocalizedString("input.bg.title", comment: ""),
+                        viewModel.bgunit.localizedName
+                    ),
                     text: Binding(
                         get: { String(viewModel.currentBG) },
                         set: { viewModel.currentBG = Double($0) ?? 0 }
@@ -20,8 +22,10 @@ struct InputFields: View {
 
             VStack(alignment: .leading, spacing: 8) {
                 ValidatedNumberField(
-                    title: String(format: NSLocalizedString("input.carbohydrates.title", comment: ""),
-                                  viewModel.carbUnit.localizedName),
+                    title: String(
+                        format: NSLocalizedString("input.carbohydrates.title", comment: ""),
+                        viewModel.carbUnit.localizedName
+                    ),
                     text: Binding(
                         get: { String(viewModel.carbohydrates) },
                         set: { viewModel.carbohydrates = Double($0) ?? 0 }

@@ -18,7 +18,6 @@ struct BloodGlucoseUnitSection: View {
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
-
         }
     }
 }

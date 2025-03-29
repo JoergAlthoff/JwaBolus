@@ -32,9 +32,8 @@ struct SettingsView: View {
                         UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         dismiss()
                     }
-                    .accessibilityLabel(Text("accessibility.done"))
-                    .accessibilityHint(Text("accessibility.hint.done"))
-
+                    .accessibilityLabel("accessibility.done")
+                    .accessibilityHint("accessibility.hint.done")
                 }
             }
         }
@@ -74,18 +73,19 @@ struct SettingsView: View {
                 },
                 label: {
                     Image(systemName: expandedSections.contains(period)
-                          ? SymbolNames.chevronDown : SymbolNames.chevronRight)
-                    .foregroundColor(.blue)
+                        ? SymbolNames.chevronDown : SymbolNames.chevronRight)
+                        .foregroundColor(.blue)
                 }
             )
             .accessibilityLabel(
-                Text(expandedSections.contains(period)
-                     ? "accessibility.chevron.collapse" : "accessibility.chevron.expand")
+                expandedSections.contains(period)
+                    ? "accessibility.chevron.collapse"
+                    : "accessibility.chevron.expand"
             )
             .accessibilityHint(
-                Text(expandedSections.contains(period)
-                     ? "accessibility.hint.chevron.collapse"
-                     : "accessibility.hint.chevron.expand")
+                expandedSections.contains(period)
+                    ? "accessibility.hint.chevron.collapse"
+                    : "accessibility.hint.chevron.expand"
             )
         }
     }

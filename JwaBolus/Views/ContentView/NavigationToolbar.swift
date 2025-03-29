@@ -17,8 +17,8 @@ struct NavigationToolbar: ToolbarContent {
                 showHelp.toggle()
             }, label: {
                 Image(systemName: SymbolNames.info)
-                    .accessibilityLabel(Text("accessibility.info"))
-                    .accessibilityHint(Text("accessibility.hint.info"))
+                    .accessibilityLabel("accessibility.info")
+                    .accessibilityHint("accessibility.hint.info")
             })
         }
 
@@ -28,8 +28,8 @@ struct NavigationToolbar: ToolbarContent {
                 showSettings.toggle()
             }, label: {
                 Image(systemName: SymbolNames.settings)
-                    .accessibilityLabel(Text("accessibility.settings"))
-                    .accessibilityHint(Text("accessibility.hint.settings"))
+                    .accessibilityLabel("accessibility.settings")
+                    .accessibilityHint("accessibility.hint.settings")
             })
         }
     }

@@ -15,10 +15,10 @@ enum TimePeriod: String, CaseIterable, Codable {
 
     var localizedValue: String {
         switch self {
-        case .morning: return NSLocalizedString("timePeriod.morning", comment: "")
-        case .noon: return NSLocalizedString("timePeriod.noon", comment: "")
-        case .evening: return NSLocalizedString("timePeriod.evening", comment: "")
-        case .night: return NSLocalizedString("timePeriod.night", comment: "")
+        case .morning: NSLocalizedString("timePeriod.morning", comment: "")
+        case .noon: NSLocalizedString("timePeriod.noon", comment: "")
+        case .evening: NSLocalizedString("timePeriod.evening", comment: "")
+        case .night: NSLocalizedString("timePeriod.night", comment: "")
         }
     }
 }
@@ -31,15 +31,15 @@ struct TimePeriodConfig: Codable {
 
     // Computed Properties, die Strings automatisch in Double umwandeln
     var targetBgDouble: Double {
-        return Double(targetBg) ?? 110.0
+        Double(targetBg) ?? 110.0
     }
 
     var correctionFactorDouble: Double {
-        return Double(correctionFactor) ?? 20.0
+        Double(correctionFactor) ?? 20.0
     }
 
     var mealInsulinFactorDouble: Double {
-        return Double(mealInsulinFactor) ?? 1.0
+        Double(mealInsulinFactor) ?? 1.0
     }
 }
 

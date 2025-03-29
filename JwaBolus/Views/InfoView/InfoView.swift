@@ -8,7 +8,7 @@ import SwiftUI
 
 struct InfoView: View {
     @Environment(\.dismiss) var dismiss
-
+    
     var body: some View {
         NavigationView {
             HelpContentView()
@@ -18,7 +18,7 @@ struct InfoView: View {
                         UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         dismiss()
                     }
-                    .accessibilityLabel(Text("accessibility.done"))
+                        .accessibilityLabel("accessibility.done")
                 )
         }
     }

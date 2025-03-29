@@ -19,8 +19,8 @@ struct StartButton: View {
                 .cornerRadius(10)
         })
         .padding(.horizontal)
-        .accessibilityLabel(Text("accessibility.startButton"))
-        .accessibilityHint(Text("accessibility.hint.startButton"))
+        .accessibilityLabel("accessibility.startButton")
+        .accessibilityHint("accessibility.hint.startButton")
     }
 }
 

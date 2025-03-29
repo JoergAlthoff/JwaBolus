@@ -12,8 +12,10 @@ struct PeriodSettingsView: View {
     var body: some View {
         VStack {
             ValidatedNumberField(
-                title: String(format: NSLocalizedString("targetBG.title", comment: ""),
-                              viewModel.bgunit.rawValue),
+                title: String(
+                    format: NSLocalizedString("targetBG.title", comment: ""),
+                    viewModel.bgunit.rawValue
+                ),
                 text: Binding(
                     get: { viewModel.displayTargetBG(for: period) },
                     set: { viewModel.updateTargetBG(for: period, from: $0) }
@@ -21,8 +23,10 @@ struct PeriodSettingsView: View {
             )
 
             ValidatedNumberField(
-                title: String(format: NSLocalizedString("correctionFactor.title", comment: ""),
-                              viewModel.bgunit.rawValue),
+                title: String(
+                    format: NSLocalizedString("correctionFactor.title", comment: ""),
+                    viewModel.bgunit.rawValue
+                ),
                 text: Binding(
                     get: { viewModel.displayCorrectionFactor(for: period) },
                     set: { viewModel.updateCorrectionFactor(for: period, from: $0) }

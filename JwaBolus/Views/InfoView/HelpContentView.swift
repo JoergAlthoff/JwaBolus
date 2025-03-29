@@ -10,7 +10,6 @@ struct HelpContentView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-
                 SectionTitle("help.title.purpose")
                 Text("help.content.purpose")
 

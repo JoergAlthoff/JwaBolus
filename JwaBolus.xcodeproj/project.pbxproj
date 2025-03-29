@@ -36,6 +36,7 @@
 		1277E4642D93305200EA2D3C /* SportIntensityMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1277E4632D93305200EA2D3C /* SportIntensityMenu.swift */; };
 		1277E4662D93668300EA2D3C /* ConversionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1277E4652D93668300EA2D3C /* ConversionConstants.swift */; };
 		129F73E62D96D5D60030896D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 129F73E42D96D5D60030896D /* Localizable.strings */; };
+		12AF66072D988759006C0CC0 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 12AF66062D988759006C0CC0 /* Algorithms */; };
 		12B4FAA72D8A0E8C0022D585 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAA52D8A0B460022D585 /* NumberFormatter.swift */; };
 		12B4FAA92D8A1D1E0022D585 /* PeriodSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAA82D8A1D1E0022D585 /* PeriodSettingsView.swift */; };
 		12B4FAAB2D8A1E9A0022D585 /* ValidatedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4FAAA2D8A1E9A0022D585 /* ValidatedNumberField.swift */; };
@@ -126,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12AF66072D988759006C0CC0 /* Algorithms in Frameworks */,
 				12109B3F2D94B83A00B0833B /* MarkdownUI in Frameworks */,
 				12109B3D2D94B82800B0833B /* Algorithms in Frameworks */,
 				12109B3B2D94B7BE00B0833B /* Algorithms in Frameworks */,
@@ -439,7 +441,7 @@
 			packageReferences = (
 				128CFAF22D82426F00DE4F2A /* XCLocalSwiftPackageReference "SwiftLintPlugins" */,
 				12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */,
-				12109B392D94B7BE00B0833B /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 12D488052C03E71600620E0E /* Products */;
 			projectDirPath = "";
@@ -912,6 +914,14 @@
 				minimumVersion = 1.2.1;
 			};
 		};
+		12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -934,6 +944,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 128CFAF22D82426F00DE4F2A /* XCLocalSwiftPackageReference "SwiftLintPlugins" */;
 			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		12AF66062D988759006C0CC0 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

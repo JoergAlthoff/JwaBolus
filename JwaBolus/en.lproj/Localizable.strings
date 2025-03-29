@@ -1,5 +1,6 @@
 /// MARK: - General
 "app.title" = "Bolus Calculator";
+"app.version.format" = "Version %@ (Build %@)";
 "done" = "Done";
 "invalid.input" = "Invalid input";
 "settings" = "Settings";
@@ -9,13 +10,13 @@
 "bgunit.mgdl" = "mg/dL";
 "bgunit.mmol" = "mmol/L";
 "bgunit.picker.label" = "Unit";
-"bgunit.section.title" = "Blood Glucose Unit";
+"bgunit.section.title" = "Blood glucose unit";
 
 "carbunit.bu" = "BU";
 "carbunit.cu" = "CU";
 "carbunit.grams" = "g";
 "carbunit.picker.label" = "Unit";
-"carbunit.section.title" = "Carbohydrate Unit";
+"carbunit.section.title" = "Carbohydrate unit";
 
 /// MARK: - Input Texts
 "input.bg.title" = "Current BG in %@";
@@ -37,7 +38,7 @@
 "resetInsulin.button.title" = "Reset Remaining Insulin";
 "applyMorning.button.title" = "Apply morning settings to all time periods";
 "results.headline" = "Units (IU) by time of day";
-"results.footnote" = "The buttons Morning to Night save the value for remaining insulin calculation";
+"results.footnote" = "The buttons Morning to Night save the value for the remaining insulin calculation";
 
 /// MARK: - Time Periods
 "timePeriod.morning" = "Morning";
@@ -65,15 +66,13 @@
 "accessibility.hint.resultButton.evening" = "Saves the result for the evening period to calculate remaining insulin";
 "accessibility.hint.resultButton.night" = "Saves the result for the night period to calculate remaining insulin";
 "accessibility.hint.applyMorning" = "Copies the morning settings to all time periods";
-"accessibility.hint.resetInsulin" = "Resets the stored remaining insulin to zero";
+"accessibility.hint.resetInsulin" = "Resets the stored remaining insulin value";
 "accessibility.hint.expandSection" = "Tap to show values for this time period";
 "accessibility.hint.collapseSection" = "Tap to hide values for this time period";
 "accessibility.hint.initialSetup.done" = "Completes the setup and shows the main interface";
 "accessibility.hint.done" = "Closes the settings and returns";
 "accessibility.hint.chevron.expand" = "Tap to show input fields for this time period";
 "accessibility.hint.chevron.collapse" = "Tap to hide input fields for this time period";
-"accessibility.hint.resetInsulin" = "Resets the stored remaining insulin value";
-"accessibility.hint.applyMorning" = "Copies the morning settings to all time periods";
 
 /// MARK: - Accessibility
 "accessibility.info" = "Show information";

@@ -11,10 +11,8 @@ struct InsulinManagementSection: View {
 
     var body: some View {
         Section(header: Text("insulin.section.title").font(.headline)) {
-            Stepper(value: $viewModel.insulinDuration, in: 1...8, step: 0.5) {
-                Text(
-                    String(format: NSLocalizedString("insulin.duration.label", comment: ""),
-                    viewModel.insulinDuration))
+            Stepper(value: $viewModel.insulinDuration, in: 1 ... 8, step: 0.5) {
+                Text("insulin.duration.label \(viewModel.insulinDuration, specifier: "%.1f")")
             }
 
             Button(action: {
@@ -25,8 +23,8 @@ struct InsulinManagementSection: View {
                     .frame(maxWidth: .infinity)
                     .multilineTextAlignment(.center)
             })
-            .accessibilityLabel(Text("accessibility.resetInsulin"))
-            .accessibilityHint(Text("accessibility.hint.resetInsulin"))
+            .accessibilityLabel("accessibility.resetInsulin")
+            .accessibilityHint("accessibility.hint.resetInsulin")
             .buttonStyle(BorderedProminentButtonStyle())
             .padding(.vertical, 4)
         }

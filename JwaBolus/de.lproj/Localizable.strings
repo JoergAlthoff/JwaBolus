@@ -1,5 +1,6 @@
 /// MARK: - Allgemein
 "app.title" = "Bolusrechner";
+"app.version.format" = "Version %@ (Build %@)";
 "done" = "Fertig";
 "invalid.input" = "Ungültige Eingabe";
 "settings" = "Einstellungen";
@@ -9,13 +10,13 @@
 "bgunit.mgdl" = "mg/dL";
 "bgunit.mmol" = "mmol/L";
 "bgunit.picker.label" = "Einheit";
-"bgunit.section.title" = "Blutzucker Einheit";
+"bgunit.section.title" = "Blutzuckereinheit";
 
 "carbunit.bu" = "BE";
 "carbunit.cu" = "KHE";
 "carbunit.grams" = "g";
 "carbunit.picker.label" = "Einheit";
-"carbunit.section.title" = "Kohlenhydrate Einheit";
+"carbunit.section.title" = "Kohlenhydrateinheit";
 
 /// MARK: - Input-Texte
 "input.bg.title" = "Aktueller BZ in %@";
@@ -31,12 +32,12 @@
 
 /// MARK: - Insulinberechnung & Ergebnisse
 "applyMorning.button.title" = "Einstellungen von Früh für alle Tageszeiten übernehmen";
-"insulin.duration.label" = "%.1f Stunden";
+"insulin.duration.label %.1f" = "Wirkdauer: %.1f Stunden";
 "insulin.section.title" = "Insulin Wirkdauer & Reset";
 "remaining.insulin.iu" = "Restinsulin ca. %.1f IE";
 "resetInsulin.button.title" = "Restinsulin zurücksetzen";
 "results.headline" = "Einheiten (IE) nach Tageszeit";
-"results.footnote" = "Die Tasten Früh bis Nacht speichern den Wert für die Restinsulin Berechnung";
+"results.footnote" = "Die Tasten Früh bis Nacht speichern den Wert für die Restinsulinberechnung";
 "saved.insulin.time" = "Gespeichert vor %@ Stunden";
 
 /// MARK: - Tageszeiten
@@ -72,9 +73,6 @@
 "accessibility.hint.done" = "Schließt die Einstellungen und kehrt zurück";
 "accessibility.hint.chevron.expand" = "Tippe, um die Eingabefelder anzuzeigen";
 "accessibility.hint.chevron.collapse" = "Tippe, um die Eingabefelder auszublenden";
-"accessibility.hint.resetInsulin" = "Setzt das gespeicherte Restinsulin zurück";
-"accessibility.hint.applyMorning" = "Kopiert die Früh-Einstellungen auf alle Tageszeiten";
-
 
 /// MARK: - Accessibility
 "accessibility.applyMorning" = "Morgeneinstellungen auf alle übernehmen";
@@ -84,7 +82,7 @@
 "accessibility.saveResultButton.morning" = "Restinsulin für morgens speichern";
 "accessibility.saveResultButton.night" = "Restinsulin für nachts speichern";
 "accessibility.saveResultButton.noon" = "Restinsulin für mittags speichern";
-"accessibility.settings" = "Einstellungen öffen";
+"accessibility.settings" = "Einstellungen öffnen";
 "accessibility.sport.menu" = "Sport auswählen";
 "accessibility.sportintensity.none" = "Kein Sport";
 "accessibility.sportintensity.light" = "Leichter Sport";
@@ -94,7 +92,6 @@
 "accessibility.initial.setup.done" = "Fertig mit der Ersteinrichtung";
 "accessibility.chevron.expand" = "Abschnitt ausklappen";
 "accessibility.chevron.collapse" = "Abschnitt einklappen";
-
 
 /// MARK: - Initial Setup
 "initial.setup.disclaimer" = "Diese App wurde als Lernhilfe und persönliches Projekt erstellt. Sie ist kein Medizinprodukt und dient nicht zur medizinischen Diagnose, Behandlung oder Überwachung. Die Nutzung erfolgt vollständig auf eigene Gefahr. Bitte konsultiere bei gesundheitlichen Fragen stets eine ärztliche Fachperson oder deinen Diabetesberater.";

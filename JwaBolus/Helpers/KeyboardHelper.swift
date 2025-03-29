@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct KeyboardHelper {
+enum KeyboardHelper {
     static func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }

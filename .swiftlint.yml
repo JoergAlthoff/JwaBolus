@@ -5,3 +5,10 @@ excluded:
   - .vscode
   - JwaBolusTests
   - SwiftLintPlugins
+
+disabled_rules:
+  - opening_brace
+  - trailing_comma
+  - vertical_parameter_alignment
+  - vertical_whitespace
+  - redundant_void_return

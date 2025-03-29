@@ -19,8 +19,8 @@ struct ApplyMorningButton: View {
                     .frame(maxWidth: .infinity)
                     .multilineTextAlignment(.center)
             })
-            .accessibilityLabel(Text("accessibility.applyMorning"))
-            .accessibilityHint(Text("accessibility.hint.applyMorning"))
+            .accessibilityLabel("accessibility.applyMorning")
+            .accessibilityHint("accessibility.hint.applyMorning")
             .buttonStyle(BorderedProminentButtonStyle())
         }
     }

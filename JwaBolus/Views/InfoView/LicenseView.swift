@@ -4,8 +4,8 @@
 //
 //  Created by Jörg Althoff on 26.03.25.
 //
-import SwiftUI
 import MarkdownUI
+import SwiftUI
 
 struct LicenseView: View {
     @State private var licenseText: String = ""
@@ -22,7 +22,8 @@ struct LicenseView: View {
 
     func loadLicense() {
         guard let path = Bundle.main.path(forResource: "gpl-3.0", ofType: "md"),
-              let rawText = try? String(contentsOfFile: path) else {
+              let rawText = try? String(contentsOfFile: path)
+        else {
             licenseText = "⚠️ License text not found."
             return
         }

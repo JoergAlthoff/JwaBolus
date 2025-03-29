@@ -6,29 +6,29 @@
 //
 import Foundation
 
-struct UnitConverter {
+enum UnitConverter {
     // MARK: - Blutzucker (Blood Glucose)
 
     static func convertBG(_ value: Double, fromBgu: BloodGlucoseUnit, toBgu: BloodGlucoseUnit) -> Double {
         guard fromBgu != toBgu else { return value }
-        if fromBgu == .mgdL && toBgu == .mmolL {
+        if fromBgu == .mgdL, toBgu == .mmolL {
             return value / GlucoseConversion.mmolToMgdl
-        } else if fromBgu == .mmolL && toBgu == .mgdL {
+        } else if fromBgu == .mmolL, toBgu == .mgdL {
             return value * GlucoseConversion.mmolToMgdl
         }
         return value
     }
 
     static func toInternalBG(_ value: Double, from unit: BloodGlucoseUnit) -> Double {
-        return convertBG(value, fromBgu: unit, toBgu: .mgdL)
+        convertBG(value, fromBgu: unit, toBgu: .mgdL)
     }
 
     static func toDisplayBG(_ value: Double, as unit: BloodGlucoseUnit) -> Double {
-        return convertBG(value, fromBgu: .mgdL, toBgu: unit)
+        convertBG(value, fromBgu: .mgdL, toBgu: unit)
     }
 
     static func fromDisplayBG(_ value: Double, from unit: BloodGlucoseUnit) -> Double {
-        return convertBG(value, fromBgu: unit, toBgu: .mgdL)
+        convertBG(value, fromBgu: unit, toBgu: .mgdL)
     }
 
     // MARK: - Kohlenhydrate (Carbs)
@@ -37,13 +37,11 @@ struct UnitConverter {
         guard fromCU != toCU else { return value }
 
         // Convert to grams first
-        let inGrams: Double = {
-            switch fromCU {
-            case .grams: return value
-            case .cu: return value * CarbConversion.gramsPerCU
-            case .bu: return value * CarbConversion.gramsPerBU
-            }
-        }()
+        let inGrams: Double = switch fromCU {
+        case .grams: value
+        case .cu: value * CarbConversion.gramsPerCU
+        case .bu: value * CarbConversion.gramsPerBU
+        }
 
         // Then from grams to target unit
         switch toCU {
@@ -54,14 +52,14 @@ struct UnitConverter {
     }
 
     static func toInternalCarbs(_ value: Double, from unit: CarbUnit) -> Double {
-        return convertCarbs(value, fromCU: unit, toCU: .grams)
+        convertCarbs(value, fromCU: unit, toCU: .grams)
     }
 
     static func toDisplayCarbs(_ value: Double, as unit: CarbUnit) -> Double {
-        return convertCarbs(value, fromCU: .grams, toCU: unit)
+        convertCarbs(value, fromCU: .grams, toCU: unit)
     }
 
     static func fromDisplayCarbs(_ value: Double, from unit: CarbUnit) -> Double {
-        return convertCarbs(value, fromCU: unit, toCU: .grams)
+        convertCarbs(value, fromCU: unit, toCU: .grams)
     }
 }
