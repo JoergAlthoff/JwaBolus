@@ -33,6 +33,9 @@ struct RemainingInsulin: View {
                 )
         }
         .padding()
+        .onChange(of: viewModel.remainingInsulin) { _, _ in
+            updateElapsedTime()
+        }
         .onAppear {
             updateElapsedTime() // Initial update immediately upon display
             Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { _ in
