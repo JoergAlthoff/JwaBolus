@@ -18,7 +18,7 @@ struct InfoView: View {
                         UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         dismiss()
                     }
-                        .accessibilityLabel("accessibility.done")
+                    .accessibilityLabel("accessibility.done")
                 )
         }
     }

@@ -23,7 +23,6 @@ struct InputFields: View {
                 print("Localized CarbUnit: \(viewModel.carbUnit.localizedName)")
             }
 
-
             VStack(alignment: .leading, spacing: 8) {
                 ValidatedNumberField(
                     title: String(

@@ -30,22 +30,22 @@ enum CarbUnit: String, CaseIterable {
     func toGrams(value: Double) -> Double {
         switch self {
         case .grams:
-                return value
+            return value
         case .bu:
-                return value * Self.gramsPerBU
+            return value * Self.gramsPerBU
         case .cu:
-                return value * Self.gramsPerCU
+            return value * Self.gramsPerCU
         }
     }
 
     func fromGrams(value: Double) -> Double {
         switch self {
         case .grams:
-                return value
+            return value
         case .bu:
-                return value / Self.gramsPerBU
+            return value / Self.gramsPerBU
         case .cu:
-                return value / Self.gramsPerCU
+            return value / Self.gramsPerCU
         }
     }
 }
