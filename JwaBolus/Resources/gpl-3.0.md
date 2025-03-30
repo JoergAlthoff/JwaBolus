@@ -673,3 +673,16 @@ library, you may consider it more useful to permit linking proprietary
 applications with the library. If this is what you want to do, use the
 GNU Lesser General Public License instead of this License. But first,
 please read <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+
+## Additional Terms
+
+This software is licensed under the GNU General Public License v3.0 (GPL-3.0).
+
+In addition, the following condition applies:
+
+- Any distribution of this software (modified or unmodified) must include 
+visible attribution in the user interface, mentioning the original 
+author: **Joerg Althoff**.
+
+For example, this can be a mention in the "About" section, splash screen, or help menu.
