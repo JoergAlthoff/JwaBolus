@@ -44,8 +44,8 @@ struct InputFields: View {
                 SportIntensityMenu(sportintensity: $viewModel.sportintensity)
             }
         }
-        .onChange(of: scenePhase) {
-            if scenePhase == .active {
+        .onChange(of: scenePhase) {_, newPhase in
+            if newPhase == .active {
                 resetValues()
             }
         }
