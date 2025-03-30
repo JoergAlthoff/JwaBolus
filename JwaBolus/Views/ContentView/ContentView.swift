@@ -24,7 +24,7 @@ struct ContentView: View {
 
                 ScrollView {
                     VStack(spacing: 20) {
-                        InputFields()
+                        InputFields(activeSheet: $activeSheet)
                         StartButton()
                         Results()
                         RemainingInsulin()

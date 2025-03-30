@@ -4,6 +4,8 @@ struct InputFields: View {
     @EnvironmentObject var viewModel: BolusViewModel
     @Environment(\.scenePhase) private var scenePhase
 
+    @Binding var activeSheet: ActiveSheet?
+
     var body: some View {
         VStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 8) {
@@ -44,8 +46,8 @@ struct InputFields: View {
                 SportIntensityMenu(sportintensity: $viewModel.sportintensity)
             }
         }
-        .onChange(of: scenePhase) {_, newPhase in
-            if newPhase == .active {
+        .onChange(of: activeSheet) { oldValue, newValue in
+            if oldValue != nil, newValue == nil {
                 resetValues()
             }
         }
@@ -59,6 +61,6 @@ struct InputFields: View {
 }
 
 #Preview {
-    InputFields()
+    InputFields(activeSheet: .constant(nil))
         .environmentObject(BolusViewModel())
 }
