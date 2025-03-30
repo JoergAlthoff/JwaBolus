@@ -15,10 +15,6 @@ A mobile app licensed under GPL-3.0 with additional terms for UI attribution.
 - ♿️ Accessibility-friendly: supports Dynamic Type, VoiceOver, and high contrast modes
 - 🌐 German, English, Ukrainian language support
 
-## 🚫 License and Attribution
-
-This software is licensed under the GNU General Public License v3.0 (GPL-3.0).
-
 ### Additional Terms
 
 - Any distribution of this software (modified or unmodified) must include visible attribution in the user interface,
@@ -26,6 +22,17 @@ mentioning the original author: **Joerg Althoff**.
 - For example, this can be a mention in the "About" section, splash screen, or help menu.
 
 See [`gpl-3.0.md`](./gpl-3.0.md) for full license text.
+
+## Disclaimer
+
+This app is not a medical device within the meaning of the EU Medical Device Regulation (MDR) and must not be used 
+as a substitute for professional medical advice. It is intended solely for personal support and guidance with 
+insulin dosing and nutrition management.
+
+Use of this app is at your own risk. The developer assumes no liability for any direct or indirect damages resulting 
+from the use of this software.
+
+Always consult a qualified healthcare professional with any questions or concerns regarding your health.
 
 ## 🚀 Installation
 
