@@ -34,7 +34,7 @@
 "remaining.insulin.iu" = "Remaining insulin approx. %.1f IU";
 "saved.insulin.time" = "Saved %@ hours ago";
 "insulin.section.title" = "Insulin Duration & Reset";
-"insulin.duration.label" = "%.1f hours";
+"insulin.duration.label" = "Duration: %.1f hours";
 "resetInsulin.button.title" = "Reset Remaining Insulin";
 "applyMorning.button.title" = "Apply morning settings to all time periods";
 "results.headline" = "Units (IU) by time of day";

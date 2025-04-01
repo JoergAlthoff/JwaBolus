@@ -42,7 +42,7 @@
 
 /* MARK: - Time Periods */
 "timePeriod.morning" = "Ранок";
-"timePeriod.noon" = "Полудень";
+"timePeriod.noon" = "День";
 "timePeriod.evening" = "Вечір";
 "timePeriod.night" = "Ніч";
 

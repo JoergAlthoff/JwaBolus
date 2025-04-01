@@ -32,7 +32,7 @@
 
 /// MARK: - Insulinberechnung & Ergebnisse
 "applyMorning.button.title" = "Einstellungen von Früh für alle Tageszeiten übernehmen";
-"insulin.duration.label %.1f" = "Wirkdauer: %.1f Stunden";
+"insulin.duration.label" = "Wirkdauer: %.1f Stunden";
 "insulin.section.title" = "Insulin Wirkdauer & Reset";
 "remaining.insulin.iu" = "Restinsulin ca. %.1f IE";
 "resetInsulin.button.title" = "Restinsulin zurücksetzen";
@@ -127,3 +127,7 @@
 
 "help.title.usage" = "⚙️ Bedienung";
 "help.content.usage" = "Trage deinen aktuellen Blutzuckerwert und die Kohlenhydrate ein. Tippe auf Start, um die Insulindosis zu berechnen. Tippe auf ein Ergebnis, um es für die Restinsulinberechnung zu speichern. Das Restinsulin wird basierend auf der eingegebenen Wirkungsdauer linear geschätzt.";
+
+"help.title.license" = "📜 Lizenz";
+"help.content.license" = "Zeige GNU Lizenz";
+

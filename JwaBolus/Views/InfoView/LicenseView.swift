@@ -16,7 +16,7 @@ struct LicenseView: View {
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .navigationTitle("license.title")
+        .navigationTitle("help.title.license")
         .onAppear(perform: loadLicense)
     }
 

@@ -12,7 +12,7 @@ struct InsulinManagementSection: View {
     var body: some View {
         Section(header: Text("insulin.section.title").font(.headline)) {
             Stepper(value: $viewModel.insulinDuration, in: 1 ... 8, step: 0.5) {
-                Text("insulin.duration.label \(viewModel.insulinDuration, specifier: "%.1f")")
+                Text(String(format: NSLocalizedString("insulin.duration.label", comment: ""), viewModel.insulinDuration))
             }
 
             Button(action: {
