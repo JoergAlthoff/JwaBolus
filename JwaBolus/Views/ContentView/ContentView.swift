@@ -13,7 +13,7 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
 
     init() {
-        print("🔄 ContentView re-rendered")
+        Log.debug("ContentView re-rendered", category: .ui)
     }
 
     var body: some View {

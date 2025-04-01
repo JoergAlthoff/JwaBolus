@@ -34,7 +34,9 @@ struct ResultButton: View {
     ResultButton(
         period: .morning,
         result: 2.5,
-        onTap: { print("Preview: ResultButton tapped") }
+        onTap: {
+            Log.debug("Preview: ResultButton tapped", category: .ui)
+        }
     )
     .environmentObject(BolusViewModel())
     .preferredColorScheme(.dark)

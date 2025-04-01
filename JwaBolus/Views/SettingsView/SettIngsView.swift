@@ -41,7 +41,7 @@ struct SettingsView: View {
 
     private func applyMorningSettingsToAll() {
         guard let morningSettings = viewModel.timePeriodConfigs[.morning] else {
-            print(Constants.noMorningConfigError)
+            Log.error("Error: No Config found for morning!", category: .ui)
             return
         }
 
@@ -88,10 +88,6 @@ struct SettingsView: View {
                     : "accessibility.hint.chevron.expand"
             )
         }
-    }
-
-    private enum Constants {
-        static let noMorningConfigError = "❌ Error: No Config found for morning!"
     }
 }
 

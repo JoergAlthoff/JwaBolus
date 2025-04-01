@@ -28,7 +28,7 @@ class DebouncedText: ObservableObject {
         cancellable = $text
             .debounce(for: .seconds(delay), scheduler: RunLoop.main)
             .sink { [weak self] newValue in
-                print("🔎 DebouncedText checking: '\(newValue)'")
+                Log.debug("DebouncedText checking: '\(newValue)'", category: .ui)
                 self?.validateAndCommit(newValue)
             }
     }
@@ -43,7 +43,7 @@ class DebouncedText: ObservableObject {
             onCommit(value)
         } else {
             errorMessage = NSLocalizedString("invalid.input", comment: "")
-            print(errorMessage!)
+            Log.info("errorMessage!", category: .ui)
         }
     }
 }

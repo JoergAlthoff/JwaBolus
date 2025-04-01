@@ -81,13 +81,12 @@ class BolusViewModel: ObservableObject {
         guard let raw = Double(timePeriodConfigs[period]?.mealInsulinFactor ?? "1.0") else {
             return "1.0"
         }
-        let displayValue = UnitConverter.toDisplayCarbs(raw, as: carbUnit)
-        return String(format: "%.1f", displayValue)
+        return String(format: "%.1f", raw)
     }
 
     func updateMealFactor(for period: TimePeriod, from displayValue: String) {
         if let val = Double(displayValue.replacingOccurrences(of: ",", with: ".")) {
-            let internalVal = UnitConverter.fromDisplayCarbs(val, from: carbUnit)
+            let internalVal = val
             timePeriodConfigs[period]?.mealInsulinFactor = String(format: "%.1f", internalVal)
         }
     }
@@ -127,12 +126,13 @@ class BolusViewModel: ObservableObject {
     // MARK: - Main Calculation: Insulin Dose
 
     func calculateInsulinDose() {
-        print("calculateInsulinDose called")
+        Log.debug("calculateInsulinDose called", category: .logic)
+
         var results: [TimePeriod: Double] = [:]
 
         for period in TimePeriod.allCases {
             guard let config = timePeriodConfigs[period] else {
-                print("No config für \(period)")
+                Log.error("No config für \(period)", category: .storage)
                 continue
             }
 
@@ -149,7 +149,7 @@ class BolusViewModel: ObservableObject {
 
             results[period] = totalIU
 
-            print("""
+            Log.debug("""
             Period: \(period), \
             Carbs: \(currentCarbs), \
             BG: \(currentBGValue), \
@@ -157,10 +157,10 @@ class BolusViewModel: ObservableObject {
             Bolus: \(bolusIU), \
             CorrectionFaktor: \(correctionIU), \
             Total: \(totalIU)
-            """)
+            """, category: .logic)
         }
 
-        print("Results:", results)
+        Log.debug("Results: \n\t\(results)", category: .logic )
         resultsPerTimePeriod = results
     }
 }

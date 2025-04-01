@@ -6,7 +6,7 @@ struct PeriodSettingsView: View {
 
     init(period: TimePeriod) {
         self.period = period
-        print("🧪 PeriodSettingsView loaded for \(period)")
+        Log.debug("PeriodSettingsView loaded for \(period)", category: .ui)
     }
 
     var body: some View {
@@ -42,7 +42,7 @@ struct PeriodSettingsView: View {
             )
         }
         .onAppear {
-            print("🟢 Values: BG=\(viewModel.displayTargetBG(for: period))")
+            Log.debug("Values: BG=\(viewModel.displayTargetBG(for: period))", category: .logic)
         }
     }
 }

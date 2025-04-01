@@ -22,7 +22,7 @@ struct InputFields: View {
             }
             .padding(.horizontal)
             .onAppear {
-                print("Localized CarbUnit: \(viewModel.carbUnit.localizedName)")
+                Log.debug("Localized CarbUnit: \(viewModel.carbUnit.localizedName)", category: .ui)
             }
 
             VStack(alignment: .leading, spacing: 8) {
@@ -39,7 +39,7 @@ struct InputFields: View {
             }
             .padding(.horizontal)
             .onAppear {
-                print("Localized BloodGlucoseUnit: \(viewModel.bgunit.localizedName)")
+                Log.debug("Localized BloodGlucoseUnit: \(viewModel.bgunit.localizedName)", category: .ui)
             }
 
             VStack(alignment: .leading, spacing: 8) {
@@ -57,6 +57,12 @@ struct InputFields: View {
         viewModel.currentBG = 0
         viewModel.carbohydrates = 0
         viewModel.sportintensity = .none
+        Log.debug("""
+        Reset Values\n
+        viewModel.currentBG: \(viewModel.currentBG), \
+        viewModel.carbohydrates: \(viewModel.carbohydrates), \
+        viewModel.sportintensity: \(viewModel.sportintensity)
+        """, category: .ui)
     }
 }
 

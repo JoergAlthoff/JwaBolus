@@ -51,7 +51,7 @@ struct ValidatedNumberField: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.decimalPad)
                 .onAppear {
-                    print("🟠 SettingField onAppear – text: \(text)")
+                    Log.debug("SettingField onAppear – text: \(text)", category: .ui)
                     debouncedText.text = NumberFormatter.localizedDecimal.string(
                         from: NSNumber(value: Double(text) ?? 0)
                     ) ?? ""
@@ -71,9 +71,12 @@ struct ValidatedNumberField: View {
             }
         }
         .onAppear {
-            print("📦 initialText: \(initialText)")
-            print("📦 debouncedText.text: \(debouncedText.text)")
-            print("📦 text binding: \(text)")
+            Log.debug("""
+            initialText: \(initialText)\
+            debouncedText.text: \(debouncedText.text)"\
+            text binding: \(text)
+            """, category: .ui)
+
             debouncedText.text = text
         }
     }
