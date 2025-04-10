@@ -70,6 +70,8 @@ struct ContentView: View {
                 if !hasCompletedInitialSetup {
                     activeSheet = .initialSetup
                 }
+                viewModel.loadTimePeriodConfigs()
+                viewModel.loadLastInsulinData()
             }
         }
     }

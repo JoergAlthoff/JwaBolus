@@ -23,10 +23,10 @@ enum Log {
     private static let network = Logger(subsystem: subsystem, category: "network")
 
     static func debug(_ message: String, category: Category = .general) {
-        #if DEBUG
+//        #if DEBUG
         let decorated = "🔍 " + emoji(for: category) + " " + message
-        logger(for: category).debug("\(decorated, privacy: .public)")
-        #endif
+        logger(for: category).info("\(decorated, privacy: .public)")
+//        #endif
     }
 
     static func info(_ message: String, category: Category = .general) {
