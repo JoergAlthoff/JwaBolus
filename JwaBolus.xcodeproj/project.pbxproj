@@ -366,7 +366,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				129F73E02D96BB440030896D /* PBXTargetDependency */,
+				12B642402DA86DF200AF346E /* PBXTargetDependency */,
+				12B6423E2DA86DEB00AF346E /* PBXTargetDependency */,
+				12B6423C2DA86DC500AF346E /* PBXTargetDependency */,
 			);
 			name = JwaBolus;
 			productName = JwaBolus;
@@ -444,9 +446,9 @@
 			);
 			mainGroup = 12D487FB2C03E71600620E0E;
 			packageReferences = (
-				128CFAF22D82426F00DE4F2A /* XCLocalSwiftPackageReference "SwiftLintPlugins" */,
 				12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */,
 				12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				12B6423A2DA86D2B00AF346E /* XCLocalSwiftPackageReference "../SwiftLintPlugins" */,
 			);
 			productRefGroup = 12D488052C03E71600620E0E /* Products */;
 			projectDirPath = "";
@@ -552,9 +554,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		129F73E02D96BB440030896D /* PBXTargetDependency */ = {
+		12B6423C2DA86DC500AF346E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 129F73DF2D96BB440030896D /* SwiftLintBuildToolPlugin */;
+			productRef = 12B6423B2DA86DC500AF346E /* SwiftLintBuildToolPlugin */;
+		};
+		12B6423E2DA86DEB00AF346E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 12B6423D2DA86DEB00AF346E /* MarkdownUI */;
+		};
+		12B642402DA86DF200AF346E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 12B6423F2DA86DF200AF346E /* Algorithms */;
 		};
 		12D488162C03E71700620E0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -895,9 +905,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		128CFAF22D82426F00DE4F2A /* XCLocalSwiftPackageReference "SwiftLintPlugins" */ = {
+		12B6423A2DA86D2B00AF346E /* XCLocalSwiftPackageReference "../SwiftLintPlugins" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = SwiftLintPlugins;
+			relativePath = ../SwiftLintPlugins;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -944,12 +954,22 @@
 			package = 12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */;
 			productName = MarkdownUI;
 		};
-		129F73DF2D96BB440030896D /* SwiftLintBuildToolPlugin */ = {
+		12AF66062D988759006C0CC0 /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 128CFAF22D82426F00DE4F2A /* XCLocalSwiftPackageReference "SwiftLintPlugins" */;
+			package = 12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		12B6423B2DA86DC500AF346E /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12B6423A2DA86D2B00AF346E /* XCLocalSwiftPackageReference "../SwiftLintPlugins" */;
 			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
-		12AF66062D988759006C0CC0 /* Algorithms */ = {
+		12B6423D2DA86DEB00AF346E /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */;
+			productName = MarkdownUI;
+		};
+		12B6423F2DA86DF200AF346E /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
 			productName = Algorithms;
