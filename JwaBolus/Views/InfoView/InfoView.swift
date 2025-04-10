@@ -11,11 +11,15 @@ struct InfoView: View {
 
     var body: some View {
         NavigationView {
-            WebView(htmlFileName: "HelpText")
-                .navigationBarTitle("Info / Hilfe", displayMode: .inline)
-                .navigationBarItems(trailing: Button("Fertig") {
-                    dismiss()
-                })
+            HelpContentView()
+                .navigationBarTitle("help.navTitle", displayMode: .inline)
+                .navigationBarItems(
+                    trailing: Button("done") {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        dismiss()
+                    }
+                    .accessibilityLabel("accessibility.done")
+                )
         }
     }
 }

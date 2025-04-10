@@ -1,66 +1,96 @@
-//
-//  ContentView.swift
-//  JwaBolus
-//
-//  Created by Jörg Althoff on 28.02.25.
-//
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = BolusViewModel()
+    @EnvironmentObject var viewModel: BolusViewModel
 
-    @State private var showSettings = false
-    @State private var showHelp = false
+    @AppStorage("hasCompletedInitialSetup") private var hasCompletedInitialSetup: Bool = false
 
-    // Timer, der alle 5 Minuten feuert
+    @State private var activeSheet: ActiveSheet?
+
     let timer = Timer.publish(every: 300, on: .main, in: .common).autoconnect()
+    let willEnterForeground = NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
 
     @Environment(\.colorScheme) var colorScheme
 
+    init() {
+        Log.debug("ContentView re-rendered", category: .ui)
+    }
+
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Eingabefelder
-                    InputFields(viewModel: viewModel)
+        NavigationStack {
+            ZStack {
+                (colorScheme == .dark ? Color.black : Color.white)
+                    .ignoresSafeArea()
 
-                    // Start-Button
-                    StartButton(viewModel: viewModel)
-
-                    // Tageszeiten-Ergebnisse
-                    Results(viewModel: viewModel)
-
-                    // Restinsulin-Anzeige
-                    RemainingInsulin(viewModel: viewModel)
-
-                    Spacer()
-
-                    // Versionsanzeige
-                    ShowAppVersion()
+                ScrollView {
+                    VStack(spacing: 20) {
+                        InputFields(activeSheet: $activeSheet)
+                        StartButton()
+                        Results()
+                        RemainingInsulin()
+                        Spacer()
+                        ShowAppVersion()
+                    }
+                    .padding(.vertical, 15)
                 }
-                .padding(.vertical, 25)
             }
-            .background(colorScheme == .dark ? Color.black : Color.white)
-            .navigationBarTitle("Bolusrechner")
-            .navigationBarItems(
-                leading: Button(action: { showHelp.toggle() }, label: { Image(systemName: "info.circle") }),
-                trailing: Button(action: { showSettings.toggle() }, label: { Image(systemName: "gearshape.fill") })
-            )
-            .sheet(isPresented: $showSettings) {
-                SettingsView(viewModel: viewModel)
+            .navigationTitle("app.title")
+            .toolbar {
+                NavigationToolbar(
+                    showHelp: Binding(
+                        get: { activeSheet == .help },
+                        set: { if $0 { activeSheet = .help } else { activeSheet = nil } }
+                    ),
+                    showSettings: Binding(
+                        get: { activeSheet == .settings },
+                        set: { if $0 { activeSheet = .settings } else { activeSheet = nil } }
+                    )
+                )
             }
-            .sheet(isPresented: $showHelp) {
-                InfoView()
+            .sheet(item: $activeSheet) { sheet in
+                switch sheet {
+                case .settings:
+                    SettingsView()
+                case .help:
+                    InfoView()
+                case .initialSetup:
+                    InitialSetupView {
+                        hasCompletedInitialSetup = true
+                        activeSheet = nil
+                    }
+                }
             }
             .onReceive(timer) { _ in
                 viewModel.objectWillChange.send()
             }
+            .onReceive(willEnterForeground) { _ in
+                viewModel.objectWillChange.send()
+            }
+            .onAppear {
+                if !hasCompletedInitialSetup {
+                    activeSheet = .initialSetup
+                }
+                viewModel.loadTimePeriodConfigs()
+                viewModel.loadLastInsulinData()
+            }
         }
-        .navigationViewStyle(.stack)
     }
 }
 
+// MARK: - Enum for Active Sheet
+
+enum ActiveSheet: Identifiable {
+    case settings
+    case help
+    case initialSetup
+
+    var id: Int { hashValue }
+}
+
+// MARK: - Preview
+
 #Preview {
     ContentView()
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }

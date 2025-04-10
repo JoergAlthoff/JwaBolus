@@ -1,26 +1,29 @@
-//
-//  TageszeitenView.swift
-//  JwaBolus
-//
 import SwiftUI
 
 struct Results: View {
-    @ObservedObject var viewModel: BolusViewModel
+    @EnvironmentObject var viewModel: BolusViewModel
 
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         VStack {
-            Text("Einheiten (IE) nach Tageszeit")
+            Text(NSLocalizedString("results.headline", comment: ""))
                 .font(.headline)
 
             HStack(spacing: 15) {
                 ForEach(TimePeriod.allCases, id: \.self) { period in
-                    ResultButton(period: period, viewModel: viewModel)
+                    ResultButton(
+                        period: period,
+                        result: viewModel.resultsPerTimePeriod[period] ?? 0.0,
+                        onTap: {
+                            viewModel.setInsulinDose(amount: viewModel.resultsPerTimePeriod[period] ?? 0.0)
+                            viewModel.updateRemainingInsulin()
+                        }
+                    )
                 }
             }
 
-            Text("Die Tasten Früh bis Nacht speichern den Wert für die Restinulin Berechnung")
+            Text(NSLocalizedString("results.footnote", comment: ""))
                 .multilineTextAlignment(.center)
                 .font(.footnote)
         }
@@ -29,7 +32,7 @@ struct Results: View {
 }
 
 #Preview {
-    // Hier wird das ViewModel explizit übergeben
-    Results(viewModel: BolusViewModel())
+    Results()
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }

@@ -1,29 +1,20 @@
-//
-//  ResultButton.swift
-//  JwaBolus
-//
-//  Created by Jörg Althoff on 05.03.25.
-//
-// Displays a single button for the time of day
-
 import SwiftUI
 
 struct ResultButton: View {
     let period: TimePeriod
-    @ObservedObject var viewModel: BolusViewModel
-    
+    let result: Double
+    let onTap: () -> Void
+
+    @EnvironmentObject var viewModel: BolusViewModel
     @Environment(\.colorScheme) var colorScheme
-    
     var body: some View {
-        
-        let result = viewModel.resultsPerTimePeriod[period] ?? 0.0
-        
         VStack {
-            Text(period.rawValue).bold()
-            
-            Button {
-                viewModel.setInsulinDose(menge: result)
-            } label: {
+            Text(period.localizedValue).bold()
+
+            Button(action: {
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                onTap()
+            }, label: {
                 Text(String(format: "%.1f", result))
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
@@ -31,12 +22,22 @@ struct ResultButton: View {
                     .background(colorScheme == .dark ? Color.orange : Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
-            }
+            })
             .buttonStyle(PressableButtonStyle())
+            .accessibilityLabel("accessibility.saveResultButton.\(period.rawValue)")
+            .accessibilityHint("accessibility.hint.resultButton.\(period.rawValue)")
         }
     }
 }
 
 #Preview {
-    ResultButton(period: TimePeriod.morning, viewModel: BolusViewModel())
+    ResultButton(
+        period: .morning,
+        result: 2.5,
+        onTap: {
+            Log.debug("Preview: ResultButton tapped", category: .ui)
+        }
+    )
+    .environmentObject(BolusViewModel())
+    .preferredColorScheme(.dark)
 }

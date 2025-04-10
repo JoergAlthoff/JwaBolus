@@ -1,0 +1,133 @@
+/// MARK: - Allgemein
+"app.title" = "Bolusrechner";
+"app.version.format" = "Version %@ (Build %@)";
+"done" = "Fertig";
+"invalid.input" = "Ungültige Eingabe";
+"settings" = "Einstellungen";
+"startButton.title" = "Start";
+
+/// MARK: - Einheiten
+"bgunit.mgdl" = "mg/dL";
+"bgunit.mmol" = "mmol/L";
+"bgunit.picker.label" = "Einheit";
+"bgunit.section.title" = "Blutzuckereinheit";
+
+"carbUnit.bu" = "BE";
+"carbUnit.cu" = "KHE";
+"carbUnit.grams" = "g";
+"carbUnit.picker.label" = "Einheit";
+"carbUnit.section.title" = "Kohlenhydrateinheit";
+
+/// MARK: - Input-Texte
+"input.bg.title" = "Aktueller BZ in %@";
+"input.carbohydrates.title" = "Kohlenhydrate in %@";
+
+/// MARK: - Zielwerte & Faktoren
+"correctionFactor" = "Korrekturfaktor";
+"correctionFactor.title" = "Korrekturfaktor (%@)";
+"mealFactor" = "Mahlzeiten-Insulin";
+"mealFactor.title" = "Mahlzeiten-Insulin";
+"targetBG" = "Ziel-BZ";
+"targetBG.title" = "Ziel-BZ (%@)";
+
+/// MARK: - Insulinberechnung & Ergebnisse
+"applyMorning.button.title" = "Einstellungen von Früh für alle Tageszeiten übernehmen";
+"insulin.duration.label" = "Wirkdauer: %.1f Stunden";
+"insulin.section.title" = "Insulin Wirkdauer & Reset";
+"remaining.insulin.iu" = "Restinsulin ca. %.1f IE";
+"resetInsulin.button.title" = "Restinsulin zurücksetzen";
+"results.headline" = "Einheiten (IE) nach Tageszeit";
+"results.footnote" = "Die Tasten Früh bis Nacht speichern den Wert für die Restinsulinberechnung";
+"saved.insulin.time" = "Gespeichert vor %@ Stunden";
+
+/// MARK: - Tageszeiten
+"timePeriod.evening" = "Abend";
+"timePeriod.morning" = "Früh";
+"timePeriod.night" = "Nacht";
+"timePeriod.noon" = "Mittag";
+
+/// MARK: - Sport
+"sport.menu.title" = "Sport innerhalb von 2 Stunden:";
+"sportintensity.intense" = "Intensiver Sport";
+"sportintensity.light" = "Leichter Sport";
+"sportintensity.moderate" = "Moderater Sport";
+"sportintensity.none" = "Kein Sport";
+
+/// MARK: - Accessibility – General
+"accessibility.done" = "Schließen";
+
+/// MARK: - Accessibility Hints
+"accessibility.hint.info" = "Öffnet die Hilfe mit rechtlichen Hinweisen und Anleitungen";
+"accessibility.hint.settings" = "Öffnet die Einstellungen zur Anpassung der Werte";
+"accessibility.hint.startButton" = "Berechnet die empfohlene Insulindosis";
+"accessibility.hint.resultButton" = "Speichert den Wert zur Restinsulinberechnung";
+"accessibility.hint.resultButton.morning" = "Speichert das Ergebnis für den Zeitraum morgens zur Restinsulinberechnung";
+"accessibility.hint.resultButton.noon" = "Speichert das Ergebnis für den Zeitraum mittags zur Restinsulinberechnung";
+"accessibility.hint.resultButton.evening" = "Speichert das Ergebnis für den Zeitraum abends zur Restinsulinberechnung";
+"accessibility.hint.resultButton.night" = "Speichert das Ergebnis für den Zeitraum nachts zur Restinsulinberechnung";
+"accessibility.hint.applyMorning" = "Kopiert die Früh-Einstellungen auf alle Tageszeiten";
+"accessibility.hint.resetInsulin" = "Setzt den gespeicherten Restinsulinwert auf null zurück";
+"accessibility.hint.expandSection" = "Tippen zum Anzeigen der Werte für diese Tageszeit";
+"accessibility.hint.collapseSection" = "Tippen zum Ausblenden der Werte für diese Tageszeit";
+"accessibility.hint.initialSetup.done" = "Beendet die Ersteinrichtung und zeigt die App-Oberfläche";
+"accessibility.hint.done" = "Schließt die Einstellungen und kehrt zurück";
+"accessibility.hint.chevron.expand" = "Tippe, um die Eingabefelder anzuzeigen";
+"accessibility.hint.chevron.collapse" = "Tippe, um die Eingabefelder auszublenden";
+
+/// MARK: - Accessibility
+"accessibility.applyMorning" = "Morgeneinstellungen auf alle übernehmen";
+"accessibility.info" = "Info anzeigen";
+"accessibility.resetInsulin" = "Restinsulin zurücksetzen";
+"accessibility.saveResultButton.evening" = "Restinsulin für abends speichern";
+"accessibility.saveResultButton.morning" = "Restinsulin für morgens speichern";
+"accessibility.saveResultButton.night" = "Restinsulin für nachts speichern";
+"accessibility.saveResultButton.noon" = "Restinsulin für mittags speichern";
+"accessibility.settings" = "Einstellungen öffnen";
+"accessibility.sport.menu" = "Sport auswählen";
+"accessibility.sportintensity.none" = "Kein Sport";
+"accessibility.sportintensity.light" = "Leichter Sport";
+"accessibility.sportintensity.moderate" = "Moderater Sport";
+"accessibility.sportintensity.intense" = "Intensiver Sport";
+"accessibility.startButton" = "Berechnung starten";
+"accessibility.initial.setup.done" = "Fertig mit der Ersteinrichtung";
+"accessibility.chevron.expand" = "Abschnitt ausklappen";
+"accessibility.chevron.collapse" = "Abschnitt einklappen";
+
+/// MARK: - Initial Setup
+"initial.setup.disclaimer" = "Diese App wurde als Lernhilfe und persönliches Projekt erstellt. Sie ist kein Medizinprodukt und dient nicht zur medizinischen Diagnose, Behandlung oder Überwachung. Die Nutzung erfolgt vollständig auf eigene Gefahr. Bitte konsultiere bei gesundheitlichen Fragen stets eine ärztliche Fachperson oder deinen Diabetesberater.";
+"initial.setup.done" = "Fertig";
+"initial.setup.goToSettings" = "Einstellungen öffnen";
+"initial.setup.message" = "Bitte überprüfe und konfiguriere zunächst deine persönlichen Einstellungen. Dies ist wichtig, um korrekte Berechnungen sicherzustellen.";
+"initial.setup.navigationTitle" = "Ersteinrichtung";
+"initial.setup.title" = "Willkommen bei JwaBolus!";
+
+/// MARK: - Hilfe / Hilfe & Info
+"help.navTitle" = "Hilfe & Info";
+
+"help.title.disclaimer" = "⚠️ Haftungshinweis";
+"help.content.disclaimer" = "Diese App ist kein Medizinprodukt. Die Nutzung erfolgt auf eigene Gefahr.";
+
+"help.title.license" = "📜 Lizenz";
+"help.content.license" = "GNU-Lizenz anzeigen";
+
+"help.title.logic" = "📊 Berechnungslogik";
+"help.content.logic" = "Insulinbedarf = ((BZ - Zielwert) ÷ Korrekturfaktor + (KH ÷ KH-Faktor)) × Sportfaktor";
+
+"help.title.privacy" = "🛡️ Datenschutz";
+"help.content.privacy" = "Alle Daten verbleiben auf deinem Gerät. Es wird keine Internetverbindung verwendet.";
+
+"help.title.purpose" = "📝 Zweck der App";
+"help.content.purpose" = "Diese App ist eine Lernhilfe zur Berechnung der Insulindosis. Sie ist kein Medizinprodukt.";
+
+"help.title.sport" = "🏃‍♂️ Sportfaktor";
+"help.content.sport" = "Je nach Sportintensität wird der berechnete Insulinbedarf angepasst:\n• kein Sport = 1.0\n• leichter Sport = 0.75\n• moderater Sport = 0.67\n• intensiver Sport = 0.5.";
+
+"help.title.tips" = "💡 Tipps";
+"help.content.tips" = "Überprüfe regelmäßig deinen Blutzucker, um Über- oder Unterdosierungen zu vermeiden. Passe deine Korrektur- und Kohlenhydratfaktoren an, wenn sich deine Insulinempfindlichkeit verändert. Denke daran, dass Sport oder Stress deinen Blutzucker beeinflussen können.";
+
+"help.title.usage" = "⚙️ Bedienung";
+"help.content.usage" = "Trage deinen aktuellen Blutzuckerwert und die Kohlenhydrate ein. Tippe auf Start, um die Insulindosis zu berechnen. Tippe auf ein Ergebnis, um es für die Restinsulinberechnung zu speichern. Das Restinsulin wird basierend auf der eingegebenen Wirkungsdauer linear geschätzt.";
+
+"help.title.license" = "📜 Lizenz";
+"help.content.license" = "Zeige GNU Lizenz";
+

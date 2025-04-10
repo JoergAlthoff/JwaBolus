@@ -1,145 +1,98 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @ObservedObject var viewModel: BolusViewModel
-
+    @EnvironmentObject var viewModel: BolusViewModel
     @Environment(\.dismiss) private var dismiss
 
-    @State private var timeSettings = loadTimeSettings()
-    @State private var applyMorningSettings: Bool = false
-
     let timePeriods: [TimePeriod] = [.morning, .noon, .evening, .night]
-    @State private var expandedSections: Set<TimePeriod> = [.morning]
+    @State private(set) var expandedSections: Set<TimePeriod> = [.morning]
 
     var body: some View {
         NavigationView {
             Form {
-                // Insulin Duration (Global)
-                Section(header: Text("Insulin Wirkdauer (Stunden)").font(.headline)) {
-                    Stepper(value: $viewModel.insulinDuration, in: 1...8, step: 0.5) {
-                        Text("\(viewModel.insulinDuration, specifier: "%.1f") Stunden")
-                    }
-
-                    Button(action: {
-                        viewModel.resetRemainingInsulin()
-                    }, label: {
-                        Text("Restinsulin zurücksetzen")
-                            .frame(maxWidth: .infinity)
-                            .multilineTextAlignment(.center)
-                    })
-                    .buttonStyle(BorderedProminentButtonStyle())
-                }
-
-                // Apply Morning Settings Button
-                Button(action: {
-                    applyMorningSettingsToAll()
-                }, label: {
-                    Text("Einstellungen von Früh für alle Tageszeiten übernehmen")
-                        .frame(maxWidth: .infinity)
-                        .multilineTextAlignment(.center)
-                })
-                .buttonStyle(BorderedProminentButtonStyle())
+                InsulinManagementSection()
+                BloodGlucoseUnitSection()
+                CarbUnitSection()
+                ApplyMorningButton(action: applyMorningSettingsToAll)
 
                 // Time Period Sections
                 ForEach(timePeriods, id: \.self) { period in
                     Section(header: headerView(for: period)) {
                         if expandedSections.contains(period) {
-                            periodSettingsView(for: period)
+                            PeriodSettingsView(period: period)
+                                .environmentObject(viewModel)
                         }
                     }
                 }
-
             }
-            .navigationTitle("Einstellungen")
-            .navigationBarItems(trailing: Button("Fertig") {
-                viewModel.timePeriodConfigs = timeSettings
-                dismiss()
-            })
-            .onAppear {
-                timeSettings = viewModel.timePeriodConfigs
-                expandedSections = [.morning] // Start with only morning expanded
-            }
-            .onDisappear {
-                viewModel.timePeriodConfigs = timeSettings
+            .navigationTitle("settings")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("done") {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        dismiss()
+                    }
+                    .accessibilityLabel("accessibility.done")
+                    .accessibilityHint("accessibility.hint.done")
+                }
             }
         }
     }
 
-    private func binding(for period: TimePeriod) -> Binding<TimePeriodConfig> {
-        return Binding(
-            get: {
-                timeSettings[period] ?? TimePeriodConfig(
-                    targetBZ: 110,
-                    correctionFactor: 20,
-                    mealInsulinFactor: 1.0
-                )
-            },
-            set: { newValue in
-                timeSettings[period] = newValue
-                if period == .morning {
-                    applyMorningSettings = false
-                }
-            }
-        )
-    }
-
     private func applyMorningSettingsToAll() {
-        guard let morningSettings = timeSettings[.morning] else { return }
+        guard let morningSettings = viewModel.timePeriodConfigs[.morning] else {
+            Log.error("Error: No Config found for morning!", category: .ui)
+            return
+        }
+
+        var updatedConfigs = viewModel.timePeriodConfigs
         for period in timePeriods where period != .morning {
-            timeSettings[period] = TimePeriodConfig(
-                targetBZ: morningSettings.targetBZ,
+            updatedConfigs[period] = TimePeriodConfig(
+                targetBg: morningSettings.targetBg,
                 correctionFactor: morningSettings.correctionFactor,
                 mealInsulinFactor: morningSettings.mealInsulinFactor
             )
         }
-    }
 
-    private func periodSettingsView(for period: TimePeriod) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            VStack(alignment: .leading) {
-                Text("Ziel-BZ (mg/dL)")
-                TextField("", value: binding(for: period).targetBZ, formatter: NumberFormatter())
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.decimalPad)
-            }
-
-            VStack(alignment: .leading) {
-                Text("Korrekturfaktor (mg/dL)")
-                TextField("", value: binding(for: period).correctionFactor, formatter: NumberFormatter())
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.decimalPad)
-            }
-
-            VStack(alignment: .leading) {
-                Text("Mahlzeiten-Insulin")
-                TextField("", value: binding(for: period).mealInsulinFactor,
-                          format: .number.precision(.fractionLength(1)))
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.decimalPad)
-            }
-        }
+        // 🔥 Store actualized values to ViewModel
+        viewModel.timePeriodConfigs = updatedConfigs
     }
 
     private func headerView(for period: TimePeriod) -> some View {
         HStack {
-            Text(period.rawValue)
+            Text(period.localizedValue)
                 .font(.headline)
             Spacer()
-            Button(action: {
-                if expandedSections.contains(period) {
-                    expandedSections.remove(period)
-                } else {
-                    expandedSections.insert(period)
+            Button(
+                action: {
+                    if expandedSections.contains(period) {
+                        expandedSections.remove(period)
+                    } else {
+                        expandedSections.insert(period)
+                    }
+                },
+                label: {
+                    Image(systemName: expandedSections.contains(period)
+                        ? SymbolNames.chevronDown : SymbolNames.chevronRight)
+                        .foregroundColor(.blue)
                 }
-            }, label: {
-                Image(systemName: expandedSections.contains(period) ? "chevron.down" : "chevron.right")
-                    .foregroundColor(.blue)
-            })
+            )
+            .accessibilityLabel(
+                expandedSections.contains(period)
+                    ? "accessibility.chevron.collapse"
+                    : "accessibility.chevron.expand"
+            )
+            .accessibilityHint(
+                expandedSections.contains(period)
+                    ? "accessibility.hint.chevron.collapse"
+                    : "accessibility.hint.chevron.expand"
+            )
         }
     }
 }
 
 #Preview {
-    SettingsView(viewModel: BolusViewModel())
+    SettingsView()
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }

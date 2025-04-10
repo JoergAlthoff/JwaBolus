@@ -1,5 +1,5 @@
 //
-//  RestInsulinView.swift
+//  RemainingInsulin.swift
 //  JwaBolus
 //
 //  Created by Jörg Althoff on 28.02.25.
@@ -7,13 +7,21 @@
 import SwiftUI
 
 struct RemainingInsulin: View {
-    @ObservedObject var viewModel: BolusViewModel
+    @EnvironmentObject var viewModel: BolusViewModel
+
+    @State private var elapsedTime: String = ""
+
+    // MARK: - Helper Methods
+
+    private func updateElapsedTime() {
+        elapsedTime = viewModel.timeSinceLastDose()
+    }
 
     var body: some View {
         let labelText = """
-            Restinsulin ca. \(String(format: "%.1f", viewModel.remainingInsulin)) IE
-            Seit: \(DateFormatter.short.string(from: viewModel.lastInsulinTimestamp))
-            """
+        \(String(format: NSLocalizedString("remaining.insulin.iu", comment: ""), viewModel.remainingInsulin))
+        \(String(format: NSLocalizedString("saved.insulin.time", comment: ""), elapsedTime))
+        """
 
         VStack(spacing: 5) {
             Text(labelText)
@@ -25,11 +33,20 @@ struct RemainingInsulin: View {
                 )
         }
         .padding()
-
+        .onChange(of: viewModel.remainingInsulin) { _, _ in
+            updateElapsedTime()
+        }
+        .onAppear {
+            updateElapsedTime() // Initial update immediately upon display
+            Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { _ in
+                updateElapsedTime()
+            }
+        }
     }
 }
 
 #Preview {
-    RemainingInsulin(viewModel: BolusViewModel())
+    RemainingInsulin()
+        .environmentObject(BolusViewModel())
         .preferredColorScheme(.dark)
 }

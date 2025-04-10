@@ -1,0 +1,48 @@
+import SwiftUI
+
+struct PeriodSettingsView: View {
+    @EnvironmentObject var viewModel: BolusViewModel
+    let period: TimePeriod
+
+    init(period: TimePeriod) {
+        self.period = period
+        Log.debug("PeriodSettingsView loaded for \(period)", category: .ui)
+    }
+
+    var body: some View {
+        VStack {
+            ValidatedNumberField(
+                title: String(
+                    format: NSLocalizedString("targetBG.title", comment: ""),
+                    viewModel.bgunit.rawValue
+                ),
+                text: Binding(
+                    get: { viewModel.displayTargetBG(for: period) },
+                    set: { viewModel.updateTargetBG(for: period, from: $0) }
+                )
+            )
+
+            ValidatedNumberField(
+                title: String(
+                    format: NSLocalizedString("correctionFactor.title", comment: ""),
+                    viewModel.bgunit.rawValue
+                ),
+                text: Binding(
+                    get: { viewModel.displayCorrectionFactor(for: period) },
+                    set: { viewModel.updateCorrectionFactor(for: period, from: $0) }
+                )
+            )
+
+            ValidatedNumberField(
+                title: NSLocalizedString("mealFactor.title", comment: ""),
+                text: Binding(
+                    get: { viewModel.displayMealFactor(for: period) },
+                    set: { viewModel.updateMealFactor(for: period, from: $0) }
+                )
+            )
+        }
+        .onAppear {
+            Log.debug("Values: BG=\(viewModel.displayTargetBG(for: period))", category: .logic)
+        }
+    }
+}

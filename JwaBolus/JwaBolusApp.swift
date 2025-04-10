@@ -12,6 +12,7 @@ struct JwaBolusApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(BolusViewModel())
         }
     }
 }
