@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,6 @@
 		120CBFA82D836BEB00388B78 /* SportIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120CBFA72D836BEB00388B78 /* SportIntensity.swift */; };
 		12109B362D94AE3700B0833B /* gpl-3.0.md in Resources */ = {isa = PBXBuildFile; fileRef = 12109B332D94AE3700B0833B /* gpl-3.0.md */; };
 		12109B372D94AE3700B0833B /* gpl-3.0.txt in Resources */ = {isa = PBXBuildFile; fileRef = 12109B342D94AE3700B0833B /* gpl-3.0.txt */; };
-		12109B3B2D94B7BE00B0833B /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 12109B3A2D94B7BE00B0833B /* Algorithms */; };
-		12109B3D2D94B82800B0833B /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 12109B3C2D94B82800B0833B /* Algorithms */; };
 		12109B3F2D94B83A00B0833B /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 12109B3E2D94B83A00B0833B /* MarkdownUI */; };
 		121228DA2D762C2100907135 /* ShowAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121228D92D762C2100907135 /* ShowAppVersion.swift */; };
 		122428752D7236CB00CDFC96 /* CustomStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122428742D7236CB00CDFC96 /* CustomStyles.swift */; };
@@ -128,28 +126,20 @@
 /* Begin PBXFrameworksBuildPhase section */
 		12D488012C03E71600620E0E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				12AF66072D988759006C0CC0 /* Algorithms in Frameworks */,
 				12109B3F2D94B83A00B0833B /* MarkdownUI in Frameworks */,
-				12109B3D2D94B82800B0833B /* Algorithms in Frameworks */,
-				12109B3B2D94B7BE00B0833B /* Algorithms in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		12D488112C03E71700620E0E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		12D4881B2C03E71700620E0E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -358,6 +348,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				12E0D75B2DAB118800ED51A9 /* PBXTargetDependency */,
 				12B642402DA86DF200AF346E /* PBXTargetDependency */,
 				12B6423E2DA86DEB00AF346E /* PBXTargetDependency */,
 			);
@@ -426,7 +417,6 @@
 				};
 			};
 			buildConfigurationList = 12D487FF2C03E71600620E0E /* Build configuration list for PBXProject "JwaBolus" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -439,7 +429,9 @@
 			packageReferences = (
 				12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */,
 				12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				12E0D7592DAB115800ED51A9 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
+			preferredProjectObjectVersion = 90;
 			productRefGroup = 12D488052C03E71600620E0E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -454,7 +446,6 @@
 /* Begin PBXResourcesBuildPhase section */
 		12D488022C03E71600620E0E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				12D4880F2C03E71700620E0E /* Preview Assets.xcassets in Resources */,
 				1237A3382D91FCE2002A1DC0 /* Localizable.strings in Resources */,
@@ -464,28 +455,22 @@
 				1237A33A2D91FD2F002A1DC0 /* Localizable.strings in Resources */,
 				129F73E62D96D5D60030896D /* Localizable.strings in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		12D488122C03E71700620E0E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		12D4881C2C03E71700620E0E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		12D488002C03E71600620E0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				1277E4642D93305200EA2D3C /* SportIntensityMenu.swift in Sources */,
 				1250AE752D736B0600AC9D25 /* ContentView.swift in Sources */,
@@ -524,22 +509,17 @@
 				12E503EF2D77C1E300DBCA5B /* ResultButton.swift in Sources */,
 				12E5C1E92D8F5CFC004C6C65 /* DebouncedText.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		12D488102C03E71700620E0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				120BE5DB2D5FE9D900CFCF4F /* BolusViewModelTests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		12D4881A2C03E71700620E0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -561,6 +541,10 @@
 			isa = PBXTargetDependency;
 			target = 12D488032C03E71600620E0E /* JwaBolus */;
 			targetProxy = 12D4881F2C03E71700620E0E /* PBXContainerItemProxy */;
+		};
+		12E0D75B2DAB118800ED51A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 12E0D75A2DAB118800ED51A9 /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -592,7 +576,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		12D488262C03E71700620E0E /* Debug */ = {
+		12D488262C03E71700620E0E /* Debug configuration for PBXProject "JwaBolus" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -657,7 +641,7 @@
 			};
 			name = Debug;
 		};
-		12D488272C03E71700620E0E /* Release */ = {
+		12D488272C03E71700620E0E /* Release configuration for PBXProject "JwaBolus" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -715,13 +699,13 @@
 			};
 			name = Release;
 		};
-		12D488292C03E71700620E0E /* Debug */ = {
+		12D488292C03E71700620E0E /* Debug configuration for PBXNativeTarget "JwaBolus" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2001;
+				CURRENT_PROJECT_VERSION = 2002;
 				DEVELOPMENT_ASSET_PATHS = "\"JwaBolus/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -741,19 +725,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
 		};
-		12D4882A2C03E71700620E0E /* Release */ = {
+		12D4882A2C03E71700620E0E /* Release configuration for PBXNativeTarget "JwaBolus" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2001;
+				CURRENT_PROJECT_VERSION = 2002;
 				DEVELOPMENT_ASSET_PATHS = "\"JwaBolus/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -773,13 +757,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.jalthoff.JwaBolus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
 		};
-		12D4882C2C03E71700620E0E /* Debug */ = {
+		12D4882C2C03E71700620E0E /* Debug configuration for PBXNativeTarget "JwaBolusTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -797,7 +781,7 @@
 			};
 			name = Debug;
 		};
-		12D4882D2C03E71700620E0E /* Release */ = {
+		12D4882D2C03E71700620E0E /* Release configuration for PBXNativeTarget "JwaBolusTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -815,7 +799,7 @@
 			};
 			name = Release;
 		};
-		12D4882F2C03E71700620E0E /* Debug */ = {
+		12D4882F2C03E71700620E0E /* Debug configuration for PBXNativeTarget "JwaBolusUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -832,7 +816,7 @@
 			};
 			name = Debug;
 		};
-		12D488302C03E71700620E0E /* Release */ = {
+		12D488302C03E71700620E0E /* Release configuration for PBXNativeTarget "JwaBolusUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -855,37 +839,33 @@
 		12D487FF2C03E71600620E0E /* Build configuration list for PBXProject "JwaBolus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12D488262C03E71700620E0E /* Debug */,
-				12D488272C03E71700620E0E /* Release */,
+				12D488262C03E71700620E0E /* Debug configuration for PBXProject "JwaBolus" */,
+				12D488272C03E71700620E0E /* Release configuration for PBXProject "JwaBolus" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		12D488282C03E71700620E0E /* Build configuration list for PBXNativeTarget "JwaBolus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12D488292C03E71700620E0E /* Debug */,
-				12D4882A2C03E71700620E0E /* Release */,
+				12D488292C03E71700620E0E /* Debug configuration for PBXNativeTarget "JwaBolus" */,
+				12D4882A2C03E71700620E0E /* Release configuration for PBXNativeTarget "JwaBolus" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		12D4882B2C03E71700620E0E /* Build configuration list for PBXNativeTarget "JwaBolusTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12D4882C2C03E71700620E0E /* Debug */,
-				12D4882D2C03E71700620E0E /* Release */,
+				12D4882C2C03E71700620E0E /* Debug configuration for PBXNativeTarget "JwaBolusTests" */,
+				12D4882D2C03E71700620E0E /* Release configuration for PBXNativeTarget "JwaBolusTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		12D4882E2C03E71700620E0E /* Build configuration list for PBXNativeTarget "JwaBolusUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12D4882F2C03E71700620E0E /* Debug */,
-				12D488302C03E71700620E0E /* Release */,
+				12D4882F2C03E71700620E0E /* Debug configuration for PBXNativeTarget "JwaBolusUITests" */,
+				12D488302C03E71700620E0E /* Release configuration for PBXNativeTarget "JwaBolusUITests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
@@ -899,14 +879,6 @@
 				minimumVersion = 2.4.1;
 			};
 		};
-		12109B392D94B7BE00B0833B /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-algorithms.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
-			};
-		};
 		12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-algorithms.git";
@@ -915,19 +887,17 @@
 				minimumVersion = 1.2.1;
 			};
 		};
+		12E0D7592DAB115800ED51A9 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.59.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		12109B3A2D94B7BE00B0833B /* Algorithms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 12109B392D94B7BE00B0833B /* XCRemoteSwiftPackageReference "swift-algorithms" */;
-			productName = Algorithms;
-		};
-		12109B3C2D94B82800B0833B /* Algorithms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 12109B392D94B7BE00B0833B /* XCRemoteSwiftPackageReference "swift-algorithms" */;
-			productName = Algorithms;
-		};
 		12109B3E2D94B83A00B0833B /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */;
@@ -947,6 +917,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
 			productName = Algorithms;
+		};
+		12E0D75A2DAB118800ED51A9 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12E0D7592DAB115800ED51A9 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
