@@ -72,3 +72,4 @@ fastlane/test_output
 
 #SwiftLintPlugins nicht
 SwiftLintPlugins/
+.DS_Store
