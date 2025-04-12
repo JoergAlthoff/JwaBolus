@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -368,7 +368,6 @@
 			dependencies = (
 				12B642402DA86DF200AF346E /* PBXTargetDependency */,
 				12B6423E2DA86DEB00AF346E /* PBXTargetDependency */,
-				12B6423C2DA86DC500AF346E /* PBXTargetDependency */,
 			);
 			name = JwaBolus;
 			productName = JwaBolus;
@@ -448,7 +447,6 @@
 			packageReferences = (
 				12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */,
 				12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
-				12B6423A2DA86D2B00AF346E /* XCLocalSwiftPackageReference "../SwiftLintPlugins" */,
 			);
 			productRefGroup = 12D488052C03E71600620E0E /* Products */;
 			projectDirPath = "";
@@ -554,10 +552,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		12B6423C2DA86DC500AF346E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 12B6423B2DA86DC500AF346E /* SwiftLintBuildToolPlugin */;
-		};
 		12B6423E2DA86DEB00AF346E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 12B6423D2DA86DEB00AF346E /* MarkdownUI */;
@@ -904,13 +898,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		12B6423A2DA86D2B00AF346E /* XCLocalSwiftPackageReference "../SwiftLintPlugins" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../SwiftLintPlugins;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		12109B382D94B59B00B0833B /* XCRemoteSwiftPackageReference "MarkdownUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -958,11 +945,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 12AF66052D988759006C0CC0 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
 			productName = Algorithms;
-		};
-		12B6423B2DA86DC500AF346E /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 12B6423A2DA86D2B00AF346E /* XCLocalSwiftPackageReference "../SwiftLintPlugins" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 		12B6423D2DA86DEB00AF346E /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;

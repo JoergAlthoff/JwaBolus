@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: BolusViewModel
@@ -7,13 +8,15 @@ struct ContentView: View {
 
     @State private var activeSheet: ActiveSheet?
 
-    let timer = Timer.publish(every: 300, on: .main, in: .common).autoconnect()
+    private let refreshInterval: TimeInterval = 60  // seconds
+    private let timer: Publishers.Autoconnect<Timer.TimerPublisher>
     let willEnterForeground = NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
 
     @Environment(\.colorScheme) var colorScheme
 
     init() {
         Log.debug("ContentView re-rendered", category: .ui)
+        self.timer = Timer.publish(every: refreshInterval, on: .main, in: .common).autoconnect()
     }
 
     var body: some View {
@@ -49,22 +52,24 @@ struct ContentView: View {
             }
             .sheet(item: $activeSheet) { sheet in
                 switch sheet {
-                case .settings:
-                    SettingsView()
-                case .help:
-                    InfoView()
-                case .initialSetup:
-                    InitialSetupView {
-                        hasCompletedInitialSetup = true
-                        activeSheet = nil
-                    }
+                    case .settings:
+                        SettingsView()
+                    case .help:
+                        InfoView()
+                    case .initialSetup:
+                        InitialSetupView {
+                            hasCompletedInitialSetup = true
+                            activeSheet = nil
+                        }
                 }
             }
             .onReceive(timer) { _ in
                 viewModel.objectWillChange.send()
+                viewModel.updateRemainingInsulin()
             }
             .onReceive(willEnterForeground) { _ in
                 viewModel.objectWillChange.send()
+                viewModel.updateRemainingInsulin()
             }
             .onAppear {
                 if !hasCompletedInitialSetup {

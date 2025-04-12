@@ -12,3 +12,20 @@ disabled_rules:
   - vertical_parameter_alignment
   - vertical_whitespace
   - redundant_void_return
+
+opt_in_rules:
+  - explicit_init
+  - attributes
+  - closure_end_indentation
+  - unused_import        # warnt bei nicht verwendeten Imports
+  - unused_optional_binding
+  - empty_count          # z. B. `array.count == 0` → lieber `isEmpty`
+  - force_unwrapping     # vermeidet `!`
+  - force_cast           # vermeidet `as!`
+  - redundant_nil_coalescing  # `?? nil` ist unnötig
+  - explicit_top_level_acl    # verlangt `public`, `internal` o. ä. auf oberster Ebene
+  - toggle_bool          # `bool == true` → besser `if bool`
+
+line_length:
+  warning: 120
+  error: 160
