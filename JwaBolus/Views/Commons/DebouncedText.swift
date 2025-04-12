@@ -17,7 +17,7 @@ class DebouncedText: ObservableObject {
 
     init(
         initialText: String = "",
-        delay: TimeInterval = 1.0,
+        delay: TimeInterval = 7.0,
         validator: @escaping (String) -> Bool = { _ in true },
         onCommit: @escaping (String) -> Void = { _ in }
     ) {
