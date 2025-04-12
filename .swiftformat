@@ -52,7 +52,7 @@
 --markcategories true
 --markextensions always
 --marktypes always
---maxwidth none
+--maxwidth 140
 --modifierorder 
 --nevertrailing 
 --nilinit remove

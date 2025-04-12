@@ -7,25 +7,27 @@ excluded:
   - SwiftLintPlugins
 
 disabled_rules:
-  - opening_brace
-  - trailing_comma
-  - vertical_parameter_alignment
-  - vertical_whitespace
-  - redundant_void_return
+  - opening_brace                   # disables opening brace rules
+  - trailing_comma                  # disables trailing comma rules
+  - vertical_parameter_alignment    # disables vertical alignment of parameters
+  - vertical_whitespace             # disables vertical whitespace rules
+  - redundant_void_return           # disables redundant void return rules
 
 opt_in_rules:
   - explicit_init
   - attributes
   - closure_end_indentation
-  - unused_import        # warnt bei nicht verwendeten Imports
   - unused_optional_binding
-  - empty_count          # z. B. `array.count == 0` → lieber `isEmpty`
-  - force_unwrapping     # vermeidet `!`
-  - force_cast           # vermeidet `as!`
-  - redundant_nil_coalescing  # `?? nil` ist unnötig
-  - explicit_top_level_acl    # verlangt `public`, `internal` o. ä. auf oberster Ebene
-  - toggle_bool          # `bool == true` → besser `if bool`
+  - empty_count                 # e.g. `array.count == 0` → better use `isEmpty`
+  - force_unwrapping            # avoids using `!`
+  - force_cast                  # avoids using `as!`
+  - redundant_nil_coalescing    # `?? nil` is unnecessary
+  - explicit_top_level_acl      # requires `public`, `internal`, etc. at top level
+  - toggle_bool                 # `bool == true` → better `if bool`
 
 line_length:
-  warning: 120
-  error: 160
+  warning: 140
+  error: 180
+
+analyzer_rules:
+  - unused_import               # warns about unused imports
