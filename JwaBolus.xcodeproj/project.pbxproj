@@ -243,13 +243,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		126A9A282D84DEFD00598446 /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
 		129F73E32D96D5B90030896D /* uk.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,7 +299,6 @@
 				129F73E32D96D5B90030896D /* uk.lproj */,
 				1237A3332D91FC9C002A1DC0 /* en.lproj */,
 				1237A3322D91FC7A002A1DC0 /* de.lproj */,
-				126A9A282D84DEFD00598446 /* Logic */,
 				12C373172D72585100D40408 /* ViewModels */,
 				1250AE742D736B0600AC9D25 /* Views */,
 				12C373162D72583F00D40408 /* Helpers */,
