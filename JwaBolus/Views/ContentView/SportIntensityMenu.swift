@@ -18,7 +18,7 @@ struct SportIntensityMenu: View {
                 Button(action: {
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
                     sportintensity = option
-                    KeyboardHelper.hideKeyboard()
+                    dismissKeyboard()
                 }, label: {
                     Text(option.localizedName)
                 })
