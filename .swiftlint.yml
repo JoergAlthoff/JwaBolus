@@ -12,17 +12,16 @@ disabled_rules:
   - vertical_parameter_alignment    # disables vertical alignment of parameters
   - vertical_whitespace             # disables vertical whitespace rules
   - redundant_void_return           # disables redundant void return rules
+  - explicit_top_level_acl          # requires `public`, `internal`, etc. at top level
 
 opt_in_rules:
   - explicit_init
-  - attributes
   - closure_end_indentation
   - unused_optional_binding
   - empty_count                 # e.g. `array.count == 0` → better use `isEmpty`
   - force_unwrapping            # avoids using `!`
   - force_cast                  # avoids using `as!`
   - redundant_nil_coalescing    # `?? nil` is unnecessary
-  - explicit_top_level_acl      # requires `public`, `internal`, etc. at top level
   - toggle_bool                 # `bool == true` → better `if bool`
 
 line_length:
