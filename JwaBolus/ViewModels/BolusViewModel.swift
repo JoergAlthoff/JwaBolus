@@ -146,6 +146,9 @@ class BolusViewModel: ObservableObject {
     }
 
     func timeSinceLastDose() -> String {
+        if remainingInsulin == 0.0 {
+            return ""
+        }
         let now = Date()
         let interval = now.timeIntervalSince(lastInsulinTimestamp)
         let duration = Measurement(value: interval, unit: UnitDuration.seconds)
@@ -234,11 +237,11 @@ class BolusViewModel: ObservableObject {
         updateRemainingInsulin()
         objectWillChange.send() // 👈 Refresh View immediatly
         Log.info("""
-            remainingInsulin = \(remainingInsulin), \
-            dose = \(lastInsulinDose), \
-            time = \(lastInsulinTimestamp), \
-            duration = \(insulinDuration), \
-            now = \(Date())
-            """, category: .logic)
+        remainingInsulin = \(remainingInsulin), \
+        dose = \(lastInsulinDose), \
+        time = \(lastInsulinTimestamp), \
+        duration = \(insulinDuration), \
+        now = \(Date())
+        """, category: .logic)
     }
 }

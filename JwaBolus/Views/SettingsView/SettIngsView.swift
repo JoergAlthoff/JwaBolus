@@ -72,9 +72,11 @@ struct SettingsView: View {
                     }
                 },
                 label: {
-                    Image(systemName: expandedSections.contains(period)
-                        ? SymbolNames.chevronDown : SymbolNames.chevronRight)
-                        .foregroundColor(.blue)
+                    Image(
+                        systemName: expandedSections.contains(period)
+                            ? SymbolNames.chevronDown : SymbolNames.chevronRight
+                    )
+                    .foregroundColor(.blue)
                 }
             )
             .accessibilityLabel(

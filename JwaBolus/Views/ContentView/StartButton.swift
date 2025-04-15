@@ -7,7 +7,7 @@ struct StartButton: View {
     var body: some View {
         Button(action: {
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            KeyboardHelper.hideKeyboard()
+            dismissKeyboard()
             viewModel.calculateInsulinDose()
         }, label: {
             Text("startButton.title")

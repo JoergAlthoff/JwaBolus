@@ -1,3 +1,4 @@
+import Combine
 import SwiftUI
 
 struct ContentView: View {
@@ -7,13 +8,15 @@ struct ContentView: View {
 
     @State private var activeSheet: ActiveSheet?
 
-    let timer = Timer.publish(every: 300, on: .main, in: .common).autoconnect()
+    private let refreshInterval: TimeInterval = 60 // seconds
+    private let timer: Publishers.Autoconnect<Timer.TimerPublisher>
     let willEnterForeground = NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
 
     @Environment(\.colorScheme) var colorScheme
 
     init() {
         Log.debug("ContentView re-rendered", category: .ui)
+        timer = Timer.publish(every: refreshInterval, on: .main, in: .common).autoconnect()
     }
 
     var body: some View {
@@ -62,9 +65,11 @@ struct ContentView: View {
             }
             .onReceive(timer) { _ in
                 viewModel.objectWillChange.send()
+                viewModel.updateRemainingInsulin()
             }
             .onReceive(willEnterForeground) { _ in
                 viewModel.objectWillChange.send()
+                viewModel.updateRemainingInsulin()
             }
             .onAppear {
                 if !hasCompletedInitialSetup {
