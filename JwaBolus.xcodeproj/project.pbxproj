@@ -73,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120160182DAEF57800E7F5F6 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
 		120BE5D82D5FE5D400CFCF4F /* BolusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModel.swift; sourceTree = "<group>"; };
 		120BE5DA2D5FE9C700CFCF4F /* BolusViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolusViewModelTests.swift; sourceTree = "<group>"; };
 		120CBFA72D836BEB00388B78 /* SportIntensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportIntensity.swift; sourceTree = "<group>"; };
@@ -263,6 +264,7 @@
 		12D487FB2C03E71600620E0E = {
 			isa = PBXGroup;
 			children = (
+				120160182DAEF57800E7F5F6 /* privacy.md */,
 				123971C52D997D37007F9C34 /* README.md */,
 				12D488062C03E71600620E0E /* JwaBolus */,
 				12D488172C03E71700620E0E /* JwaBolusTests */,
