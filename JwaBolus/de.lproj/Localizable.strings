@@ -111,7 +111,7 @@
 "help.content.license" = "GNU-Lizenz anzeigen";
 
 "help.title.logic" = "📊 Berechnungslogik";
-"help.content.logic" = "Insulinbedarf = ((BZ - Zielwert) ÷ Korrekturfaktor + (KH ÷ KH-Faktor)) × Sportfaktor";
+"help.content.logic" = "Insulinbedarf = ((BZ - Zielwert) ÷ Korrekturfaktor + (KH ÷ KH-Faktor)) × Sportfaktor\nQuelle: Eigene Berechnungslogik in Anlehnung an Empfehlungen der Deutschen Diabetes Gesellschaft (https://www.deutsche-diabetes-gesellschaft.de)";
 
 "help.title.privacy" = "🛡️ Datenschutz";
 "help.content.privacy" = "Alle Daten verbleiben auf deinem Gerät. Es wird keine Internetverbindung verwendet.";

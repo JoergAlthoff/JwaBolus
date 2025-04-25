@@ -109,7 +109,7 @@
 "help.content.purpose" = "This app is a learning tool for calculating insulin dosage. It is not a medical device.";
 
 "help.title.logic" = "📊 Calculation Logic";
-"help.content.logic" = "Insulin dose = ((BG - target) ÷ correction factor + (carbs ÷ carb factor)) × sport factor";
+"help.content.logic" = "Insulin dose = ((BG - target) ÷ correction factor + (carbs ÷ carb factor)) × sport factor\nSource: Formula based on practical guidance for insulin therapy in type 2 diabetes, e.g. German Diabetes Association (https://www.deutsche-diabetes-gesellschaft.de) and American Diabetes Association (https://www.diabetes.org).";
 
 "help.title.disclaimer" = "⚠️ Disclaimer";
 "help.content.disclaimer" = "This app is not a medical device. Use at your own risk.";
